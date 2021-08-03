@@ -10,15 +10,13 @@ import {
 function RePassword(props) {
   const { handleChange } = props;
   return (
-    <label htmlFor={RE_PASSWORD_INPUT_ID}>
-      <InputInfo
-        type={RE_PASSWORD_INPUT_TYPE}
-        id={RE_PASSWORD_INPUT_ID}
-        name={RE_PASSWORD_INPUT_NAME}
-        placeholder={RE_PASSWORD_INPUT_PLACEHOLDER}
-        handleChange={handleChange}
-      ></InputInfo>
-    </label>
+    <InputInfo
+      type={RE_PASSWORD_INPUT_TYPE}
+      id={RE_PASSWORD_INPUT_ID}
+      name={RE_PASSWORD_INPUT_NAME}
+      placeholder={RE_PASSWORD_INPUT_PLACEHOLDER}
+      handleChange={handleChange}
+    />
   );
 }
 

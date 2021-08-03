@@ -10,6 +10,7 @@ import Age from "./Age";
 
 function SignUp(props) {
   const {
+    handleChange,
     handleEmail,
     handlePassword,
     handleRePassword,
@@ -22,13 +23,12 @@ function SignUp(props) {
 
   return (
     <>
-      <Email handleChange={handleEmail} />
+      <Email handleChange={handleChange} />
       <Password handleChange={handlePassword} />
       <RePassword handleChange={handleRePassword} />
       <Name handleChange={handleName} />
       <Age handleChange={handleAge} />
       <CreditCard handleChange={handleCreditcard} />
-
       <Address handleAddress={handleAddress} />
       <button onClick={handleSubmit}>회원 가입</button>
     </>

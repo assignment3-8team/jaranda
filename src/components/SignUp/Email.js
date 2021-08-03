@@ -10,16 +10,13 @@ import {
 function Email(props) {
   const { handleChange } = props;
   return (
-    <>
-      <label htmlFor={EMAIL_INPUT_ID}></label>
-      <InputInfo
-        type={EMAIL_INPUT_TYPE}
-        id={EMAIL_INPUT_ID}
-        name={EMAIL_INPUT_NAME}
-        placeholder={EMAIL_INPUT_PLACEHOLDER}
-        handleChange={handleChange}
-      />
-    </>
+    <InputInfo
+      type={EMAIL_INPUT_TYPE}
+      id={EMAIL_INPUT_ID}
+      name={EMAIL_INPUT_NAME}
+      placeholder={EMAIL_INPUT_PLACEHOLDER}
+      handleChange={handleChange}
+    />
   );
 }
 

@@ -20,7 +20,6 @@ function CreditCard(props) {
         신용카드 번호 입력
       </button>
       <Modal show={isModalOpen} close={toggleModal}>
-        <label htmlFor={CREDITCARD_INPUT_ID}></label>
         <InputInfo
           type={CREDITCARD_INPUT_TYPE}
           id={CREDITCARD_INPUT_ID}

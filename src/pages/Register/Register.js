@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import SignUp from "components/SignUp";
+import Email from "components/SignUp/Email";
 import {
   CREDITCARD_INPUT_NAME,
   EMAIL_INPUT_NAME,
@@ -21,14 +22,13 @@ const Register = (props) => {
   const [age, setAge] = useState(0);
   const [creditcard, setCreditcard] = useState("");
   const [address, setAddress] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
   /*
-  const handleChange = (event) => {
+  const handleChange = (event, value, name) => {
     event.preventDefault();
-    const { id, value } = event.target;
-    console.log(`name: ${event.target.id}`);
+    console.log(`name: ${name}`);
     console.log(value);
     let errorMessage = "";
-
     switch (id) {
       case PASSWORD_INPUT_NAME:
         errorMessage = VALID_PASSWORD.test(value)
@@ -59,7 +59,7 @@ const Register = (props) => {
         break;
     }
   };
-  */
+    */
 
   const confirmPassword = () => {
     if (password !== rePassword) {
@@ -84,11 +84,21 @@ const Register = (props) => {
     console.log(age);
   };
 
+  const handleEmail = (value) => {
+    if (VALID_EMAIL.test(value)) {
+      setEmail(value);
+    } else {
+      setErrorMessage("유효하지 않은 이메일");
+    }
+  };
+
   return (
     <div className="register-page">
       <div className="register-page-title">회원 가입</div>
-
+      <Email handleChange={handleEmail} />
+      {errorMessage.length !== 0 && errorMessage}
       <SignUp
+        handleChange={handleEmail}
         handleEmail={setEmail}
         handlePassword={setPassword}
         handleRePassword={setRePassword}

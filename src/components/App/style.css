@@ -1,17 +1,22 @@
-html, body {
+* {
     box-sizing: border-box;
 }
 
 
 .content-wrap {
-    margin: 0 15%;
-    width: 70%;
     display: flex;
     justify-content: center;
 }
 
+.content-wrap > .main-content {
+    width: 1150px;
+    display: flex;
+}
+
 .page-wrap {
-    width: 85%;
+    padding: 0 0 0 1em;
+    width: 870px;
     height: 500px;
     background-color: rgb(172, 251, 176);
 }
+

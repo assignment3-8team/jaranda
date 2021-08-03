@@ -1,11 +1,14 @@
 function DaumPostcode(props) {
+  const { handleAddress } = props;
+
   const handleClick = () => {
     const width = 500;
     const height = 600;
     window.daum.postcode.load(() => {
       const postcode = new window.daum.Postcode({
         oncomplete: (data) => {
-          console.log(`${data.address} ${data.buildingName}`);
+          const toBuildingAddress = `${data.address} ${data.buildingName}`;
+          handleAddress(toBuildingAddress);
         },
         onsearch: (data) => {
           console.log(data);
@@ -21,11 +24,7 @@ function DaumPostcode(props) {
       });
     });
   };
-  /*
-  const script = document.createElement("script");
-  script.src = "//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js";
-  script.onload = () => document.body.appendChild(script);
-*/
+
   return (
     <div className="daum">
       <button onClick={handleClick}>주소 검색</button>

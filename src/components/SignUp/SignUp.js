@@ -28,21 +28,23 @@ function SignUp(props) {
   const toggleModal = () => setIsModalOpen(!isModalOpen);
 
   return (
-    <form className="signup-form">
-      <Email handleChange={handleEmail} />
-      <Password handleChange={handlePassword} />
-      <RePassword handleChange={handleRePassword} />
-      <Name handleChange={handleName} />
-      <button type="button" onClick={() => toggleModal()}>
-        {isModalOpen ? "close modal" : "open modal"}
-      </button>
-      <DaumPostcode />
-      <Modal show={isModalOpen} close={toggleModal}>
-        <CreditCard handleChange={handleCreditcard} />
-      </Modal>
+    <>
+      <form className="signup-form">
+        <Email handleChange={handleEmail} />
+        <Password handleChange={handlePassword} />
+        <RePassword handleChange={handleRePassword} />
+        <Name handleChange={handleName} />
+        <button type="button" onClick={() => toggleModal()}>
+          {isModalOpen ? "close modal" : "open modal"}
+        </button>
+        <Modal show={isModalOpen} close={toggleModal}>
+          <CreditCard handleChange={handleCreditcard} />
+        </Modal>
 
-      <button onClick={handleSubmit}>submit</button>
-    </form>
+        <button onClick={handleSubmit}>submit</button>
+      </form>
+      <DaumPostcode handleAddress={handleAddress} />
+    </>
   );
 }
 

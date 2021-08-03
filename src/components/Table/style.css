@@ -1,0 +1,17 @@
+.user-info-table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.user-info-table tr {
+    border-bottom: 20px solid #fff;
+}
+
+.user-info-table td {
+    height: 3em;
+    font-size: 1.3em;
+    text-align: center;
+    border-bottom: 2px;
+    background-color: #f4f4f4;
+}

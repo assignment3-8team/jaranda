@@ -1,3 +1,4 @@
-import Admin from './Admin';
+import TablePage from './TablePage';
+import UserInfoPage from './UserInfoPage';
 
-export default Admin;
+export { TablePage, UserInfoPage } ;

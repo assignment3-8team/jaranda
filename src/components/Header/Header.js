@@ -13,7 +13,7 @@ const Header = (props) => {
                             <img src='/assets/userLogo.png'/>임시접속자
                         </div>
                         <div className='on-boarding'>
-                            로그인
+                            로그아웃
                         </div>
                     </div>
                 </div>

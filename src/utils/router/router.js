@@ -4,7 +4,7 @@ import Resister from "pages/Resister";
 import Student from "pages/Student";
 import Parent from "pages/Parent";
 import Teacher from "pages/Teacher";
-import Admin from "pages/Admin";
+import { TablePage, UserInfoPage } from "pages/Admin";
 
 
 const router = () => {
@@ -16,7 +16,8 @@ const router = () => {
                 <Route exact path='/student' component={Student}/>
                 <Route exact path='/parent' component={Parent}/>
                 <Route exact path='/teacher' component={Teacher}/>
-                <Route exact path='/admin' component={Admin}/>
+                <Route exact path='/admin/table' component={TablePage}/>
+                <Route exact path='/admin/user-info' component={UserInfoPage}/>
             </Router>
         </>
     )

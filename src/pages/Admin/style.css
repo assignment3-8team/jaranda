@@ -1,0 +1,18 @@
+.admin-header {
+    border-bottom: 1px solid;
+    height: 2.5em;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.admin-header > span:nth-child(1) {
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.admin-header > span:nth-child(2) {
+    font-size: 1.1em;
+    color: gray;
+}

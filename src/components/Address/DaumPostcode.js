@@ -1,28 +1,36 @@
-import React, { useRef, useEffect } from "react";
-
-const DaumPostcode = (props) => {
-  const { width, height, onComplete } = props;
-  const wrap = useRef();
-
-  const initiate = () => {
+function DaumPostcode(props) {
+  const handleClick = () => {
+    const width = 500;
+    const height = 600;
     window.daum.postcode.load(() => {
-      const Postcode = new window.daum.Postcode({
-        oncomplete: function oncomplete(data) {
-          onComplete(data);
+      const postcode = new window.daum.Postcode({
+        oncomplete: (data) => {
+          console.log(`${data.address} ${data.buildingName}`);
         },
-        height: height,
+        onsearch: (data) => {
+          console.log(data);
+        },
         width: width,
+        height: height,
       });
 
-      Postcode.embed(wrap, {});
+      postcode.open({
+        left: window.screen.width / 2 - width / 2,
+        top: window.screen.height / 2 - height / 2,
+        popupName: "addressPopup",
+      });
     });
   };
-
-  useEffect(() => {
-    initiate();
-  }, []);
-
-  return <div ref={wrap}>wrap</div>;
-};
+  /*
+  const script = document.createElement("script");
+  script.src = "//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js";
+  script.onload = () => document.body.appendChild(script);
+*/
+  return (
+    <div className="daum">
+      <button onClick={handleClick}>주소 검색</button>
+    </div>
+  );
+}
 
 export default DaumPostcode;

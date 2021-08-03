@@ -7,6 +7,7 @@ import Password from "./Password";
 import RePassword from "./RePassword";
 import CreditCard from "components/CreditCard";
 import Modal from "components/Modal";
+import DaumPostcode from "components/Address/DaumPostcode";
 
 function SignUp(props) {
   const {
@@ -21,6 +22,8 @@ function SignUp(props) {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [address, setAddress] = useState("");
+  const width = 400;
+  const height = 600;
 
   const toggleModal = () => setIsModalOpen(!isModalOpen);
 
@@ -30,11 +33,13 @@ function SignUp(props) {
       <Password handleChange={handlePassword} />
       <RePassword handleChange={handleRePassword} />
       <Name handleChange={handleName} />
-      <CreditCard handleChange={handleCreditcard} />
       <button type="button" onClick={() => toggleModal()}>
         {isModalOpen ? "close modal" : "open modal"}
       </button>
-      <Modal show={isModalOpen} close={toggleModal} />
+      <DaumPostcode />
+      <Modal show={isModalOpen} close={toggleModal}>
+        <CreditCard handleChange={handleCreditcard} />
+      </Modal>
 
       <button onClick={handleSubmit}>submit</button>
     </form>

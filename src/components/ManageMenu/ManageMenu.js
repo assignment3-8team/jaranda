@@ -3,19 +3,16 @@ import { useState } from "react";
 import { UserContainer } from "container/User/UserContainer";
 
 const ManageMenu = props => {
-  const { user, setUser } = UserContainer.useContainer();
+  const { userInfo, setUserInfo } = UserContainer.useContainer();
 
-  const [menuList, setMenuList] = useState(user.allowed_menu);
+  const [menuList, setMenuList] = useState(userInfo.allowed_menu);
 
   const onCheck = e => {
     const modifiedList = menuList.map(item => (item.id === Number(e.target.id) ? { ...item, checked: !item.checked } : item));
 
-    console.log("user", user.allowed_menu, modifiedList);
-    setUser({ ...user, allowed_menu: modifiedList });
+    setUserInfo({ ...userInfo, allowed_menu: modifiedList });
     setMenuList(modifiedList);
   };
-
-  const onSubmit = e => {};
 
   return (
     <div className="wrapper">
@@ -26,7 +23,7 @@ const ManageMenu = props => {
             return (
               !item.checked && (
                 <label key={item.name}>
-                  {item.name}
+                  <span>{item.name}</span>
                   <input type="checkbox" id={item.id} onChange={e => onCheck(e)} name={item.name} value={item.name} />
                 </label>
               )
@@ -39,7 +36,7 @@ const ManageMenu = props => {
             return (
               item.checked && (
                 <label>
-                  {item.name}
+                  <span>{item.name}</span>
                   <input type="checkbox" id={item.id} onChange={e => onCheck(e)} name={item.name} value={item.name} />
                 </label>
               )
@@ -47,7 +44,6 @@ const ManageMenu = props => {
           })}
         </div>
       </div>
-      <button onClick={onSubmit}>저장</button>
     </div>
   );
 };

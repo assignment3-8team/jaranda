@@ -1,0 +1,23 @@
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10000;
+  background-color: rgba(0,0,0,0.3);
+}
+
+.modal-container {
+  position: absolute;
+  width: 375px;
+  height: 620px;
+  left: 40%;
+  top: 25%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 4px;
+}

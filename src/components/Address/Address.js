@@ -1,36 +1,37 @@
-function Address(props) {
-  const handleClick = () => {
-    const width = 500;
-    const height = 600;
-    window.daum.postcode.load(() => {
-      const postcode = new window.daum.Postcode({
-        oncomplete: (data) => {
-          console.log(`${data.address} ${data.buildingName}`);
-        },
-        onsearch: (data) => {
-          console.log(data);
-        },
-        width: width,
-        height: height,
-      });
+import React, { useState, useRef } from "react";
+import Modal from "components/Modal/Modal";
+import DaumPostcode from "./DaumPostcode";
 
-      postcode.open({
-        left: window.screen.width - width / 2,
-        top: window.screen.height / 2 - height / 2,
-        popupName: "addressPopup",
-      });
-    });
+function Address(props) {
+  const { handleAddress } = props;
+  const [address, setAddress] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleModal = () => setIsModalOpen(!isModalOpen);
+  const width = 500;
+  const height = 600;
+
+  const handleAddressComplete = (item) => {
+    setAddress(item);
+    console.log(address);
   };
-  /*
-  const script = document.createElement("script");
-  script.src = "//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js";
-  script.onload = () => document.body.appendChild(script);
-*/
+
   return (
-    <div className="App">
-      <button onClick={handleClick}>주소 검색</button>
+    <div>
+      <button onClick={toggleModal}>주소 검색</button>
+      {isModalOpen && (
+        <Modal handleModal={toggleModal}>modal 잘 되니...?</Modal>
+      )}
     </div>
   );
 }
 
 export default Address;
+
+/*
+<DaumPostcode
+            width={width}
+            height={height}
+            onComplete={handleAddressComplete}
+          />
+          */

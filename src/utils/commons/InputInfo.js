@@ -1,7 +1,15 @@
 import React from "react";
 
 const InputInfo = (props) => {
-  const { labelfor, labelname, type, required, placeholder, pattern } = props;
+  const {
+    labelfor,
+    labelname,
+    type,
+    required,
+    placeholder,
+    pattern,
+    handleChange,
+  } = props;
   return (
     <input
       type={type}
@@ -10,6 +18,7 @@ const InputInfo = (props) => {
       required={required}
       placeholder={placeholder}
       pattern={pattern}
+      onChange={(e) => handleChange(e.target.value)}
     />
   );
 };

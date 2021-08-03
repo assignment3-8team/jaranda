@@ -1,0 +1,12 @@
+.register-page {
+  display: flex;
+  width: 80%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.register-page-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 10px;
+}

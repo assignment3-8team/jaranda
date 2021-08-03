@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { createContainer } from "unstated-next";
+import axios from "axios";
 
 const useUserContainer = () => {
   const [userInfo, setUserInfo] = useState({
@@ -34,7 +35,21 @@ const useUserContainer = () => {
     is_admin: true,
   });
 
-  return { userInfo, setUserInfo };
+  const logIn = () => {
+    axios({
+      method: "post",
+      url: "https://sheltered-beyond-43580.herokuapp.com/auth/local",
+      data: { identifier: "sunhwa", password: "123123" },
+    })
+      .then(response => {
+        console.log("response", response);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
+
+  return { userInfo, setUserInfo, logIn };
 };
 
 export const UserContainer = createContainer(useUserContainer);

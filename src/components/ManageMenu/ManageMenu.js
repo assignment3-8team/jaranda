@@ -3,7 +3,7 @@ import { useState } from "react";
 import { UserContainer } from "container/User/UserContainer";
 
 const ManageMenu = props => {
-  const { userInfo, setUserInfo } = UserContainer.useContainer();
+  const { userInfo, setUserInfo, logIn } = UserContainer.useContainer();
 
   const [menuList, setMenuList] = useState(userInfo.allowed_menu);
 
@@ -44,6 +44,7 @@ const ManageMenu = props => {
           })}
         </div>
       </div>
+      <button onClick={logIn}>로그인</button>
     </div>
   );
 };

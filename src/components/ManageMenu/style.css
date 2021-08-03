@@ -1,8 +1,11 @@
 .wrapper {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-around;
   height: 200px;
+}
+.select-box {
+  display: flex;
 }
 .not-allowed-zone,
 .allowed-zone {

@@ -6,19 +6,29 @@ import Password from "./Password";
 import RePassword from "./RePassword";
 import CreditCard from "components/CreditCard";
 import Address from "components/Address";
+import Age from "./Age";
 
 function SignUp(props) {
-  const { handleEmail, handleChange, handleSubmit, handleAddress } = props;
+  const {
+    handleEmail,
+    handlePassword,
+    handleRePassword,
+    handleName,
+    handleAge,
+    handleCreditcard,
+    handleSubmit,
+    handleAddress,
+  } = props;
 
   return (
     <>
-      <form className="signup-form">
-        <Email handleChange={handleEmail} />
-        <Password handleChange={handleChange} />
-        <RePassword handleChange={handleChange} />
-        <Name handleChange={handleChange} />
-        <CreditCard handleChange={handleChange} />
-      </form>
+      <Email handleChange={handleEmail} />
+      <Password handleChange={handlePassword} />
+      <RePassword handleChange={handleRePassword} />
+      <Name handleChange={handleName} />
+      <Age handleChange={handleAge} />
+      <CreditCard handleChange={handleCreditcard} />
+
       <Address handleAddress={handleAddress} />
       <button onClick={handleSubmit}>회원 가입</button>
     </>

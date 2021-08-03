@@ -21,13 +21,7 @@ const Register = (props) => {
   const [age, setAge] = useState(0);
   const [creditcard, setCreditcard] = useState("");
   const [address, setAddress] = useState("");
-
-  const handleEmail = (value) => {
-    VALID_EMAIL.test(value)
-      ? setEmail(value)
-      : alert("유효한 이메일을 입력하세요");
-  };
-
+  /*
   const handleChange = (event) => {
     event.preventDefault();
     const { id, value } = event.target;
@@ -65,7 +59,8 @@ const Register = (props) => {
         break;
     }
   };
-  /*
+  */
+
   const confirmPassword = () => {
     if (password !== rePassword) {
       alert("Please Confirm Your Password");
@@ -84,7 +79,7 @@ const Register = (props) => {
       alert("Please Check Your Input");
     }
   };
-*/
+
   const handleSubmit = () => {
     console.log(age);
   };
@@ -94,8 +89,12 @@ const Register = (props) => {
       <div className="register-page-title">회원 가입</div>
 
       <SignUp
-        handleEmail={handleEmail}
-        handleChange={handleChange}
+        handleEmail={setEmail}
+        handlePassword={setPassword}
+        handleRePassword={setRePassword}
+        handleName={setName}
+        handleAge={setAge}
+        handleCreditcard={setCreditcard}
         handleSubmit={handleSubmit}
         handleAddress={setAddress}
       />

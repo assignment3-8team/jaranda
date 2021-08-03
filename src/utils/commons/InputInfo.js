@@ -9,7 +9,7 @@ const InputInfo = (props) => {
       name={labelname}
       placeholder={placeholder}
       onChange={(e) => handleChange(e.target.value)}
-      formNoValidate
+      noValidate
     />
   );
 };

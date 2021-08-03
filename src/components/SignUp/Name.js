@@ -3,7 +3,6 @@ import InputInfo from "utils/commons/InputInfo";
 import {
   USERNAME_INPUT_ID,
   USERNAME_INPUT_NAME,
-  USERNAME_INPUT_PATTERN,
   USERNAME_INPUT_PLACEHOLDER,
   USERNAME_INPUT_TYPE,
 } from "utils/constants/INPUT";
@@ -17,7 +16,6 @@ function Name(props) {
         id={USERNAME_INPUT_ID}
         name={USERNAME_INPUT_NAME}
         placeholder={USERNAME_INPUT_PLACEHOLDER}
-        pattern={USERNAME_INPUT_PATTERN}
         handleChange={handleChange}
       ></InputInfo>
     </label>

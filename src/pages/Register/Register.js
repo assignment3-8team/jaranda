@@ -24,10 +24,11 @@ const Register = (props) => {
   const [address, setAddress] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   /*
-  const handleChange = (event, value, name) => {
+  const handleChange = (event) => {
     event.preventDefault();
-    console.log(`name: ${name}`);
-    console.log(value);
+    console.log(event.target.name);
+    console.log(event.currentTarget.value);
+    /*
     let errorMessage = "";
     switch (id) {
       case PASSWORD_INPUT_NAME:
@@ -59,7 +60,7 @@ const Register = (props) => {
         break;
     }
   };
-    */
+  */
 
   const confirmPassword = () => {
     if (password !== rePassword) {
@@ -98,8 +99,7 @@ const Register = (props) => {
       <Email handleChange={handleEmail} />
       {errorMessage.length !== 0 && errorMessage}
       <SignUp
-        handleChange={handleEmail}
-        handleEmail={setEmail}
+        handleEmail={handleEmail}
         handlePassword={setPassword}
         handleRePassword={setRePassword}
         handleName={setName}

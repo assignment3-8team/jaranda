@@ -10,7 +10,6 @@ import Age from "./Age";
 
 function SignUp(props) {
   const {
-    handleChange,
     handleEmail,
     handlePassword,
     handleRePassword,
@@ -23,7 +22,7 @@ function SignUp(props) {
 
   return (
     <>
-      <Email handleChange={handleChange} />
+      <Email handleChange={handleEmail} />
       <Password handleChange={handlePassword} />
       <RePassword handleChange={handleRePassword} />
       <Name handleChange={handleName} />

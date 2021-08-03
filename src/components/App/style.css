@@ -1,3 +1,8 @@
+html, body {
+    box-sizing: border-box;
+}
+
+
 .content-wrap {
     margin: 0 15%;
     width: 70%;

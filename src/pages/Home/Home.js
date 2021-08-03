@@ -1,7 +1,11 @@
-const Home = (props) => {
-    return (
-        <div>홈 페이지</div>
-    )
-}
+import { ManageMenu } from "components/ManageMenu/ManageMenu";
+
+const Home = props => {
+  return (
+    <div>
+      <ManageMenu />
+    </div>
+  );
+};
 
 export default Home;

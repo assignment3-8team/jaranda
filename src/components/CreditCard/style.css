@@ -1,16 +1,15 @@
-.address-input-wrapper {
+.creditcard-input-wrapper {
   width: 25vw;
   max-width: 450px;
   min-width: 320px;
   flex: none;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  margin-top: 8px;
 }
 
-.address-show {
+.creditcard-input-show {
   font-size: 1rem;
   overflow: hidden;
   flex: 1;
@@ -24,7 +23,7 @@
   align-items: center;
 }
 
-.address-input-button {
+.creditcard-input-button {
   width: 80px;
   background-color: #88bf45;
   color: #fff;

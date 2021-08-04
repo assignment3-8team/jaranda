@@ -1,16 +1,22 @@
 import "./style.css";
-import { useState } from "react";
-import { UserContainer } from "container/User/UserContainer";
+import { useEffect, useState } from "react";
+import { UserContainer } from "container/User";
+import { MENU_LIST } from "../../constants/menuItem";
 
 const ManageMenu = props => {
   const { userInfo, setUserInfo, logIn } = UserContainer.useContainer();
+  const [menuList, setMenuList] = useState(MENU_LIST);
 
-  const [menuList, setMenuList] = useState(userInfo.allowed_menu);
+  console.log("menuList", menuList, "userInfo", userInfo.menus);
+  const [id, setId] = [1, 2, 3, 4];
+
+  useEffect(() => {
+    const apiList = userInfo?.menu?.map(item => (id.includes(item.id) ? { ...item, checked: true } : item));
+    console.log(apiList);
+  }, [userInfo]);
 
   const onCheck = e => {
     const modifiedList = menuList.map(item => (item.id === Number(e.target.id) ? { ...item, checked: !item.checked } : item));
-
-    setUserInfo({ ...userInfo, allowed_menu: modifiedList });
     setMenuList(modifiedList);
   };
 
@@ -22,9 +28,9 @@ const ManageMenu = props => {
           {menuList.map(item => {
             return (
               !item.checked && (
-                <label key={item.name}>
-                  <span>{item.name}</span>
-                  <input type="checkbox" id={item.id} onChange={e => onCheck(e)} name={item.name} value={item.name} />
+                <label key={item.menu_name}>
+                  <span>{item.menu_name}</span>
+                  <input type="checkbox" id={item.id} onChange={e => onCheck(e)} name={item.menu_name} value={item.menu_name} />
                 </label>
               )
             );
@@ -36,8 +42,8 @@ const ManageMenu = props => {
             return (
               item.checked && (
                 <label>
-                  <span>{item.name}</span>
-                  <input type="checkbox" id={item.id} onChange={e => onCheck(e)} name={item.name} value={item.name} />
+                  <span>{item.menu_name}</span>
+                  <input type="checkbox" id={item.id} onChange={e => onCheck(e)} name={item.menu_name} value={item.menu_name} />
                 </label>
               )
             );

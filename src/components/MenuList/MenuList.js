@@ -1,13 +1,15 @@
 import "./style.css";
-import { UserContainer } from "container/User/UserContainer";
+import { UserContainer } from "container/User";
 
 const MenuList = props => {
-  const { userInfo, setUserInfo } = UserContainer.useContainer();
-  console.log(userInfo.allowed_menu);
+  const { userInfo } = UserContainer.useContainer();
+
   return (
     <div className="menu-list">
-      {userInfo.allowed_menu.map(item => (
-        <ul>{item.checked && <li>{item.name}</li>}</ul>
+      {userInfo.menus.map(item => (
+        <ul>
+          <li>{item.menu_name}</li>
+        </ul>
       ))}
     </div>
   );

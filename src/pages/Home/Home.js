@@ -1,11 +1,8 @@
-import { Login } from 'components/Login'
+import { UserContainer } from "container/User";
 
-const Home = (props) => {
-    return (
-        <div>
-            <Login></Login>
-        </div>
-    )
-}
+const Home = props => {
+  const { logIn } = UserContainer.useContainer();
+  return <button onClick={logIn}>로그인</button>;
+};
 
 export default Home;

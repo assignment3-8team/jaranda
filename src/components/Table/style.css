@@ -1,3 +1,7 @@
+.user-info-table-wrap {
+    height: 430px;
+}
+
 .user-info-table {
     table-layout: fixed;
     width: 100%;

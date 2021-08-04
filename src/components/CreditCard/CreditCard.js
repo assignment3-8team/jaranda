@@ -27,7 +27,7 @@ function CreditCard(props) {
         className="creditcard-input-button"
         onClick={() => toggleModal()}
       >
-        신용카드 번호 입력
+        입력
       </button>
       <Modal show={isModalOpen} close={toggleModal}>
         <InputInfo

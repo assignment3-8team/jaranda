@@ -39,14 +39,15 @@ button {
   height: 44px;
   margin-bottom: 8px;
   border-radius: 2px;
-  border: 1px solid gray;
+  border: 1px solid #ccc;
+  color: #ccc;
   letter-spacing: normal;
   text-align: start;
-  color: inherit;
 }
 
 .common-input:hover {
   background-color: #e9f2ff;
   border: 1px solid #0085fd;
+  color: #0085fd;
   border-radius: 2px;
 }

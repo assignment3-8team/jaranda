@@ -1,5 +1,5 @@
 function Address(props) {
-  const { handleAddress } = props;
+  const { handleAddress, address } = props;
 
   const handleClick = () => {
     const width = 500;
@@ -26,8 +26,19 @@ function Address(props) {
   };
 
   return (
-    <div className="daum">
-      <button onClick={handleClick}>주소 검색</button>
+    <div className="address-input-wrapper">
+      {address.length !== 0 ? (
+        <div className="address-show">{address}</div>
+      ) : (
+        "주소"
+      )}
+      <button
+        type="button"
+        className="address-input-button"
+        onClick={handleClick}
+      >
+        주소 검색
+      </button>
     </div>
   );
 }

@@ -1,17 +1,9 @@
 import React, { useState } from "react";
 import SignUp from "components/SignUp";
-import Email from "components/SignUp/Email";
 import {
-  CREDITCARD_INPUT_NAME,
-  EMAIL_INPUT_NAME,
-  PASSWORD_INPUT_NAME,
-  RE_PASSWORD_INPUT_NAME,
-  AGE_INPUT_NAME,
   VALID_CREDITCARD,
   VALID_EMAIL,
   VALID_PASSWORD,
-  VALID_AGE,
-  EMAIL_INPUT_ID,
 } from "utils/constants/INPUT";
 
 const Register = (props) => {
@@ -23,63 +15,6 @@ const Register = (props) => {
   const [creditcard, setCreditcard] = useState("");
   const [address, setAddress] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  /*
-  const handleChange = (event) => {
-    event.preventDefault();
-    console.log(event.target.name);
-    console.log(event.currentTarget.value);
-    /*
-    let errorMessage = "";
-    switch (id) {
-      case PASSWORD_INPUT_NAME:
-        errorMessage = VALID_PASSWORD.test(value)
-          ? ""
-          : "비밀번호는 영문 대소문자, 숫자, 특수문자를 포함하여 8자 이상 입력해주세요";
-        if (errorMessage === "") setPassword(value);
-        break;
-      case RE_PASSWORD_INPUT_NAME:
-        errorMessage =
-          !password && value !== password ? "비밀번호가 정확하지 않습니다" : "";
-        if (errorMessage === "") setRePassword(value);
-        break;
-      case AGE_INPUT_NAME:
-        const ageNumber = Number.parseInt(value);
-        if (ageNumber < 0 || ageNumber > 130 || ageNumber === NaN) {
-          errorMessage = "나이 정보가 정확하지 않습니다";
-        } else {
-          setAge(ageNumber);
-        }
-        break;
-      case CREDITCARD_INPUT_NAME:
-        errorMessage = VALID_CREDITCARD.test(value)
-          ? ""
-          : "카드번호가 정확하지 않습니다";
-        if (errorMessage === "") setCreditcard(value);
-        break;
-      default:
-        break;
-    }
-  };
-  */
-
-  const confirmPassword = () => {
-    if (password !== rePassword) {
-      alert("Please Confirm Your Password");
-    }
-  };
-
-  const checkNoInput = () => {
-    if (
-      !email ||
-      !password ||
-      !rePassword ||
-      !name ||
-      !creditcard ||
-      !address
-    ) {
-      alert("Please Check Your Input");
-    }
-  };
 
   const handleSubmit = () => {
     console.log(age);
@@ -93,22 +28,62 @@ const Register = (props) => {
     }
   };
 
+  const handlePassword = (value) => {
+    if (VALID_PASSWORD.test(value)) {
+      setPassword(value);
+    } else {
+      setErrorMessage(
+        "영문 대소문자, 숫자, 특수문자를 포함하여 8자 이상 입력해주세요"
+      );
+    }
+  };
+
+  const handleRePassword = (value) => {
+    if (password !== "" && value !== password) {
+      setErrorMessage("비밀번호가 일치하지 않습니다");
+    }
+    setRePassword(value);
+  };
+
+  const handleCreditcard = (value) => {
+    if (VALID_CREDITCARD.test(value)) {
+      setCreditcard(value);
+    } else {
+      setErrorMessage("유효하지 않은 카드 번호");
+    }
+  };
+
+  const handleAge = (value) => {
+    if (value < 0 || value > 100) {
+      setErrorMessage("0~100 사이로 입력해주세요");
+    } else {
+      setAge(value);
+    }
+  };
+
+  const handleName = (value) => {
+    if (value.length === 0) {
+      setErrorMessage("이름을 입력해주세요");
+    } else {
+      setName(value);
+    }
+  };
+
   return (
     <div className="register-page">
       <div className="register-page-title">회원 가입</div>
-      <Email handleChange={handleEmail} />
-      {errorMessage.length !== 0 && errorMessage}
+
       <SignUp
         handleEmail={handleEmail}
-        handlePassword={setPassword}
-        handleRePassword={setRePassword}
-        handleName={setName}
-        handleAge={setAge}
-        handleCreditcard={setCreditcard}
+        handlePassword={handlePassword}
+        handleRePassword={handleRePassword}
+        handleName={handleName}
+        handleAge={handleAge}
+        handleCreditcard={handleCreditcard}
         handleSubmit={handleSubmit}
         handleAddress={setAddress}
       />
-
+      {errorMessage.length !== 0 && errorMessage}
       <div>{email}</div>
       <div>{password}</div>
       <div>{rePassword}</div>

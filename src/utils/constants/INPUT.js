@@ -38,4 +38,4 @@ export const VALID_AGE = new RegExp("^[0-9]{16}$");
 export const AGE_INPUT_NAME = "age";
 export const AGE_INPUT_ID = "age";
 export const AGE_INPUT_PLACEHOLDER = "나이";
-export const AGE_INPUT_TYPE = "text";
+export const AGE_INPUT_TYPE = "number";

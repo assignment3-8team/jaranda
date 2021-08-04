@@ -10,7 +10,7 @@ const InputInfo = (props) => {
         id={labelfor}
         name={labelname}
         placeholder={placeholder}
-        onBlur={handleChange}
+        onBlur={(e) => handleChange(e.target.value)}
         noValidate
       />
     </>

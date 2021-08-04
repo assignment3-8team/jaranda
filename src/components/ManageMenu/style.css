@@ -2,8 +2,8 @@
 }
 .select-box {
   display: flex;
-  height: 200px;
-  justify-content: space-around;
+  height: 230px;
+  justify-content: center;
 }
 .not-allowed-zone,
 .allowed-zone {
@@ -12,7 +12,14 @@
   flex-direction: column;
   background-color: #c6efad;
   align-items: center;
+  margin: 0 10px;
 }
+
+.not-allowed-zone p,
+.allowed-zone p {
+  font-size: 20px;
+}
+
 .allowed-zone label,
 .not-allowed-zone label {
   display: flex;
@@ -32,7 +39,7 @@
 }
 .allowed-zone label span,
 .not-allowed-zone label span {
-  font-size: 10px;
+  font-size: 15px;
   padding: 5px;
   border-radius: 8px;
   transition: 0.3s ease;

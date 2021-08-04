@@ -17,6 +17,7 @@ const router = () => {
         <Route exact path="/teacher" component={Teacher} />
         <Route exact path="/admin/table" component={TablePage} />
         <Route exact path="/admin/table/:id" component={UserInfoPage} />
+        // TODO ErrorPage 만들기(선화)
         {/* <Route component={ErrorPage} /> */}
       </Switch>
     </Router>

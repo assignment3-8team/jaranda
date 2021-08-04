@@ -8,7 +8,7 @@ const useUserContainer = () => {
     menus: [],
   });
 
-  //테스트코드
+  // unstated-next 예시 테스트코드
   const logIn = () => {
     axios({
       method: "post",

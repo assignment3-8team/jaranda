@@ -21,11 +21,9 @@ function CreditCard(props) {
 
   return (
     <div className="creditcard-input-wrapper">
-      {creditcard.length !== 0 ? (
-        <div className="creditcard-number-show">{creditcard}</div>
-      ) : (
-        "신용카드 번호"
-      )}
+      <div className="creditcard-input-show">
+        {creditcard.length !== 0 ? creditcard : "카드 번호"}
+      </div>
       <button
         type="button"
         className="creditcard-input-button"

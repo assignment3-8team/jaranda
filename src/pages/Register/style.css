@@ -30,8 +30,11 @@
   background-color: #0085fd;
   color: #fff;
   font-size: 1.1rem;
-  width: 15vw;
+  width: 25vw;
+  max-width: 450px;
+  min-width: 300px;
   height: 44px;
   padding: 0 16px;
   font-weight: bold;
+  border-radius: 2px;
 }

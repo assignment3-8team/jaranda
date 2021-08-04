@@ -30,11 +30,9 @@ function Address(props) {
 
   return (
     <div className="address-input-wrapper">
-      {address.length !== 0 ? (
-        <div className="address-show">{address}</div>
-      ) : (
-        "주소"
-      )}
+      <div className="address-show">
+        {address.length !== 0 ? address : "주소"}
+      </div>
       <button
         type="button"
         className="address-input-button"

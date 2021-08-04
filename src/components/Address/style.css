@@ -1,25 +1,27 @@
 .address-input-wrapper {
-  margin-top: 8px;
   width: 25vw;
   max-width: 450px;
-  min-width: 300px;
+  min-width: 320px;
+  flex: none;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  margin-top: 8px;
 }
 
 .address-show {
   font-size: 1rem;
-  width: 20vw;
-  max-width: 400px;
-  min-width: 300px;
+  overflow: hidden;
+  flex: 1;
   height: 44px;
-  margin-bottom: 8px;
   border-radius: 2px;
-  border: 1px solid gray;
+  border: 1px solid #ccc;
+  color: #ccc;
   letter-spacing: normal;
   text-align: start;
+  display: flex;
+  align-items: center;
 }
 
 .address-input-button {
@@ -29,4 +31,5 @@
   font-size: 1rem;
   height: 44px;
   padding: 0 8px;
+  margin-left: 6px;
 }

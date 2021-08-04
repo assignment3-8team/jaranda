@@ -108,21 +108,14 @@ const Register = (props) => {
         creditcard={creditcard}
         address={address}
       />
-      <Modal
-        show={isModalOpen}
-        close={toggleModal}
-        width={ERROR_MODAL_WIDTH}
-        height={ERROR_MODAL_HEIGHT}
-      >
-        {errorMessage}
-      </Modal>
+      {errorMessage.length !== 0 ? <div>{errorMessage}</div> : null}
       <div className="register-submit">
         <button
           type="button"
           className="register-button"
           onClick={handleSubmit}
         >
-          회원 가입
+          가입하기
         </button>
       </div>
     </div>

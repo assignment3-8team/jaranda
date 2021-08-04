@@ -27,6 +27,11 @@ button {
   z-index: 999;
 }
 
+#root {
+  width: 100%;
+  height: 100%;
+}
+
 *:focus {
   outline: none;
 }
@@ -45,9 +50,9 @@ button {
   text-align: start;
 }
 
-.common-input:hover {
+.common-input:hover,
+.common-input:focus {
   background-color: #e9f2ff;
   border: 1px solid #0085fd;
   color: #0085fd;
-  border-radius: 2px;
 }

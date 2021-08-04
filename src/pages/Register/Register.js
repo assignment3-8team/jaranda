@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import api from "api";
 
 import { END_POINT } from "utils/constants/END_POINT";
 import SignUp from "components/SignUp";
@@ -17,63 +16,35 @@ const Register = (props) => {
   const [age, setAge] = useState(0);
   const [creditcard, setCreditcard] = useState("");
   const [address, setAddress] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+  //const [errorMessage, setErrorMessage] = useState("");
 
-  const handleEmail = (value) => {
-    if (VALID_EMAIL.test(value)) {
-      setEmail(value);
-      setErrorMessage("");
-    } else {
-      setErrorMessage("유효하지 않은 이메일");
-    }
-  };
+  let errorMessage = "";
 
-  const handlePassword = (value) => {
-    if (VALID_PASSWORD.test(value)) {
-      setPassword(value);
-      setErrorMessage("");
-    } else {
-      setErrorMessage(
-        "영문 대소문자, 숫자, 특수문자를 포함하여 8자 이상 입력해주세요"
-      );
+  const validateInput = () => {
+    if (!VALID_EMAIL.test(email)) {
+      errorMessage = "유효한 메일 주소를 입력하세요";
+      return -1;
+    } else if (!VALID_PASSWORD.test(password)) {
+      errorMessage =
+        "비밀번호는 영문 대소문자와 숫자를 포함하여 8자리 이상 입력해주세요";
+      return -1;
+    } else if (password !== "" && rePassword !== password) {
+      errorMessage = "비밀번호가 일치하지 않습니다";
+      return -1;
+    } else if (name === "") {
+      errorMessage = "이름을 입력하세요";
+      return -1;
+    } else if (age < 0 || age > 100) {
+      errorMessage = "0~100 사이로 입력해주세요";
+      return -1;
+    } else if (!VALID_CREDITCARD.test(creditcard)) {
+      errorMessage = "유효한 카드번호를 입력하세요";
+      return -1;
+    } else if (address === "") {
+      errorMessage = "주소를 입력하세요";
+      return -1;
     }
-  };
-
-  const handleRePassword = (value) => {
-    if (password !== "" && value !== password) {
-      setErrorMessage("비밀번호가 일치하지 않습니다");
-    }
-    setRePassword(value);
-  };
-
-  const handleCreditcard = (value) => {
-    if (VALID_CREDITCARD.test(value)) {
-      setCreditcard(value);
-    } else {
-      setErrorMessage("유효하지 않은 카드 번호");
-    }
-  };
-
-  const handleAge = (value) => {
-    if (value < 0 || value > 100) {
-      setErrorMessage("0~100 사이로 입력해주세요");
-    } else {
-      setAge(value);
-    }
-  };
-
-  const handleName = (value) => {
-    if (value.length === 0) {
-      setErrorMessage("이름을 입력해주세요");
-    } else {
-      setName(value);
-    }
-  };
-
-  const confirmPassword = () => {
-    if (password !== "" && rePassword !== password) {
-      setErrorMessage("비밀번호가 다릅니다");
-    }
+    return 0;
   };
 
   const postUserInfo = () => {
@@ -102,15 +73,20 @@ const Register = (props) => {
   };
 
   const handleSubmit = () => {
-    confirmPassword();
-    postUserInfo();
+    const validateResult = validateInput();
+    console.log(errorMessage);
+    console.log(validateResult);
+    if (validateResult === 0) {
+      postUserInfo();
+      errorMessage = "";
+    }
   };
 
   return (
     <div className="register-page">
       <div className="register-page-title">회원 가입</div>
-
       <SignUp
+        className="signup-wrapper"
         handleEmail={setEmail}
         handlePassword={setPassword}
         handleRePassword={setRePassword}
@@ -121,10 +97,16 @@ const Register = (props) => {
         creditcard={creditcard}
         address={address}
       />
-      {errorMessage.length !== 0 && errorMessage}
-      <button type="button" className="register-button" onClick={handleSubmit}>
-        회원 가입
-      </button>
+      {errorMessage.length !== 0 ? <div>{errorMessage}</div> : null}
+      <div className="register-submit">
+        <button
+          type="button"
+          className="register-button"
+          onClick={handleSubmit}
+        >
+          회원 가입
+        </button>
+      </div>
     </div>
   );
 };

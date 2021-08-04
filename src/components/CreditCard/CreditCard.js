@@ -29,7 +29,7 @@ function CreditCard(props) {
       >
         입력
       </button>
-      <Modal show={isModalOpen} close={toggleModal}>
+      <Modal show={isModalOpen} close={toggleModal} width={500} height={300}>
         <InputInfo
           type={CREDITCARD_INPUT_TYPE}
           id={CREDITCARD_INPUT_ID}

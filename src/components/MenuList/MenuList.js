@@ -6,11 +6,12 @@ const MenuList = props => {
 
   return (
     <div className="menu-list">
-      {userInfo.menus.map(item => (
-        <ul>
-          <li>{item.menu_name}</li>
-        </ul>
-      ))}
+      <ul>
+        <li>홈</li>
+        {userInfo.menus.map((item, index) => (
+          <li key={item.id + index}>{item.menu_name}</li>
+        ))}
+      </ul>
     </div>
   );
 };

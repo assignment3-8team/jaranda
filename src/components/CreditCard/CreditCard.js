@@ -25,7 +25,7 @@ function CreditCard(props) {
           placeholder={CREDITCARD_INPUT_PLACEHOLDER}
           handleChange={handleChange}
         />
-        <button type="button" className="creditcard-input-button" onClick={toggleModal}>
+        <button type="button" className="creditcard-popup-button" onClick={toggleModal}>
           입력
         </button>
       </Modal>

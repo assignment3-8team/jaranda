@@ -14,8 +14,6 @@ const Register = props => {
   const [creditcard, setCreditcard] = useState("");
   const [address, setAddress] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const toggleModal = () => setIsModalOpen(!isModalOpen);
 
   const validateInput = () => {
     if (!VALID_EMAIL.test(email)) {
@@ -54,7 +52,6 @@ const Register = props => {
       is_admin: false,
       menus: [],
     };
-    console.log(userInfo);
     const url = `${globalEnv.API_ENDPOINT}/auth/local/register`;
     fetch(url, {
       method: "POST",
@@ -71,9 +68,6 @@ const Register = props => {
   const handleSubmit = () => {
     const validateResult = validateInput();
     console.log(errorMessage);
-    if (errorMessage) {
-      setIsModalOpen(true);
-    }
     if (validateResult) {
       postUserInfo();
       setErrorMessage("");

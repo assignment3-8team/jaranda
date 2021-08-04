@@ -23,7 +23,8 @@
   align-items: center;
 }
 
-.creditcard-input-button {
+.creditcard-input-button,
+.creditcard-popup-button {
   width: 80px;
   background-color: #88bf45;
   color: #fff;
@@ -31,4 +32,8 @@
   height: 44px;
   padding: 0 8px;
   margin-left: 6px;
+}
+
+.creditcard-popup-button {
+  margin-bottom: 8px;
 }

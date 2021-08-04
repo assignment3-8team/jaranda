@@ -21,7 +21,7 @@ export const RE_PASSWORD_INPUT_TYPE = "password";
 
 export const CREDITCARD_INPUT_NAME = "creditcard";
 export const CREDITCARD_INPUT_ID = "creditcard";
-export const CREDITCARD_INPUT_PLACEHOLDER = "신용카드 번호";
+export const CREDITCARD_INPUT_PLACEHOLDER = "숫자만 입력하세요";
 export const CREDITCARD_INPUT_TYPE = "text";
 
 export const AGE_INPUT_NAME = "age";
@@ -29,10 +29,8 @@ export const AGE_INPUT_ID = "age";
 export const AGE_INPUT_PLACEHOLDER = "나이";
 export const AGE_INPUT_TYPE = "number";
 
-export const VALID_PASSWORD = new RegExp(
-  /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/
-);
+export const VALID_PASSWORD = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})/);
 export const VALID_EMAIL = new RegExp(
-  /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
+  /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
 );
 export const VALID_CREDITCARD = new RegExp("^[0-9]{16}$");

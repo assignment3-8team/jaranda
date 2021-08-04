@@ -1,4 +1,4 @@
-import Resister from "./Register";
+import Register from "./Register";
 import "./style.css";
 
-export default Resister;
+export default Register;

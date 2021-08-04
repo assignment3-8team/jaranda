@@ -5,12 +5,14 @@ import Router from 'utils/router/router';
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
         <Header/>
         <div className="content-wrap">
-            <MenuList/>
-            <div className="page-wrap">
-                <Router/>
+            <div className="main-content">
+                <MenuList/>
+                <div className="page-wrap">
+                    <Router/>
+                </div>
             </div>
         </div>
     </div>

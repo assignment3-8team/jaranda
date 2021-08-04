@@ -1,10 +1,19 @@
-import './style.css';
+import "./style.css";
+import { UserContainer } from "container/User";
 
-const MenuList = (props) => {
-    return (
-        <div className='menu-list'>
-        </div>
-    )
-}
+const MenuList = props => {
+  const { userInfo } = UserContainer.useContainer();
+
+  return (
+    <div className="menu-list">
+      <ul>
+        <li>홈</li>
+        {userInfo.menus.map((item, index) => (
+          <li key={item.id + index}>{item.menu_name}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
 export default MenuList;

@@ -14,12 +14,10 @@ const Table = (props) => {
                         <th>name</th>
                         <th>created date</th>
                     </tr>
-                    {renderData.map((e, i) => (
+                    {renderData.map((e) => (
                         <TableItem
-                        key={e.user_id} 
-                        userEmail={e.user_email}
-                        userName={e.user_name}
-                        createdDate={e.created_date}
+                        key={e.id} 
+                        userData={e}
                         />
                     ))}
                 </tbody>

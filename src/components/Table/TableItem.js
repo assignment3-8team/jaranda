@@ -1,12 +1,13 @@
 const TableItem = (props) => {
-    const { userEmail, userName, createdDate } = props;
+    const { userData } = props;
 
     return (
         <>
-        <tr className='user-info-table-item'>
-            <td>{userEmail}</td>
-            <td>{userName}</td>
-            <td>{createdDate}</td>
+        <tr
+        className='user-info-table-item'>
+            <td>{userData.email}</td>
+            <td>{userData.username}</td>
+            <td>{userData.created_at.substring(0, 10)}</td>
         </tr>
         </>
     )

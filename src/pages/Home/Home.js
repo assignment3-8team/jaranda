@@ -1,6 +1,10 @@
+import { Login } from 'components/Login'
+
 const Home = (props) => {
     return (
-        <div>홈 페이지</div>
+        <div>
+            <Login></Login>
+        </div>
     )
 }
 

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import api from "api";
 
+import { END_POINT } from "utils/constants/END_POINT";
 import SignUp from "components/SignUp";
 import {
   VALID_CREDITCARD,
@@ -83,12 +84,21 @@ const Register = (props) => {
       card_info: creditcard,
       address: address,
       age: age,
+      is_admin: false,
+      menus: [],
     };
     console.log(userInfo);
-    api
-      .post("/auth/local/register", userInfo)
-      .then((res) => console.log(res))
-      .catch((error) => console.log(error));
+    const url = `${END_POINT}/auth/local/register`;
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify(userInfo),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((response) => console.log(response))
+      .catch((error) => console.error(error));
   };
 
   const handleSubmit = () => {

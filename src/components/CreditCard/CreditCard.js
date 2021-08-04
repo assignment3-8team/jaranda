@@ -14,9 +14,14 @@ function CreditCard(props) {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(!isModalOpen);
+
   return (
     <div className="creditcard-input-wrapper">
-      <div className="creditcard-number-show"></div>
+      {creditcard.length !== 0 ? (
+        <div className="creditcard-number-show">{creditcard}</div>
+      ) : (
+        "신용카드 번호"
+      )}
       <button
         type="button"
         className="creditcard-input-button"

@@ -1,17 +1,26 @@
 .creditcard-input-wrapper {
+  width: 100%;
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
 }
 
 .creditcard-number-show {
-  width: 300px;
+  font-size: 12px;
+  width: 20vw;
+  max-width: 400px;
+  min-width: 300px;
   height: 44px;
+  margin-bottom: 8px;
+  border-radius: 2px;
+  border: 1px solid gray;
+  letter-spacing: normal;
+  text-align: start;
 }
 
-.register-button {
+.creditcard-input-button {
   background-color: gray;
+  color: #fff;
   font-size: 1rem;
-  width: 100px;
   height: 44px;
   padding: 0 16px;
 }

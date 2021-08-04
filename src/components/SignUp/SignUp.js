@@ -28,10 +28,8 @@ function SignUp(props) {
       <RePassword className="signup-item" handleChange={handleRePassword} />
       <Name className="signup-item" handleChange={handleName} />
       <Age className="signup-item" handleChange={handleAge} />
-      <div className="creditcard-number-show">{creditcard}</div>
       <CreditCard handleChange={handleCreditcard} creditcard={creditcard} />
-      <div className="address-show">{address}</div>
-      <Address handleAddress={handleAddress} />
+      <Address handleAddress={handleAddress} address={address} />
     </div>
   );
 }

@@ -14,6 +14,7 @@ import {
 } from "utils/constants/POPUP_SIZE";
 
 const Register = (props) => {
+  const { history } = props;
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rePassword, setRePassword] = useState("");
@@ -88,6 +89,7 @@ const Register = (props) => {
     if (validateResult) {
       postUserInfo();
       setErrorMessage("");
+      history.push({ pathname: "/" });
     }
   };
 

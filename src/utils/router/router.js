@@ -17,7 +17,7 @@ const router = () => {
                 <Route exact path='/parent' component={Parent}/>
                 <Route exact path='/teacher' component={Teacher}/>
                 <Route exact path='/admin/table' component={TablePage}/>
-                <Route exact path='/admin/user-info' component={UserInfoPage}/>
+                <Route exact path='/admin/table/:id' component={UserInfoPage}/>
             </Router>
         </>
     )

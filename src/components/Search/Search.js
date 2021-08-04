@@ -18,10 +18,11 @@ const Search = ({}) => {
   // ];
 
   const inputRef = useRef();
+
   const handleSearch = () => {
     const value = inputRef.current.value;
     console.log(value);
-    //onSearch(value);
+    // onSearch(value);
   };
 
   const onClick = () => {
@@ -37,12 +38,13 @@ const Search = ({}) => {
   return (
     <>
       <input
+        className="search-input"
         ref={inputRef}
         type="serch"
         placeholder="Search..."
         onKeyPress={onKeyPress}
       />
-      <button type="submit" onClick={onClick}>
+      <button className="search-button" type="submit" onClick={onClick}>
         검색
       </button>
     </>

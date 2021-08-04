@@ -6,11 +6,12 @@ const InputInfo = (props) => {
     <>
       <label htmlFor={labelfor}></label>
       <input
+        className="common-input"
         type={type}
         id={labelfor}
         name={labelname}
         placeholder={placeholder}
-        onBlur={(e) => handleChange(e.target.value)}
+        onChange={(e) => handleChange(e.target.value)}
         noValidate
       />
     </>

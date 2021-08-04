@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import api from "api";
+
 import SignUp from "components/SignUp";
 import {
   VALID_CREDITCARD,
@@ -16,13 +18,10 @@ const Register = (props) => {
   const [address, setAddress] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const handleSubmit = () => {
-    console.log(age);
-  };
-
   const handleEmail = (value) => {
     if (VALID_EMAIL.test(value)) {
       setEmail(value);
+      setErrorMessage("");
     } else {
       setErrorMessage("유효하지 않은 이메일");
     }
@@ -31,6 +30,7 @@ const Register = (props) => {
   const handlePassword = (value) => {
     if (VALID_PASSWORD.test(value)) {
       setPassword(value);
+      setErrorMessage("");
     } else {
       setErrorMessage(
         "영문 대소문자, 숫자, 특수문자를 포함하여 8자 이상 입력해주세요"
@@ -69,28 +69,52 @@ const Register = (props) => {
     }
   };
 
+  const confirmPassword = () => {
+    if (password !== "" && rePassword !== password) {
+      setErrorMessage("비밀번호가 다릅니다");
+    }
+  };
+
+  const postUserInfo = () => {
+    const userInfo = {
+      email: email,
+      username: name,
+      password: password,
+      card_info: creditcard,
+      address: address,
+      age: age,
+    };
+    console.log(userInfo);
+    api
+      .post("/auth/local/register", userInfo)
+      .then((res) => console.log(res))
+      .catch((error) => console.log(error));
+  };
+
+  const handleSubmit = () => {
+    confirmPassword();
+    postUserInfo();
+  };
+
   return (
     <div className="register-page">
       <div className="register-page-title">회원 가입</div>
 
       <SignUp
-        handleEmail={handleEmail}
-        handlePassword={handlePassword}
-        handleRePassword={handleRePassword}
-        handleName={handleName}
-        handleAge={handleAge}
-        handleCreditcard={handleCreditcard}
-        handleSubmit={handleSubmit}
+        handleEmail={setEmail}
+        handlePassword={setPassword}
+        handleRePassword={setRePassword}
+        handleName={setName}
+        handleAge={setAge}
+        handleCreditcard={setCreditcard}
         handleAddress={setAddress}
+        creditcard={creditcard}
+        address={address}
       />
       {errorMessage.length !== 0 && errorMessage}
-      <div>{email}</div>
-      <div>{password}</div>
-      <div>{rePassword}</div>
-      <div>{name}</div>
-      <div>{age}</div>
-      <div>{creditcard}</div>
-      <div>{address}</div>
+      <button type="button" className="register-button" onClick={handleSubmit}>
+        회원 가입
+      </button>
     </div>
   );
 };

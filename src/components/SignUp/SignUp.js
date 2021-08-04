@@ -16,21 +16,23 @@ function SignUp(props) {
     handleName,
     handleAge,
     handleCreditcard,
-    handleSubmit,
     handleAddress,
+    creditcard,
+    address,
   } = props;
 
   return (
-    <>
-      <Email handleChange={handleEmail} />
-      <Password handleChange={handlePassword} />
-      <RePassword handleChange={handleRePassword} />
-      <Name handleChange={handleName} />
-      <Age handleChange={handleAge} />
-      <CreditCard handleChange={handleCreditcard} />
+    <div className="signup-items">
+      <Email className="signup-item" handleChange={handleEmail} />
+      <Password className="signup-item" handleChange={handlePassword} />
+      <RePassword className="signup-item" handleChange={handleRePassword} />
+      <Name className="signup-item" handleChange={handleName} />
+      <Age className="signup-item" handleChange={handleAge} />
+      <div className="creditcard-number-show">{creditcard}</div>
+      <CreditCard handleChange={handleCreditcard} creditcard={creditcard} />
+      <div className="address-show">{address}</div>
       <Address handleAddress={handleAddress} />
-      <button onClick={handleSubmit}>회원 가입</button>
-    </>
+    </div>
   );
 }
 

@@ -10,13 +10,18 @@ import {
 } from "utils/constants/INPUT";
 
 function CreditCard(props) {
-  const { handleChange } = props;
+  const { handleChange, creditcard } = props;
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(!isModalOpen);
   return (
-    <>
-      <button type="button" onClick={() => toggleModal()}>
+    <div className="creditcard-input-wrapper">
+      <div className="creditcard-number-show"></div>
+      <button
+        type="button"
+        className="creditcard-input-button"
+        onClick={() => toggleModal()}
+      >
         신용카드 번호 입력
       </button>
       <Modal show={isModalOpen} close={toggleModal}>
@@ -27,8 +32,11 @@ function CreditCard(props) {
           placeholder={CREDITCARD_INPUT_PLACEHOLDER}
           handleChange={handleChange}
         />
+        <button type="button" onClick={toggleModal}>
+          입력
+        </button>
       </Modal>
-    </>
+    </div>
   );
 }
 

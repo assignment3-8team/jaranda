@@ -1,6 +1,12 @@
-.signup-form {
+.signup-items {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-top: 1rem;
+}
+
+.signup-item {
+  width: 100%;
+  display: flex;
 }

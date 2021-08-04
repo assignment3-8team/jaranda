@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,6 +9,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #4a4a4a;
 }
 
 code {
@@ -12,6 +17,30 @@ code {
     monospace;
 }
 
+button {
+  cursor: pointer;
+  border: none;
+  box-shadow: none;
+}
+
 #modal-root {
   z-index: 999;
+}
+
+.common-input {
+  font-size: 12px;
+  width: 450px;
+  min-width: 300px;
+  height: 44px;
+  margin-bottom: 8px;
+  border-radius: 2px;
+  border: 1px solid gray;
+  letter-spacing: normal;
+  text-align: start;
+}
+
+.common-input:hover {
+  background-color: #e9f2ff;
+  border: 1px solid #0085fd;
+  border-radius: 2px;
 }

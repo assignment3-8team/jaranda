@@ -3,7 +3,7 @@ const TableItem = (props) => {
 
     return (
         <>
-        <tr>
+        <tr className='user-info-table-item'>
             <td>{userEmail}</td>
             <td>{userName}</td>
             <td>{createdDate}</td>

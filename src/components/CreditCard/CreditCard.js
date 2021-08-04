@@ -8,6 +8,10 @@ import {
   CREDITCARD_INPUT_PLACEHOLDER,
   CREDITCARD_INPUT_TYPE,
 } from "utils/constants/INPUT";
+import {
+  CREDITCARD_MODAL_HEIGHT,
+  CREDITCARD_MODAL_WIDTH,
+} from "utils/constants/POPUP_SIZE";
 
 function CreditCard(props) {
   const { handleChange, creditcard } = props;
@@ -29,7 +33,12 @@ function CreditCard(props) {
       >
         입력
       </button>
-      <Modal show={isModalOpen} close={toggleModal} width={500} height={300}>
+      <Modal
+        show={isModalOpen}
+        close={toggleModal}
+        width={CREDITCARD_MODAL_WIDTH}
+        height={CREDITCARD_MODAL_HEIGHT}
+      >
         <InputInfo
           type={CREDITCARD_INPUT_TYPE}
           id={CREDITCARD_INPUT_ID}
@@ -37,7 +46,11 @@ function CreditCard(props) {
           placeholder={CREDITCARD_INPUT_PLACEHOLDER}
           handleChange={handleChange}
         />
-        <button type="button" onClick={toggleModal}>
+        <button
+          type="button"
+          className="creditcard-input-button"
+          onClick={toggleModal}
+        >
           입력
         </button>
       </Modal>

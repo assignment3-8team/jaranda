@@ -1,9 +1,12 @@
+import {
+  ADDRESS_POPUP_HEIGHT,
+  ADDRESS_POPUP_WIDTH,
+} from "utils/constants/POPUP_SIZE";
+
 function Address(props) {
   const { handleAddress, address } = props;
 
   const handleClick = () => {
-    const width = 500;
-    const height = 600;
     window.daum.postcode.load(() => {
       const postcode = new window.daum.Postcode({
         oncomplete: (data) => {
@@ -13,13 +16,13 @@ function Address(props) {
         onsearch: (data) => {
           console.log(data);
         },
-        width: width,
-        height: height,
+        width: ADDRESS_POPUP_WIDTH,
+        height: ADDRESS_POPUP_HEIGHT,
       });
 
       postcode.open({
-        left: window.screen.width / 2 - width / 2,
-        top: window.screen.height / 2 - height / 2,
+        left: window.screen.width / 2 - ADDRESS_POPUP_WIDTH / 2,
+        top: window.screen.height / 2 - ADDRESS_POPUP_HEIGHT / 2,
         popupName: "addressPopup",
       });
     });

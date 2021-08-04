@@ -7,6 +7,11 @@ import {
   VALID_EMAIL,
   VALID_PASSWORD,
 } from "utils/constants/INPUT";
+import Modal from "components/Modal";
+import {
+  ERROR_MODAL_HEIGHT,
+  ERROR_MODAL_WIDTH,
+} from "utils/constants/POPUP_SIZE";
 
 const Register = (props) => {
   const [email, setEmail] = useState("");
@@ -16,32 +21,34 @@ const Register = (props) => {
   const [age, setAge] = useState(0);
   const [creditcard, setCreditcard] = useState("");
   const [address, setAddress] = useState("");
-  //const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  let errorMessage = "";
+  const toggleModal = () => setIsModalOpen(!isModalOpen);
 
   const validateInput = () => {
     if (!VALID_EMAIL.test(email)) {
-      errorMessage = "유효한 메일 주소를 입력하세요";
+      setErrorMessage("유효한 메일 주소를 입력하세요");
       return 0;
     } else if (!VALID_PASSWORD.test(password)) {
-      errorMessage =
-        "비밀번호는 영문 대소문자와 숫자를 포함하여 8자리 이상 입력해주세요";
+      setErrorMessage(
+        "비밀번호는 영문 대소문자와 숫자를 포함하여 8자리 이상 입력해주세요"
+      );
       return 0;
     } else if (password !== "" && rePassword !== password) {
-      errorMessage = "비밀번호가 일치하지 않습니다";
+      setErrorMessage("비밀번호가 일치하지 않습니다");
       return 0;
     } else if (name === "") {
-      errorMessage = "이름을 입력하세요";
+      setErrorMessage("이름을 입력하세요");
       return 0;
     } else if (age <= 0 || age > 100) {
-      errorMessage = "나이를 입력하세요";
+      setErrorMessage("나이를 입력하세요");
       return 0;
     } else if (!VALID_CREDITCARD.test(creditcard)) {
-      errorMessage = "유효한 카드번호를 입력하세요";
+      setErrorMessage("유효한 카드번호를 입력하세요");
       return 0;
     } else if (address === "") {
-      errorMessage = "주소를 입력하세요";
+      setErrorMessage("주소를 입력하세요");
       return 0;
     }
     return 1;
@@ -75,10 +82,12 @@ const Register = (props) => {
   const handleSubmit = () => {
     const validateResult = validateInput();
     console.log(errorMessage);
-    console.log(validateResult);
+    if (errorMessage) {
+      setIsModalOpen(true);
+    }
     if (validateResult) {
       postUserInfo();
-      errorMessage = "";
+      setErrorMessage("");
     }
   };
 
@@ -97,7 +106,14 @@ const Register = (props) => {
         creditcard={creditcard}
         address={address}
       />
-      {errorMessage.length !== 0 ? <div>{errorMessage}</div> : null}
+      <Modal
+        show={isModalOpen}
+        close={toggleModal}
+        width={ERROR_MODAL_WIDTH}
+        height={ERROR_MODAL_HEIGHT}
+      >
+        {errorMessage}
+      </Modal>
       <div className="register-submit">
         <button
           type="button"

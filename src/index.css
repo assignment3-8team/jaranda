@@ -45,7 +45,7 @@ button {
   margin-bottom: 8px;
   border-radius: 2px;
   border: 1px solid #ccc;
-  color: #ccc;
+  color: #4a4a4a;
   letter-spacing: normal;
   text-align: start;
 }
@@ -55,4 +55,8 @@ button {
   background-color: #e9f2ff;
   border: 1px solid #0085fd;
   color: #0085fd;
+}
+
+.common-input::placeholder {
+  color: #ccc;
 }

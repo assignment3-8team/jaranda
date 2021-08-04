@@ -23,28 +23,28 @@ const Register = (props) => {
   const validateInput = () => {
     if (!VALID_EMAIL.test(email)) {
       errorMessage = "유효한 메일 주소를 입력하세요";
-      return -1;
+      return 0;
     } else if (!VALID_PASSWORD.test(password)) {
       errorMessage =
         "비밀번호는 영문 대소문자와 숫자를 포함하여 8자리 이상 입력해주세요";
-      return -1;
+      return 0;
     } else if (password !== "" && rePassword !== password) {
       errorMessage = "비밀번호가 일치하지 않습니다";
-      return -1;
+      return 0;
     } else if (name === "") {
       errorMessage = "이름을 입력하세요";
-      return -1;
-    } else if (age < 0 || age > 100) {
-      errorMessage = "0~100 사이로 입력해주세요";
-      return -1;
+      return 0;
+    } else if (age <= 0 || age > 100) {
+      errorMessage = "나이를 입력하세요";
+      return 0;
     } else if (!VALID_CREDITCARD.test(creditcard)) {
       errorMessage = "유효한 카드번호를 입력하세요";
-      return -1;
+      return 0;
     } else if (address === "") {
       errorMessage = "주소를 입력하세요";
-      return -1;
+      return 0;
     }
-    return 0;
+    return 1;
   };
 
   const postUserInfo = () => {
@@ -76,7 +76,7 @@ const Register = (props) => {
     const validateResult = validateInput();
     console.log(errorMessage);
     console.log(validateResult);
-    if (validateResult === 0) {
+    if (validateResult) {
       postUserInfo();
       errorMessage = "";
     }

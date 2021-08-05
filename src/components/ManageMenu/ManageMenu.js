@@ -6,13 +6,19 @@ import { UserContainer } from "container/User";
 const ManageMenu = props => {
   const { menus, id } = props.userData;
   const { onUpdateUserInfo, onRegisterUser } = UserContainer.useContainer();
-
-  const filteredId = menus.map(item => item.id);
   const [allowedMenuList, setAllowedMenuList] = useState(MENU_LIST);
+
+  const filteredId = props => {
+    return props.map(item => item.id);
+  };
+
+  const checkedItem = props => {
+    return props.filter(item => item.checked === true && item.id);
+  };
 
   useEffect(() => {
     const setInitialList = () => {
-      const initialList = allowedMenuList.map(item => (filteredId.includes(item.id) ? { ...item, checked: true } : { ...item }));
+      const initialList = allowedMenuList.map(item => (filteredId(menus).includes(item.id) ? { ...item, checked: true } : { ...item }));
       setAllowedMenuList(initialList);
     };
 
@@ -23,21 +29,16 @@ const ManageMenu = props => {
     const modifiedList = allowedMenuList.map(item => (item.id === Number(e.target.id) ? { ...item, checked: !item.checked } : item));
     setAllowedMenuList(modifiedList);
   };
-  console.log(allowedMenuList);
 
   //TODO 희영님과 머지 후 데이터 연결 변경
   const data = {
-    email: "random@naver.com",
-    username: "원티드",
+    email: "test12345@naver.com",
+    username: "test12345",
     password: "string12",
     card_info: "123-123-123-123",
     address: "주소주소",
-    age: 12,
-    menus: [
-      {
-        id: 1,
-      },
-    ],
+    age: 30,
+    menus: checkedItem(allowedMenuList),
   };
 
   const onSave = () => {
@@ -74,7 +75,7 @@ const ManageMenu = props => {
           })}
         </div>
       </div>
-      <button onClick={onSave()}>저장</button>
+      <button onClick={onSave}>저장</button>
     </div>
   );
 };

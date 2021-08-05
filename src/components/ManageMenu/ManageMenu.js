@@ -5,15 +5,16 @@ import { MENU_LIST } from "constants/menuItem";
 const ManageMenu = props => {
   const { menus } = props.userData;
   const filteredId = menus.map(item => item.id);
-
   const [allowedMenuList, setAllowedMenuList] = useState(MENU_LIST);
 
   useEffect(() => {
-    for (let i = 1; i < filteredId.length + 1; i++) {
+    const setInitialList = () => {
       const initialList = allowedMenuList.map(item => (filteredId.includes(item.id) ? { ...item, checked: true } : { ...item }));
       setAllowedMenuList(initialList);
-    }
-  }, []);
+    };
+
+    setInitialList();
+  }, [menus]);
 
   const onCheckMenu = e => {
     const modifiedList = allowedMenuList.map(item => (item.id === Number(e.target.id) ? { ...item, checked: !item.checked } : item));

@@ -7,6 +7,7 @@ const UserCreateButton = props => {
     menus: [],
     create: true,
   };
+  
   const handleOnClickBtn = useCallback(() => {
     props.history.push({
       pathname: "/admin/table/create",

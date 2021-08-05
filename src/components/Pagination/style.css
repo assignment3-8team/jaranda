@@ -9,7 +9,6 @@
     font-size: 1.3em;
     height: 2em;
     border-spacing: 0;
-
 }
 
 .pagination > tbody td {
@@ -22,13 +21,21 @@
     cursor: pointer;
 }
 
-.pagination > tbody td:nth-child(3) {
-
+.pagination > tbody td:nth-child(3) > p {
     color: black;
     background-color: #D2EEC0;
 }
 
-.pagination > tbody td:nth-child(n+2):nth-child(-n+4):hover {
+.pagination > tbody p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    width: 2em;
+    height: 2em;
+}
+
+.pagination > tbody td > p:hover {
     border:2px solid #D2EEC0;
     cursor: pointer;
 }

@@ -1,7 +1,7 @@
-import './style.css';
+import './App.css';
 import Header from 'components/Header';
 import MenuList from 'components/MenuList';
-import Router from 'utils/router/router';
+import Router from './Router';
 
 const App = () => {
   return (

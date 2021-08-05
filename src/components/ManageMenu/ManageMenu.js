@@ -5,6 +5,7 @@ import { UserContainer } from "container/User";
 
 const ManageMenu = props => {
   const { menus, id } = props.userData;
+  console.log(props);
   const { onUpdateUserInfo, onRegisterUser } = UserContainer.useContainer();
   const [allowedMenuList, setAllowedMenuList] = useState(MENU_LIST);
 
@@ -32,8 +33,8 @@ const ManageMenu = props => {
 
   //TODO 희영님과 머지 후 데이터 연결 변경
   const data = {
-    email: "test12345@naver.com",
-    username: "test12345",
+    email: "test123ww45@naver.com",
+    username: "test12ww345",
     password: "string12",
     card_info: "123-123-123-123",
     address: "주소주소",

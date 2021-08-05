@@ -3,17 +3,23 @@ import { useEffect, useState } from "react";
 import { MENU_LIST } from "constants/menuItem";
 
 const ManageMenu = props => {
-  const { menus } = props.userData;
+  const { menus } = props;
   const filteredId = menus.map(item => item.id);
 
   const [allowedMenuList, setAllowedMenuList] = useState(MENU_LIST);
-
+  /*
   useEffect(() => {
     for (let i = 1; i < filteredId.length + 1; i++) {
       const initialList = allowedMenuList.map(item => (item.id === i ? { ...item, checked: !item.checked } : { ...item }));
       setAllowedMenuList(initialList);
     }
   }, []);
+*/
+
+  useEffect(() => {
+    const initialList = allowedMenuList.map(item => (filteredId.includes(item.id) ? { ...item, checked: true } : { ...item }));
+    setAllowedMenuList(initialList);
+  }, [menus]);
 
   const onCheckMenu = e => {
     const modifiedList = allowedMenuList.map(item => (item.id === Number(e.target.id) ? { ...item, checked: !item.checked } : item));
@@ -22,9 +28,10 @@ const ManageMenu = props => {
 
   const onSave = () => {
     // TODO: signup components 와 머지 후 저장기능 구현 (희영님, 선화)
+    console.log("menu: ", menus);
+    console.log(allowedMenuList);
   };
 
-  console.log("menuList", allowedMenuList);
   return (
     <div className="wrapper">
       <div className="select-box">

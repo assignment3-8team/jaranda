@@ -4,7 +4,7 @@ import Register from "pages/Register";
 import Student from "pages/Student";
 import Parent from "pages/Parent";
 import Teacher from "pages/Teacher";
-import { TablePage, UserInfoPage } from "pages/Admin";
+import { TablePage, UserInfoPage, CreateByAdmin } from "pages/Admin";
 
 const router = () => {
   return (
@@ -17,6 +17,7 @@ const router = () => {
         <Route exact path="/teacher" component={Teacher} />
         <Route exact path="/admin/table" component={TablePage} />
         <Route exact path="/admin/table/:id" component={UserInfoPage} />
+        <Route exact path="/admin/table/create" component={CreateByAdmin} />
         {/* TODO ErrorPage 만들기(선화) */}
         {/* <Route component={ErrorPage} /> */}
       </Switch>

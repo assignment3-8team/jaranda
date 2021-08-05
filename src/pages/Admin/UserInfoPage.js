@@ -1,9 +1,12 @@
 import { ManageMenu } from "components/ManageMenu/ManageMenu";
 
 const UserInfoPage = props => {
+  const userData = props.location.state.menus;
+
   return (
     <div>
-      <ManageMenu userData={props.location.state} />
+      {/*console.log(userData.menus)*/}
+      <ManageMenu menus={userData} />
     </div>
   );
 };

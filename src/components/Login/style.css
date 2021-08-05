@@ -1,0 +1,51 @@
+form {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  max-width: 300px;
+  padding: 30px;
+  border-radius: 5px;
+  border: 1px solid #16324f69;
+  background-color: #fff;
+}
+
+h2,
+input {
+  margin: 15px auto;
+  flex: 1 0 100%;
+}
+
+h2 {
+  text-align: center;
+}
+p {
+  margin: 0;
+  color: red;
+  font-size: 12px;
+}
+input {
+  border: none;
+  outline: none;
+}
+
+input {
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(211, 203, 203, 0.747);
+}
+
+input:focus {
+  border-bottom: 1px solid black;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+  flex: 0 0 170px;
+  margin: 15px auto;
+  background-color: #16324f;
+  color: #fff;
+  border: none;
+  height: 30px;
+  border-radius: 5px;
+  font-size: 15px;
+}

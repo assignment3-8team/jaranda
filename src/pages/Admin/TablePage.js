@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import "./style.css";
 import Table from "components/Table";
 import Pagination from "components/Pagination";
+import UserCreateButton from "components/UserCreateButton";
 import postLogin from "utils/apis/postLogin";
 import getUsersInfo from "utils/apis/getUsersInfo";
+
 
 const TablePage = props => {
   const [usersData, setUsersData] = useState([]);
@@ -39,6 +41,9 @@ const TablePage = props => {
         <>
           <Table renderData={renderData} />
           <Pagination maxIndex={maxIndex} pageIndex={pageIndex} setPageIndex={setPageIndex} />
+          <div className="create-button-wrap">
+            <UserCreateButton/>
+          </div>
         </>
       )}
     </section>

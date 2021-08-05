@@ -1,12 +1,13 @@
 import "./style.css";
 import { useEffect, useState } from "react";
 import { MENU_LIST } from "constants/menuItem";
-//import { UserContainer } from "container/User";
+import { UserContainer } from "container/User";
 
 const ManageMenu = props => {
-  const { menus } = props.userData;
-  const { handleSave } = props;
-  //const { onUpdateUserInfo, onRegisterUser } = UserContainer.useContainer();
+  const { menus, id } = props.userData;
+  const { userData } = props;
+
+  const { onUpdateUserInfo, onRegisterUser } = UserContainer.useContainer();
   const [allowedMenuList, setAllowedMenuList] = useState(MENU_LIST);
 
   const filteredId = props => {
@@ -30,22 +31,21 @@ const ManageMenu = props => {
     const modifiedList = allowedMenuList.map(item => (item.id === Number(e.target.id) ? { ...item, checked: !item.checked } : item));
     setAllowedMenuList(modifiedList);
   };
-  /*
-  //TODO 희영님과 머지 후 데이터 연결 변경
+
+  /*TODO 희영님과 머지 후 데이터 연결 변경
   const data = {
-    email: "test12345@naver.com",
-    username: "test12345",
-    password: "string12",
-    card_info: "123-123-123-123",
-    address: "주소주소",
-    age: 30,
-    menus: checkedItem(allowedMenuList),
+    ...userData,
+    menus: [...allowedMenuList],
   };
 */
-
   const onSave = () => {
-    console.log("allowedMenuList", allowedMenuList);
-    handleSave([...allowedMenuList]);
+    const data = {
+      ...userData,
+      menus: allowedMenuList,
+    };
+    console.log("userdata");
+    console.log(data);
+    //id ? onUpdateUserInfo(id, data) : onRegisterUser(data);
   };
 
   return (
@@ -78,9 +78,7 @@ const ManageMenu = props => {
           })}
         </div>
       </div>
-      <button type="button" onClick={onSave}>
-        저장
-      </button>
+      <button onClick={onSave}>저장</button>
     </div>
   );
 };

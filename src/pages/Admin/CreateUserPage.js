@@ -15,11 +15,10 @@ const CreateUserPage = props => {
   const [creditcard, setCreditcard] = useState("");
   const [address, setAddress] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const [allowedMenuList, setAllowedMenuList] = useState(MENU_LIST);
+  //const [allowedMenu, setAllowedMenu] = useState([]);
   const { onUpdateUserInfo, onRegisterUser } = UserContainer.useContainer();
-
+  /*
   const defaultInfo = {
-    id: null,
     email: "",
     username: "",
     password: "",
@@ -28,6 +27,18 @@ const CreateUserPage = props => {
     age: 0,
     is_admin: false,
     menus: MENU_LIST,
+  };
+*/
+
+  const userInfo = {
+    email: email,
+    username: name,
+    password: password,
+    card_info: creditcard,
+    address: address,
+    age: age,
+    is_admin: false,
+    menus: [],
   };
 
   const validateInput = () => {
@@ -56,6 +67,7 @@ const CreateUserPage = props => {
     return 1;
   };
 
+  /*
   const handleSave = menulist => {
     console.log(menulist);
     setAllowedMenuList(menulist);
@@ -79,6 +91,7 @@ const CreateUserPage = props => {
       //history.push({ pathname: "/" });
     }
   };
+*/
 
   return (
     <div>
@@ -94,8 +107,7 @@ const CreateUserPage = props => {
         creditcard={creditcard}
         address={address}
       />
-      {console.log(MENU_LIST)}
-      <ManageMenu userData={defaultInfo} handleSave={handleSave} />
+      <ManageMenu userData={userInfo} />
     </div>
   );
 };

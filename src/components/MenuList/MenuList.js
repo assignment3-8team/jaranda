@@ -29,7 +29,7 @@ const MenuList = props => {
             }}
             key={item.id + index}
           >
-            {item.menu_name}
+            {item.name}
           </li>
         ))}
       </ul>

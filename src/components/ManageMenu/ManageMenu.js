@@ -7,7 +7,6 @@ import SignUp from "components/SignUp";
 
 const ManageMenu = props => {
   const { menus, id } = props.userData;
-
   const { onUpdateUserInfo, onRegisterUser } = UserContainer.useContainer();
   const [allowedMenuList, setAllowedMenuList] = useState(ADMIN_MENU_LIST);
 
@@ -42,7 +41,6 @@ const ManageMenu = props => {
     setAllowedMenuList(modifiedList);
   };
 
-  //TODO 희영님과 머지 후 데이터 연결 변경
   const data = {
     email: email,
     username: name,

@@ -5,7 +5,7 @@ import { UserContainer } from "container/User";
 
 const ManageMenu = props => {
   const { menus, id } = props.userData;
-  console.log(props);
+
   const { onUpdateUserInfo, onRegisterUser } = UserContainer.useContainer();
   const [allowedMenuList, setAllowedMenuList] = useState(MENU_LIST);
 

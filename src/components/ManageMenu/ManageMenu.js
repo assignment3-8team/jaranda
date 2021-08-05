@@ -1,11 +1,12 @@
 import "./style.css";
 import { useEffect, useState } from "react";
 import { MENU_LIST } from "constants/menuItem";
-import { UserContainer } from "container/User";
+//import { UserContainer } from "container/User";
 
 const ManageMenu = props => {
-  const { menus, id } = props.userData;
-  const { onUpdateUserInfo, onRegisterUser } = UserContainer.useContainer();
+  const { menus } = props.userData;
+  const { handleSave } = props;
+  //const { onUpdateUserInfo, onRegisterUser } = UserContainer.useContainer();
   const [allowedMenuList, setAllowedMenuList] = useState(MENU_LIST);
 
   const filteredId = props => {
@@ -29,7 +30,7 @@ const ManageMenu = props => {
     const modifiedList = allowedMenuList.map(item => (item.id === Number(e.target.id) ? { ...item, checked: !item.checked } : item));
     setAllowedMenuList(modifiedList);
   };
-
+  /*
   //TODO 희영님과 머지 후 데이터 연결 변경
   const data = {
     email: "test12345@naver.com",
@@ -40,9 +41,11 @@ const ManageMenu = props => {
     age: 30,
     menus: checkedItem(allowedMenuList),
   };
+*/
 
   const onSave = () => {
-    id ? onUpdateUserInfo(id, data) : onRegisterUser(data);
+    console.log("allowedMenuList", allowedMenuList);
+    handleSave([...allowedMenuList]);
   };
 
   return (
@@ -75,7 +78,9 @@ const ManageMenu = props => {
           })}
         </div>
       </div>
-      <button onClick={onSave}>저장</button>
+      <button type="button" onClick={onSave}>
+        저장
+      </button>
     </div>
   );
 };

@@ -4,7 +4,7 @@ import Register from "pages/Register";
 import Student from "pages/Student";
 import Parent from "pages/Parent";
 import Teacher from "pages/Teacher";
-import { TablePage, UserInfoPage } from "pages/Admin";
+import { TablePage, UserInfoPage, CreateUserPage } from "pages/Admin";
 import { page404 } from "pages/page404";
 const router = () => {
   return (
@@ -16,6 +16,7 @@ const router = () => {
         <Route exact path="/teacher" component={Teacher} />
         <Route exact path="/admin/table" component={TablePage} />
         <Route exact path="/admin/table/:id" component={UserInfoPage} />
+        <Route exact path="/admin/create" component={CreateUserPage} />
         <Route exact path="/" component={Home} />
         <Route component={page404} />
       </Switch>

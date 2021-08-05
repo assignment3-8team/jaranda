@@ -4,9 +4,7 @@ import { UserContainer } from "container/User";
 const TableItem = props => {
   const { userData } = props;
   const history = props.history;
-  const { userInfo } = UserContainer.useContainer();
 
-  console.log("userInfo", userInfo);
   const _handleOnClick = () => {
     history.push({
       pathname: `/admin/table/${userData.id}`,

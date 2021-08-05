@@ -1,9 +1,9 @@
-import "./style.css";
+import "./App.css";
 import Header from "components/Header";
 import MenuList from "components/MenuList";
-import Router from "utils/router/router";
+import Router from "./Router";
 
-function App() {
+const App = () => {
   return (
     <div className="app">
       <Header />
@@ -17,6 +17,6 @@ function App() {
       </div>
     </div>
   );
-}
+};
 
 export default App;

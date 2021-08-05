@@ -1,33 +1,41 @@
 .pagination-wrap {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    height: 3em;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 3em;
 }
 
 .pagination {
-    font-size: 1.3em;
-    height: 2em;
-    border-spacing: 0;
-
+  font-size: 1.3em;
+  height: 2em;
+  border-spacing: 0;
 }
 
 .pagination > tbody td {
-    text-align: center;
-    width: 2em;
-    color: gray;
+  text-align: center;
+  width: 2em;
+  color: gray;
 }
 
 .pagination > tbody img {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-.pagination > tbody td:nth-child(3) {
-    color: black;
-    background-color: #D2EEC0;
+.pagination > tbody td:nth-child(3) > p {
+  color: black;
+  background-color: #d2eec0;
 }
 
-.pagination > tbody td:nth-child(n+2):nth-child(-n+4):hover {
-    border:2px solid #D2EEC0;
-    cursor: pointer;
+.pagination > tbody p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  width: 2em;
+  height: 2em;
+}
+
+.pagination > tbody td > p:hover {
+  border: 2px solid #d2eec0;
+  cursor: pointer;
 }

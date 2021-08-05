@@ -3,12 +3,22 @@ import { useEffect, useState } from "react";
 import { ADMIN_MENU_LIST } from "constants/menuItem";
 import { UserContainer } from "container/User";
 import { UserDetails } from "./UserDetails";
+import SignUp from "components/SignUp";
 
 const ManageMenu = props => {
   const { menus, id } = props.userData;
 
   const { onUpdateUserInfo, onRegisterUser } = UserContainer.useContainer();
   const [allowedMenuList, setAllowedMenuList] = useState(ADMIN_MENU_LIST);
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [rePassword, setRePassword] = useState("");
+  const [name, setName] = useState("");
+  const [age, setAge] = useState(0);
+  const [creditcard, setCreditcard] = useState("");
+  const [address, setAddress] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const filteredId = props => {
     return props.map(item => item.id);
@@ -34,12 +44,12 @@ const ManageMenu = props => {
 
   //TODO 희영님과 머지 후 데이터 연결 변경
   const data = {
-    email: "test1233@naver.com",
-    username: "test1323",
-    password: "string12",
-    card_info: "123-123-123-123",
-    address: "주소주소",
-    age: 30,
+    email: email,
+    username: name,
+    password: password,
+    card_info: creditcard,
+    address: address,
+    age: age,
     menus: checkedItem(allowedMenuList),
   };
 
@@ -48,13 +58,31 @@ const ManageMenu = props => {
   };
 
   const onSave = () => {
+    console.log(data);
     id ? onUpdateUserInfo(id, Menudata) : onRegisterUser(data);
   };
 
   return (
     <>
       <div className="wrapper">
-        {id ? <UserDetails data={props.userData} /> : <div>희영님자리</div>}
+        {id ? (
+          <UserDetails data={props.userData} />
+        ) : (
+          <div>
+            <SignUp
+              className="signup-wrapper"
+              handleEmail={setEmail}
+              handlePassword={setPassword}
+              handleRePassword={setRePassword}
+              handleName={setName}
+              handleAge={setAge}
+              handleCreditcard={setCreditcard}
+              handleAddress={setAddress}
+              creditcard={creditcard}
+              address={address}
+            />
+          </div>
+        )}
         <div className="select-box">
           <div className="not-allowed-zone">
             <p>허용하지 않는 메뉴</p>

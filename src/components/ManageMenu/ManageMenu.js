@@ -1,24 +1,28 @@
 import "./style.css";
 import { useEffect, useState } from "react";
 import { MENU_LIST } from "constants/menuItem";
+import { UserContainer } from "container/User";
 
 const ManageMenu = props => {
-  const { menus } = props;
-  const filteredId = menus.map(item => item.id);
-
+  const { menus, id } = props.userData;
+  const { onUpdateUserInfo, onRegisterUser } = UserContainer.useContainer();
   const [allowedMenuList, setAllowedMenuList] = useState(MENU_LIST);
-  /*
-  useEffect(() => {
-    for (let i = 1; i < filteredId.length + 1; i++) {
-      const initialList = allowedMenuList.map(item => (item.id === i ? { ...item, checked: !item.checked } : { ...item }));
-      setAllowedMenuList(initialList);
-    }
-  }, []);
-*/
+
+  const filteredId = props => {
+    return props.map(item => item.id);
+  };
+
+  const checkedItem = props => {
+    return props.filter(item => item.checked === true && item.id);
+  };
 
   useEffect(() => {
-    const initialList = allowedMenuList.map(item => (filteredId.includes(item.id) ? { ...item, checked: true } : { ...item }));
-    setAllowedMenuList(initialList);
+    const setInitialList = () => {
+      const initialList = allowedMenuList.map(item => (filteredId(menus).includes(item.id) ? { ...item, checked: true } : { ...item }));
+      setAllowedMenuList(initialList);
+    };
+
+    setInitialList();
   }, [menus]);
 
   const onCheckMenu = e => {
@@ -26,10 +30,19 @@ const ManageMenu = props => {
     setAllowedMenuList(modifiedList);
   };
 
+  //TODO 희영님과 머지 후 데이터 연결 변경
+  const data = {
+    email: "test12345@naver.com",
+    username: "test12345",
+    password: "string12",
+    card_info: "123-123-123-123",
+    address: "주소주소",
+    age: 30,
+    menus: checkedItem(allowedMenuList),
+  };
+
   const onSave = () => {
-    // TODO: signup components 와 머지 후 저장기능 구현 (희영님, 선화)
-    console.log("menu: ", menus);
-    console.log(allowedMenuList);
+    id ? onUpdateUserInfo(id, data) : onRegisterUser(data);
   };
 
   return (

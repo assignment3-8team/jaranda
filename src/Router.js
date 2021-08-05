@@ -4,22 +4,20 @@ import Register from "pages/Register";
 import Student from "pages/Student";
 import Parent from "pages/Parent";
 import Teacher from "pages/Teacher";
-import { TablePage, UserInfoPage, CreateByAdmin } from "pages/Admin";
-
+import { TablePage, UserInfoPage } from "pages/Admin";
+import { page404 } from "pages/page404";
 const router = () => {
   return (
     <Router>
       <Switch>
-        <Route exact path="/" component={Home} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/student" component={Student} />
         <Route exact path="/parent" component={Parent} />
         <Route exact path="/teacher" component={Teacher} />
         <Route exact path="/admin/table" component={TablePage} />
         <Route exact path="/admin/table/:id" component={UserInfoPage} />
-        <Route exact path="/admin/table/create" component={CreateByAdmin} />
-        {/* TODO ErrorPage 만들기(선화) */}
-        {/* <Route component={ErrorPage} /> */}
+        <Route exact path="/" component={Home} />
+        <Route component={page404} />
       </Switch>
     </Router>
   );

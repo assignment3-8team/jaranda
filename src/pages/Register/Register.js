@@ -54,7 +54,7 @@ const Register = props => {
       is_admin: false,
       menus: [],
     };
-
+    console.log(userInfo);
     const url = `${globalEnv.API_ENDPOINT}/auth/local/register`;
     fetch(url, {
       method: "POST",

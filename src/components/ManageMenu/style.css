@@ -1,7 +1,22 @@
 .wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.card-content {
+  width: 640px;
+}
+
+.card-title {
+  margin: 20px 0;
+}
+.card-content .card-title > strong {
+  margin-right: 10px;
 }
 .select-box {
   display: flex;
+  flex-direction: row;
   height: 230px;
   justify-content: center;
 }
@@ -10,7 +25,7 @@
   width: 300px;
   display: flex;
   flex-direction: column;
-  background-color: #c6efad;
+  background-color: #87bf44;
   align-items: center;
   margin: 0 10px;
 }
@@ -43,4 +58,14 @@
   padding: 5px;
   border-radius: 8px;
   transition: 0.3s ease;
+}
+.save-button {
+  padding: 10px 30px;
+  border: 1px solid black;
+  margin: 10px;
+  border-radius: 5%;
+}
+.save-button:hover {
+  background-color: #87bf44;
+  transition: 0.2s ease;
 }

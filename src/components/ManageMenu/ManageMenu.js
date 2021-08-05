@@ -2,9 +2,10 @@ import "./style.css";
 import { useEffect, useState } from "react";
 import { ADMIN_MENU_LIST } from "constants/menuItem";
 import { UserContainer } from "container/User";
+import { UserDetails } from "./UserDetails";
 
 const ManageMenu = props => {
-  const { menus, id, address, age, email, username, card_info } = props.userData;
+  const { menus, id } = props.userData;
 
   const { onUpdateUserInfo, onRegisterUser } = UserContainer.useContainer();
   const [allowedMenuList, setAllowedMenuList] = useState(ADMIN_MENU_LIST);
@@ -53,33 +54,7 @@ const ManageMenu = props => {
   return (
     <>
       <div className="wrapper">
-        <div className="card-content">
-          <div className="card-title">
-            <strong>ID </strong>
-            <span>{id}</span>
-          </div>
-          <div className="card-title">
-            <strong>이름 </strong>
-            <span>{username || "등록되지 않음"}</span>
-          </div>
-          <div className="card-title">
-            <strong>나이 </strong>
-            <span>{age || "등록되지 않음"}</span>
-          </div>
-          <div className="card-title">
-            <strong>주소 </strong>
-            <span>{address || "등록되지 않음"}</span>
-          </div>
-          <div className="card-title">
-            <strong>카드 INFO </strong>
-            <span>{card_info || "등록되지 않음"}</span>
-          </div>
-          <div className="card-title">
-            <strong>이메일 </strong>
-            <span>{email || "등록되지 않음"}</span>
-          </div>
-        </div>
-
+        {id ? <UserDetails data={props.userData} /> : <div>희영님자리</div>}
         <div className="select-box">
           <div className="not-allowed-zone">
             <p>허용하지 않는 메뉴</p>

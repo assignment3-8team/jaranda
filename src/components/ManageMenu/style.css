@@ -4,21 +4,12 @@
   align-items: center;
   flex-direction: column;
 }
-.card-content {
-  width: 640px;
-}
-
-.card-title {
-  margin: 20px 0;
-}
-.card-content .card-title > strong {
-  margin-right: 10px;
-}
 .select-box {
   display: flex;
   flex-direction: row;
-  height: 230px;
+  height: 180px;
   justify-content: center;
+  margin-bottom: 20px;
 }
 .not-allowed-zone,
 .allowed-zone {
@@ -32,7 +23,8 @@
 
 .not-allowed-zone p,
 .allowed-zone p {
-  font-size: 20px;
+  font-size: 1.2rem;
+  margin: 10px;
 }
 
 .allowed-zone label,
@@ -60,12 +52,12 @@
   transition: 0.3s ease;
 }
 .save-button {
-  padding: 10px 30px;
-  border: 1px solid black;
+  width: 200px;
+  padding: 10px;
+  background-color: #eee;
   margin: 10px;
-  border-radius: 5%;
 }
 .save-button:hover {
-  background-color: #87bf44;
+  background-color: #d2eec0;
   transition: 0.2s ease;
 }

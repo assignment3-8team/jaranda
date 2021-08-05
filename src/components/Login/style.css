@@ -1,4 +1,4 @@
-form {
+.login_form {
   display: flex;
   flex-wrap: wrap;
   margin: auto;
@@ -9,35 +9,33 @@ form {
   background-color: #fff;
 }
 
-h2,
+.login_form > h2,
 input {
   margin: 15px auto;
   flex: 1 0 100%;
 }
 
-h2 {
+.login_form > h2 {
   text-align: center;
 }
-p {
+.login_form > p {
   margin: 0;
   color: red;
   font-size: 12px;
 }
-input {
+.login_form > input {
   border: none;
   outline: none;
-}
-
-input {
   padding-bottom: 5px;
   border-bottom: 1px solid rgba(211, 203, 203, 0.747);
 }
 
-input:focus {
+
+.login_form > input:focus {
   border-bottom: 1px solid black;
 }
 
-button {
+.login_btn {
   cursor: pointer;
   outline: none;
   flex: 0 0 170px;

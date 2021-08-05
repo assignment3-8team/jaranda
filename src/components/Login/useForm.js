@@ -60,7 +60,7 @@ export const useForm = options => {
     [data],
   );
 
-  const handleSubmit = e => {
+  const handleSubmit = async e => {
     e.preventDefault();
     const validations = options?.validations;
     let valid = true;
@@ -80,9 +80,7 @@ export const useForm = options => {
     if (options?.onSubmit) {
       options.onSubmit();
     }
-
-    setData(options?.initialValues ? options.initialValues : {});
-    setErrors({});
+    target.current = null;
   };
 
   return {

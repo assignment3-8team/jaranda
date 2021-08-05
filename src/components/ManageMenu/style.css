@@ -1,23 +1,30 @@
 .wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .select-box {
   display: flex;
-  height: 230px;
+  flex-direction: row;
+  height: 180px;
   justify-content: center;
+  margin-bottom: 20px;
 }
 .not-allowed-zone,
 .allowed-zone {
   width: 300px;
   display: flex;
   flex-direction: column;
-  background-color: #c6efad;
+  background-color: #87bf44;
   align-items: center;
   margin: 0 10px;
 }
 
 .not-allowed-zone p,
 .allowed-zone p {
-  font-size: 20px;
+  font-size: 1.2rem;
+  margin: 10px;
 }
 
 .allowed-zone label,
@@ -43,4 +50,14 @@
   padding: 5px;
   border-radius: 8px;
   transition: 0.3s ease;
+}
+.save-button {
+  width: 200px;
+  padding: 10px;
+  background-color: #eee;
+  margin: 10px;
+}
+.save-button:hover {
+  background-color: #d2eec0;
+  transition: 0.2s ease;
 }

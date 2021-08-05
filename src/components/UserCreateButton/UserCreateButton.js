@@ -5,12 +5,13 @@ import "./style.css";
 const UserCreateButton = props => {
   const userData = {
     menus: [],
-    id: null,
     create: true,
   };
+
   const handleOnClickBtn = useCallback(() => {
     props.history.push({
-      pathname: "/admin/create",
+      pathname: "/admin/table/create",
+      state: userData,
     });
   });
 

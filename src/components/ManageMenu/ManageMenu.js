@@ -10,7 +10,7 @@ const ManageMenu = props => {
 
   useEffect(() => {
     for (let i = 1; i < filteredId.length + 1; i++) {
-      const initialList = allowedMenuList.map(item => (item.id === i ? { ...item, checked: !item.checked } : { ...item }));
+      const initialList = allowedMenuList.map(item => (filteredId.includes(item.id) ? { ...item, checked: true } : { ...item }));
       setAllowedMenuList(initialList);
     }
   }, []);
@@ -24,7 +24,6 @@ const ManageMenu = props => {
     // TODO: signup components 와 머지 후 저장기능 구현 (희영님, 선화)
   };
 
-  console.log("menuList", allowedMenuList);
   return (
     <div className="wrapper">
       <div className="select-box">

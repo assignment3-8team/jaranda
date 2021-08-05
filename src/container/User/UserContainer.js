@@ -13,7 +13,7 @@ const useUserContainer = () => {
     axios({
       method: "post",
       url: `${globalEnv.API_ENDPOINT}/auth/local`,
-      data: { identifier: "테스트", password: "123123" },
+      data: { identifier: "admin@admin.com", password: "123123" },
     })
       .then(response => {
         setUserInfo(response.data.user);

@@ -1,5 +1,5 @@
 import "./style.css";
-import { useModal } from "components/Modal/useModal";
+import { useModal } from "hooks/useModal";
 import { Login } from "components/Login";
 const Header = props => {
   const [show, close, modalView] = useModal();

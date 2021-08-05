@@ -1,4 +1,4 @@
-import Modal from "."
+import Modal from "../components/Modal"
 import { useState } from "react"
 export const useModal = (props) => {
   const [ isOpen, setIsopen ] = useState(false)

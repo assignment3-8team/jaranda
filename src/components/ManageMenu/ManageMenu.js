@@ -1,13 +1,13 @@
 import "./style.css";
 import { useEffect, useState } from "react";
-import { MENU_LIST } from "constants/menuItem";
+import { ADMIN_MENU_LIST } from "constants/menuItem";
 import { UserContainer } from "container/User";
 
 const ManageMenu = props => {
   const { menus, id, address, age, email, username, card_info } = props.userData;
 
   const { onUpdateUserInfo, onRegisterUser } = UserContainer.useContainer();
-  const [allowedMenuList, setAllowedMenuList] = useState(MENU_LIST);
+  const [allowedMenuList, setAllowedMenuList] = useState(ADMIN_MENU_LIST);
 
   const filteredId = props => {
     return props.map(item => item.id);

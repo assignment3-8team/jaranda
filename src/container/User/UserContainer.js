@@ -5,18 +5,6 @@ import { globalEnv } from "../../config/env";
 
 const useUserContainer = () => {
   const [userInfo, setUserInfo] = useState();
-  // unstated-next 예시 테스트코드
-
-  const testData = {
-    menus: [
-      {
-        id: 2,
-      },
-      {
-        id: 1,
-      },
-    ],
-  };
 
   const onUpdateUserInfo = (id, data) => {
     axios({
@@ -29,6 +17,7 @@ const useUserContainer = () => {
     })
       .then(response => {
         console.log(response);
+        alert("변경이 완료되었습니다 👍");
       })
       .catch(err => {
         console.log(err);
@@ -43,6 +32,7 @@ const useUserContainer = () => {
     })
       .then(response => {
         console.log(response);
+        alert("생성이 완료되었습니다 🙆‍♀️");
       })
       .catch(err => {
         console.log(err);

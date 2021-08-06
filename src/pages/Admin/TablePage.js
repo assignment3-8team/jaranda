@@ -17,12 +17,7 @@ const TablePage = props => {
 
   useEffect(async () => {
     setIsLoading(true);
-    const myInfo = await postLogin({
-      identifier: "admin1@naver.com",
-      password: "123123",
-    });
-    console.log(myInfo);
-    const usersDataRes = await getUsersInfo(myInfo.jwt);
+    const usersDataRes = await getUsersInfo(userInfo.jwt);
     setUsersData(prevState => usersDataRes);
     setSearchedData(prevState => usersDataRes);
     setIsLoading(false);

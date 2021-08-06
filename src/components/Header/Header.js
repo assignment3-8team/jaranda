@@ -18,6 +18,12 @@ const Header = (props) => {
         })
     }
 
+    const handleClickSignUp = () => {
+        props.history.push({
+            pathname: '/register',
+        })
+    }
+
 
   const [show, close, modalView] = useModal();
   return (
@@ -46,11 +52,18 @@ const Header = (props) => {
                     onClick={handleClickLogout}
                     >로그아웃</button>
                     :
+                    <>
                     <button
                     onClick={() => {show();}}
                     >
                     로그인
-                  </button>
+                    </button>
+                    <button
+                    onClick={handleClickSignUp}
+                    >
+                    회원가입
+                    </button>
+                    </>
                     }
                 </div>
             </div>

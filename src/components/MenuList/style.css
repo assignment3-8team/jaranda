@@ -11,9 +11,6 @@
   font-weight: bold;
 }
 
-.menu-list > ul > li:active {
-  background-color: #93bd57;
-}
 .menu-item {
   padding: 10px;
   border-bottom: 2px solid white;

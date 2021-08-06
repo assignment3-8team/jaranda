@@ -17,12 +17,7 @@ const TablePage = props => {
 
   useEffect(async () => {
     setIsLoading(true);
-    const myInfo = await postLogin({
-      identifier: "admin1@naver.com",
-      password: "123123",
-    });
-    console.log(myInfo);
-    const usersDataRes = await getUsersInfo(myInfo.jwt);
+    const usersDataRes = await getUsersInfo(userInfo.jwt);
     setUsersData(prevState => usersDataRes);
     setSearchedData(prevState => usersDataRes);
     setIsLoading(false);
@@ -37,7 +32,7 @@ const TablePage = props => {
     <section>
       <header className="admin-header">
         <span>관리자 페이지</span>
-        <span>admin menu</span>
+        <span>Admin Page</span>
         <div className="table-search">
             <Search baseData={usersData} setData={setSearchedData}/>
         </div>

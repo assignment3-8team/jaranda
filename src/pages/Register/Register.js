@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import SignUp from "components/SignUp";
 import { VALID_CREDITCARD, VALID_EMAIL, VALID_PASSWORD } from "utils/constants/INPUT";
 import { globalEnv } from "config/env";
+import PageHeader from "pages/PageHeader";
 
 const Register = props => {
   const { history } = props;
@@ -76,8 +77,9 @@ const Register = props => {
   };
 
   return (
+    <>
+    <PageHeader title="회원가입" englishTitle="Sign Up"/>
     <div className="register-page">
-      <div className="register-page-title">회원 가입</div>
       <SignUp
         className="signup-wrapper"
         handleEmail={setEmail}
@@ -97,6 +99,7 @@ const Register = props => {
         </button>
       </div>
     </div>
+    </>
   );
 };
 

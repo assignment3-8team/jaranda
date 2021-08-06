@@ -10,3 +10,9 @@ export const ADMIN_MENU_LIST = [
   { checked: false, id: 3, menu_name: "teacher_menu" },
   { checked: false, id: 4, menu_name: "student_menu" },
 ];
+
+export const MENU_NAME = {
+  student_menu: "학생 페이지",
+  parent_menu: "부모님 페이지",
+  teacher_menu: "선생님 페이지",
+};

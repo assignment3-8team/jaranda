@@ -11,7 +11,7 @@ export const USERNAME_INPUT_TYPE = "text";
 
 export const PASSWORD_INPUT_NAME = "password";
 export const PASSWORD_INPUT_ID = "password";
-export const PASSWORD_INPUT_PLACEHOLDER = "비밀번호";
+export const PASSWORD_INPUT_PLACEHOLDER = "비밀번호 - 영문 대소문자, 숫자, 특수문자 포함 8글자 이상";
 export const PASSWORD_INPUT_TYPE = "password";
 
 export const RE_PASSWORD_INPUT_NAME = "re_password";

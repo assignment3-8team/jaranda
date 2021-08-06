@@ -9,6 +9,12 @@ import { UserContainer } from "container/User";
 const Header = (props) => {
 
     const { userInfo, setUserInfo } = UserContainer.useContainer();
+    
+    const handleClickLogo = () => {
+        props.history.push({
+            pathname: '/',
+        })
+    }
 
     const handleClickLogout = () => {
         localStorage.removeItem("user")
@@ -32,7 +38,9 @@ const Header = (props) => {
         <div className="nav-bar">
           <div className="nav-contents">
             <div className="logo-circle">
-              <img src="/assets/jarandaCircleLogo.png" />
+              <img
+              onClick={handleClickLogo} 
+              src="/assets/jarandaCircleLogo.png" />
             </div>
             <div className="btn-wrap">
                 { userInfo ? 

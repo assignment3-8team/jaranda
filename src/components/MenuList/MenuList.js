@@ -10,7 +10,7 @@ const MenuList = props => {
 
   const findPath = useMemo(() => {
     const filterMenu = MENU_LIST.filter(item => {
-      return userInfo?.menus.some(userItem => item.menu_name === userItem.menu_name);
+      return userInfo?.menus?.some(userItem => item.menu_name === userItem.menu_name);
     });
     return filterMenu;
   }, [userInfo]);
@@ -29,7 +29,7 @@ const MenuList = props => {
             }}
             key={item.id + index}
           >
-            {item.menu_name}
+            {item.name}
           </li>
         ))}
       </ul>

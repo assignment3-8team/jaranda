@@ -8,7 +8,7 @@
 
 | 이름   | 구현파트                                                                                   |
 | ------ | ------------------------------------------------------------------------------------------ |
-| 김준영 | Login 기능, 커스텀 hooks 개발                                                              |
+| 김준영 | 로그인 기능 구현, input validation 및 form validation 기능, strapi를 사용한 api 개발       |
 | 박민혁 | 검색기능 컴포넌트 구현 및 적용                                                             |
 | 서희영 | Singup, Modal 컴포넌트 구현                                                                |
 | 조영후 | Header 및 userTable, pagination 컴포넌트 구현                                              |
@@ -63,5 +63,3 @@
 디자인 참조 - [피그마](https://www.figma.com/file/OL0x0hPOjonwF0Vl9jVuKD/Untitled?node-id=5%3A2)
 
 api 참조 - [api명세서](https://alpine-principle-c26.notion.site/api-b50d60e7dd3f47c4878fdc0b12a5e176)
-
-## Summary

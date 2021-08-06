@@ -23,7 +23,7 @@ const MenuList = props => {
         </li>
         {findPath.map((item, index) => (
           <li
-            className="menu-item"
+            className={item.path === history.location.pathname ? "menu-item focus" : "menu-item"}
             onClick={() => {
               history.push(item.path);
             }}

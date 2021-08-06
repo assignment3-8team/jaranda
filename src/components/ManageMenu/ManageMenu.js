@@ -56,7 +56,6 @@ const ManageMenu = props => {
   };
 
   const onSave = () => {
-    console.log(data);
     id ? onUpdateUserInfo(id, Menudata) : onRegisterUser(data);
   };
 
@@ -66,20 +65,18 @@ const ManageMenu = props => {
         {id ? (
           <UserDetails data={props.userData} />
         ) : (
-          <div>
-            <SignUp
-              className="signup-wrapper"
-              handleEmail={setEmail}
-              handlePassword={setPassword}
-              handleRePassword={setRePassword}
-              handleName={setName}
-              handleAge={setAge}
-              handleCreditcard={setCreditcard}
-              handleAddress={setAddress}
-              creditcard={creditcard}
-              address={address}
-            />
-          </div>
+          <SignUp
+            className="signup-wrapper"
+            handleEmail={setEmail}
+            handlePassword={setPassword}
+            handleRePassword={setRePassword}
+            handleName={setName}
+            handleAge={setAge}
+            handleCreditcard={setCreditcard}
+            handleAddress={setAddress}
+            creditcard={creditcard}
+            address={address}
+          />
         )}
         <div className="select-box">
           <div className="not-allowed-zone">

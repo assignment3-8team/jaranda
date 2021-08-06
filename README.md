@@ -1,13 +1,17 @@
 # 프리온보딩 Assignment 2 - [jaranda]
 
+## Objective
+
+[🏄🏻 Assignment3 자란다](https://www.notion.so/Assignment-3-9fdda37ca68a4748a3e034d80e4533ef)
+
 ## 1. 팀원별 과제 구현 파트 😎
 
 | 이름   | 구현파트                                                                                   |
 | ------ | ------------------------------------------------------------------------------------------ |
-| 김준영 | Login                                                                                      |
+| 김준영 | Login 기능, 커스텀 hooks 개발                                                              |
 | 박민혁 | 검색기능 컴포넌트 구현 및 적용                                                             |
-| 서희영 | Singup                                                                                     |
-| 조영후 | userTable,pagination                                                                       |
+| 서희영 | Singup, Modal 컴포넌트 구현                                                                |
+| 조영후 | Header 및 userTable, pagination 컴포넌트 구현                                              |
 | 이선화 | strapi를 사용한 api개발, 허용메뉴설정 컴포넌트 UI구성 및 api 연동, UserDetails 페이지 작업 |
 
 ## 2. 설치 및 시작하는 법
@@ -44,14 +48,17 @@
 💾 utils 공통 함수, apis 관리
 ```
 
-## 4. 전역상태 관리 추가 (unstated-next)
+## 4. 전역상태 관리 라이브러리(unstated-next)
 
-> 로그인한 유저의 uesrInfo를 전역상태로 관리하기 위함
+> 로그인한 유저의 uesrInfo를 전역으로 관리하기 위함
 
 1. Admin Page의 manageMenu에 의한 상태값 변화에 따른 menuList 부분 연동 작업에 전역상태 관리자를 이용
 2. 권한이 필요한 페이지에 링크로 접속할 경우를 제한하기 위해 hoc을 만들 때 사용
+3. api 통신 Authorization에 사용
 
 ## Reference
+
+미팅로그 참조 - [미팅로그](https://www.notion.so/jaranda-b6d2e1e0c0504191a68795bfbd17f3c4)
 
 디자인 참조 - [피그마](https://www.figma.com/file/OL0x0hPOjonwF0Vl9jVuKD/Untitled?node-id=5%3A2)
 

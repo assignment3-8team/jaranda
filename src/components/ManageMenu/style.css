@@ -61,3 +61,8 @@
   background-color: #d2eec0;
   transition: 0.2s ease;
 }
+.arrow-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

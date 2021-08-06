@@ -23,7 +23,7 @@
 
 .pagination > tbody td:nth-child(3) > p {
   color: black;
-  background-color: #d2eec0;
+  background-color: #93BD57;
 }
 
 .pagination > tbody p {
@@ -36,6 +36,6 @@
 }
 
 .pagination > tbody td > p:hover {
-  border: 2px solid #d2eec0;
+  border: 2px solid #93BD57;
   cursor: pointer;
 }

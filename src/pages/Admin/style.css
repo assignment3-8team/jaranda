@@ -17,6 +17,10 @@
   color: gray;
 }
 
+.admin-header .table-search {
+    margin-left: auto;
+}
+
 .loading-wrap {
   width: 100%;
   height: 400px;

@@ -6,14 +6,15 @@ import Parent from "pages/Parent";
 import Teacher from "pages/Teacher";
 import { TablePage, UserInfoPage } from "pages/Admin";
 import { page404 } from "pages/page404";
+import RouteIf from './RouteIf';
 
 const Router = () => {
   return (
     <Switch>
       <Route exact path="/register" component={Register} />
-      <Route exact path="/student" component={Student} />
-      <Route exact path="/parent" component={Parent} />
-      <Route exact path="/teacher" component={Teacher} />
+      <RouteIf exact path="/student" targetMenu="student_menu" component={Student} />
+      <RouteIf exact path="/parent" targetMenu="parent_menu" component={Parent} />
+      <RouteIf exact path="/teacher" targetMenu="teacher_menu" component={Teacher} />
       <Route exact path="/admin/table" component={TablePage} />
       <Route exact path="/admin/table/:id" component={UserInfoPage} />
       <Route exact path="/" component={Home} />

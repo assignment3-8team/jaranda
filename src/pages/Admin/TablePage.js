@@ -17,6 +17,7 @@ const TablePage = props => {
       identifier: "admin1@naver.com",
       password: "123123",
     });
+    console.log(myInfo);
     const usersDataRes = await getUsersInfo(myInfo.jwt);
     setUsersData(prevState => usersDataRes);
     setIsLoading(false);

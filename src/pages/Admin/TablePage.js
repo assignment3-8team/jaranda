@@ -32,7 +32,7 @@ const TablePage = props => {
     <section>
       <header className="admin-header">
         <span>관리자 페이지</span>
-        <span>admin menu</span>
+        <span>Admin Page</span>
         <div className="table-search">
             <Search baseData={usersData} setData={setSearchedData}/>
         </div>

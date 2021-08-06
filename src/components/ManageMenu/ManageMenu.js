@@ -104,6 +104,10 @@ const ManageMenu = props => {
               );
             })}
           </div>
+          <div className="arrow-wrap">
+            <div>▶️</div>
+            <div>◀️</div>
+          </div>
           <div className="allowed-zone">
             <p>허용하는 메뉴</p>
             {allowedMenuList.map((item, index) => {

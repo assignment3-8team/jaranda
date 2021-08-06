@@ -1,11 +1,6 @@
 import React from "react";
 import InputInfo from "utils/commons/InputInfo";
-import {
-  RE_PASSWORD_INPUT_ID,
-  RE_PASSWORD_INPUT_NAME,
-  RE_PASSWORD_INPUT_PLACEHOLDER,
-  RE_PASSWORD_INPUT_TYPE,
-} from "utils/constants/INPUT";
+import { RE_PASSWORD_INPUT_ID, RE_PASSWORD_INPUT_NAME, RE_PASSWORD_INPUT_PLACEHOLDER, RE_PASSWORD_INPUT_TYPE } from "constants/INPUT";
 
 function RePassword(props) {
   const { handleChange } = props;

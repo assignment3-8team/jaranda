@@ -1,7 +1,4 @@
-import {
-  ADDRESS_POPUP_HEIGHT,
-  ADDRESS_POPUP_WIDTH,
-} from "utils/constants/POPUP_SIZE";
+import { ADDRESS_POPUP_HEIGHT, ADDRESS_POPUP_WIDTH } from "constants/POPUP_SIZE";
 
 function Address(props) {
   const { handleAddress, address } = props;
@@ -9,11 +6,11 @@ function Address(props) {
   const handleClick = () => {
     window.daum.postcode.load(() => {
       const postcode = new window.daum.Postcode({
-        oncomplete: (data) => {
+        oncomplete: data => {
           const toBuildingAddress = `${data.address} ${data.buildingName}`;
           handleAddress(toBuildingAddress);
         },
-        onsearch: (data) => {
+        onsearch: data => {
           console.log(data);
         },
         width: ADDRESS_POPUP_WIDTH,
@@ -30,14 +27,8 @@ function Address(props) {
 
   return (
     <div className="address-input-wrapper">
-      <div className="address-show">
-        {address.length !== 0 ? address : "주소"}
-      </div>
-      <button
-        type="button"
-        className="address-input-button"
-        onClick={handleClick}
-      >
+      <div className="address-show">{address.length !== 0 ? address : "주소"}</div>
+      <button type="button" className="address-input-button" onClick={handleClick}>
         주소 검색
       </button>
     </div>

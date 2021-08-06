@@ -9,17 +9,7 @@ import Address from "components/Address";
 import Age from "./Age";
 
 function SignUp(props) {
-  const {
-    handleEmail,
-    handlePassword,
-    handleRePassword,
-    handleName,
-    handleAge,
-    handleCreditcard,
-    handleAddress,
-    creditcard,
-    address,
-  } = props;
+  const { handleEmail, handlePassword, handleRePassword, handleName, handleAge, handleCreditcard, handleAddress, creditcard, address } = props;
 
   return (
     <div className="signup-items">
@@ -28,16 +18,8 @@ function SignUp(props) {
       <RePassword className="signup-item" handleChange={handleRePassword} />
       <Name className="signup-item" handleChange={handleName} />
       <Age className="signup-item" handleChange={handleAge} />
-      <CreditCard
-        className="signup-item"
-        handleChange={handleCreditcard}
-        creditcard={creditcard}
-      />
-      <Address
-        className="signup-item"
-        handleAddress={handleAddress}
-        address={address}
-      />
+      <CreditCard className="signup-item" handleChange={handleCreditcard} creditcard={creditcard} />
+      <Address className="signup-item" handleAddress={handleAddress} address={address} />
     </div>
   );
 }

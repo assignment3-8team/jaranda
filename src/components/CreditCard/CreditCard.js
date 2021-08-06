@@ -1,8 +1,8 @@
 import React from "react";
 
 import InputInfo from "utils/commons/InputInfo";
-import { CREDITCARD_INPUT_ID, CREDITCARD_INPUT_NAME, CREDITCARD_INPUT_PLACEHOLDER, CREDITCARD_INPUT_TYPE } from "utils/constants/INPUT";
-import { CREDITCARD_MODAL_HEIGHT, CREDITCARD_MODAL_WIDTH } from "utils/constants/POPUP_SIZE";
+import { CREDITCARD_INPUT_ID, CREDITCARD_INPUT_NAME, CREDITCARD_INPUT_PLACEHOLDER, CREDITCARD_INPUT_TYPE } from "constants/INPUT";
+import { CREDITCARD_MODAL_HEIGHT, CREDITCARD_MODAL_WIDTH } from "constants/POPUP_SIZE";
 import { useModal } from "hooks/useModal";
 
 function CreditCard(props) {

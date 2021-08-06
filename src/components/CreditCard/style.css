@@ -1,4 +1,5 @@
 .creditcard-input-wrapper {
+  margin-top: 4px;
   width: 25vw;
   max-width: 450px;
   min-width: 320px;
@@ -21,6 +22,7 @@
   text-align: start;
   display: flex;
   align-items: center;
+  padding-left: 8px;
 }
 
 .creditcard-input-button,
@@ -35,5 +37,5 @@
 }
 
 .creditcard-popup-button {
-  margin-bottom: 8px;
+  margin-top: 4px;
 }

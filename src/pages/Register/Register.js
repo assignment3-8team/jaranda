@@ -89,7 +89,6 @@ const Register = props => {
 
   return (
     <div className="register-page">
-      <div className="register-page-title">회원 가입</div>
       <SignUp
         className="signup-wrapper"
         handleEmail={setEmail}

@@ -1,6 +1,11 @@
+import PageHeader from "pages/PageHeader";
+
 const Parent = (props) => {
     return (
-        <div>부모님 페이지</div>
+        <>
+        <PageHeader title="부모님 페이지" englishTitle="Parent Page"/>
+        부모님 페이지 입니다.
+        </>
     )
 }
 

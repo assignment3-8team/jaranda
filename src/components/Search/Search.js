@@ -32,7 +32,7 @@ const Search = (props) => {
 
   return (
     <>
-      <input className="search-input" ref={inputRef} type="serch" placeholder="이름으로 검색" onKeyPress={onKeyPress} />
+      <input className="search-input" ref={inputRef} type="serch" placeholder="이름 또는 이메일 검색" onKeyPress={onKeyPress} />
       <button className="search-button" type="submit" onClick={onClick}>
         검색
       </button>

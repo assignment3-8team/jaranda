@@ -1,1 +1,3 @@
-export { Search } from "./index";
+import Search from './Search'
+
+export default Search;

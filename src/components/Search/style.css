@@ -2,4 +2,7 @@
 }
 
 .search-button {
+    height: 23px;
+    color: white;
+    background-color: #93BD57;
 }

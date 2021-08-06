@@ -10,7 +10,7 @@
 | ------ | ------------------------------------------------------------------------------------------ |
 | 김준영 | 로그인 기능 구현, input validation 및 form validation 기능, strapi를 사용한 api 개발       |
 | 박민혁 | 검색기능 컴포넌트 구현 및 적용                                                             |
-| 서희영 | Singup, Modal 컴포넌트 구현                                                                |
+| 서희영 | Singup, Modal 컴포넌트 구현                                                          |
 | 조영후 | Header 및 userTable, pagination 컴포넌트 구현                                              |
 | 이선화 | strapi를 사용한 api개발, 허용메뉴설정 컴포넌트 UI구성 및 api 연동, UserDetails 페이지 작업 |
 

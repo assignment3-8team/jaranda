@@ -15,8 +15,8 @@ const Router = () => {
       <RouteIf exact path="/student" targetMenu="student_menu" component={Student} />
       <RouteIf exact path="/parent" targetMenu="parent_menu" component={Parent} />
       <RouteIf exact path="/teacher" targetMenu="teacher_menu" component={Teacher} />
-      <RouteIf exact path="/admin/table" targetMenu="admin_menu" component={TablePage} />
-      <RouteIf exact path="/admin/table/:id" targetMenu="admin_menu" component={UserInfoPage} />
+      <Route exact path="/admin/table" component={TablePage} />
+      <Route exact path="/admin/table/:id" component={UserInfoPage} />
       <Route exact path="/" component={Home} />
       <Route component={page404} />
     </Switch>

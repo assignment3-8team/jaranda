@@ -37,6 +37,7 @@
   justify-content: center;
   width: 70%;
   background-color: #ffffff;
+  cursor: pointer;
 }
 .allowed-zone input,
 .not-allowed-zone input {

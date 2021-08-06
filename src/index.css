@@ -38,6 +38,7 @@ button {
   width: 25vw;
   max-width: 450px;
   min-width: 320px;
+  flex: none;
   display: flex;
 }
 

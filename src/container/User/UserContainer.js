@@ -1,16 +1,16 @@
 import { useState } from "react";
 import { createContainer } from "unstated-next";
-import axios from "axios";
 import { globalEnv } from "../../config/env";
+import axios from "axios";
 
 const useUserContainer = () => {
-  const user = localStorage.getItem("user")
+  const user = localStorage.getItem("user");
   const [userInfo, setUserInfo] = useState(user ? JSON.parse(user) : null);
 
   const onUpdateUserInfo = (id, data) => {
     axios({
       headers: {
-        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjksImlhdCI6MTYyODE3OTc4MCwiZXhwIjoxNjMwNzcxNzgwfQ.Gftp_Y7568IulQvlfJua03hYSaOBLDAvOCiIsZ0WsEk`,
+        Authorization: `Bearer ${userInfo.jwt}`,
       },
       method: "put",
       url: `${globalEnv.API_ENDPOINT}/users/${id}`,
@@ -40,21 +40,7 @@ const useUserContainer = () => {
       });
   };
 
-  const logIn = () => {
-    axios({
-      method: "post",
-      url: `${globalEnv.API_ENDPOINT}/auth/local`,
-      data: { identifier: "admin@admin.com", password: "string12" },
-    })
-      .then(response => {
-        setUserInfo(response.data.user);
-      })
-      .catch(err => {
-        console.log(err);
-      });
-  };
-
-  return { userInfo, setUserInfo, onUpdateUserInfo, onRegisterUser, logIn };
+  return { userInfo, setUserInfo, onUpdateUserInfo, onRegisterUser };
 };
 
 export const UserContainer = createContainer(useUserContainer);

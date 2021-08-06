@@ -5,16 +5,19 @@ import { globalEnv } from "../../config/env";
 
 const useUserContainer = () => {
   const [userInfo, setUserInfo] = useState();
-  // unstated-next 예시 테스트코드
 
   const onUpdateUserInfo = (id, data) => {
     axios({
+      headers: {
+        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MjksImlhdCI6MTYyODE3OTc4MCwiZXhwIjoxNjMwNzcxNzgwfQ.Gftp_Y7568IulQvlfJua03hYSaOBLDAvOCiIsZ0WsEk`,
+      },
       method: "put",
-      url: `${globalEnv.API_ENDPOINT}/user/${id}`,
+      url: `${globalEnv.API_ENDPOINT}/users/${id}`,
       data,
     })
       .then(response => {
         console.log(response);
+        alert("변경이 완료되었습니다 👍");
       })
       .catch(err => {
         console.log(err);
@@ -29,6 +32,7 @@ const useUserContainer = () => {
     })
       .then(response => {
         console.log(response);
+        alert("생성이 완료되었습니다 🙆‍♀️");
       })
       .catch(err => {
         console.log(err);

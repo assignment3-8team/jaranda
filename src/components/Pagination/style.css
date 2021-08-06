@@ -14,6 +14,8 @@
 .pagination > tbody td {
   text-align: center;
   width: 2em;
+  margin: 0;
+  padding: 0;
   color: gray;
 }
 
@@ -21,21 +23,20 @@
   cursor: pointer;
 }
 
-.pagination > tbody td:nth-child(3) > p {
+.pagination > tbody td:nth-child(3) > span {
   color: black;
   background-color: #93BD57;
 }
 
-.pagination > tbody p {
+.pagination > tbody span {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0;
   width: 2em;
   height: 2em;
 }
 
-.pagination > tbody td > p:hover {
+.pagination > tbody td > span:hover {
   border: 2px solid #93BD57;
   cursor: pointer;
 }

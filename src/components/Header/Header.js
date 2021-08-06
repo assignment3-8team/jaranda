@@ -9,9 +9,9 @@ import { UserContainer } from "container/User";
 const Header = (props) => {
 
     const { userInfo, setUserInfo } = UserContainer.useContainer();
-    console.log(userInfo);
 
     const handleClickLogout = () => {
+        localStorage.removeItem("user")
         setUserInfo(prevState => null);
         props.history.push({
             pathname: '/',

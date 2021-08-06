@@ -19,6 +19,17 @@ const ManageMenu = props => {
   const [address, setAddress] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
+  const initializeInfo = () => {
+    setEmail("");
+    setPassword("");
+    setRePassword("");
+    setName("");
+    setAge("");
+    setCreditcard("");
+    setAddress("");
+    setErrorMessage("");
+  };
+
   const filteredId = props => {
     return props.map(item => item.id);
   };
@@ -57,6 +68,7 @@ const ManageMenu = props => {
 
   const onSave = () => {
     id ? onUpdateUserInfo(id, Menudata) : onRegisterUser(data);
+    initializeInfo();
   };
 
   return (

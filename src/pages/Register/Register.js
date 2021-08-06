@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-
 import SignUp from "components/SignUp";
-import { VALID_CREDITCARD, VALID_EMAIL, VALID_PASSWORD } from "utils/constants/INPUT";
+import { VALID_CREDITCARD, VALID_EMAIL, VALID_PASSWORD } from "constants/INPUT";
 import { globalEnv } from "config/env";
 import PageHeader from "pages/PageHeader";
 
@@ -15,6 +14,17 @@ const Register = props => {
   const [creditcard, setCreditcard] = useState("");
   const [address, setAddress] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+
+  const initializeInfo = () => {
+    setEmail("");
+    setPassword("");
+    setRePassword("");
+    setName("");
+    setAge("");
+    setCreditcard("");
+    setAddress("");
+    setErrorMessage("");
+  };
 
   const validateInput = () => {
     if (!VALID_EMAIL.test(email)) {
@@ -62,17 +72,19 @@ const Register = props => {
       },
     })
       .then(res => res.json())
-      .then(response => console.log(response))
+      .then(response => {
+        console.log(response);
+        alert("가입이 완료되었습니다 🙆‍♀️");
+        initializeInfo();
+        history.push({ pathname: "/" });
+      })
       .catch(error => console.error(error));
   };
 
   const handleSubmit = () => {
     const validateResult = validateInput();
-    console.log(errorMessage);
     if (validateResult) {
       postUserInfo();
-      setErrorMessage("");
-      history.push({ pathname: "/" });
     }
   };
 

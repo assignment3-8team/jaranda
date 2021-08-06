@@ -6,12 +6,14 @@ const RouteIf = ({ targetMenu, component: Component, ...rest }) => {
 
     const { userInfo } = UserContainer.useContainer();
     const allowedMenus = userInfo?.menus.map((e) => e.menu_name);
+    console.log(userInfo);
 
     return (
       <Route
         {...rest}
         render={props => {
-          if (!allowedMenus?.includes(targetMenu)) {
+          if ((targetMenu !== "admin_menu" && !allowedMenus?.includes(targetMenu))
+                || (targetMenu === "admin_menu" && !userInfo?.is_admin)) {
             return (
                 <div className='forbidden-page'>
                     <img src='/assets/forbiddenPage.svg'/>

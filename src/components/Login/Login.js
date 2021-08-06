@@ -2,6 +2,7 @@ import { useForm } from "../../hooks/useForm";
 import { LOGIN_FORM } from "../../constants/loginForm";
 import login from "utils/apis/login";
 import { UserContainer } from "container/User";
+import { withRouter } from "react-router";
 import "./style.css";
 
 const initialValues = {
@@ -45,6 +46,7 @@ const Login = props => {
       localStorage.setItem("user", JSON.stringify(user))
       setUserInfo(user)
       props.close()
+      props.history.push("/")
     } else {
       alert("이메일과 비밀번호를 다시 확인해주세요!");
     }
@@ -70,4 +72,4 @@ const Login = props => {
   );
 };
 
-export { Login };
+export default withRouter(Login) ;

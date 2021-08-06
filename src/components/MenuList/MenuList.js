@@ -7,7 +7,7 @@ import { useMemo } from "react";
 const MenuList = props => {
   const { userInfo } = UserContainer.useContainer();
   const { history } = props;
-
+  console.log(history.location.pathname)
   const findPath = useMemo(() => {
     const filterMenu = MENU_LIST.filter(item => {
       return userInfo?.menus?.some(userItem => item.menu_name === userItem.menu_name);
@@ -18,12 +18,12 @@ const MenuList = props => {
   return (
     <div className="menu-list">
       <ul>
-        <li className="menu-item" onClick={() => history.push("/")}>
+        <li className={history.location.pathname === "/" ? "menu-item focus" : "menu-item"} onClick={() => history.push("/")}>
           홈
         </li>
         {findPath.map((item, index) => (
           <li
-            className="menu-item"
+            className={item.path === history.location.pathname ? "menu-item focus" : "menu-item"}
             onClick={() => {
               history.push(item.path);
             }}

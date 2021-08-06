@@ -4,9 +4,6 @@
   margin: auto;
   max-width: 300px;
   padding: 30px;
-  border-radius: 5px;
-  border: 1px solid #16324f69;
-  background-color: #fff;
 }
 
 .login_form > h2,
@@ -40,8 +37,9 @@ input {
   outline: none;
   flex: 0 0 170px;
   margin: 15px auto;
-  background-color: #16324f;
-  color: #fff;
+  background-color: #87bf44;
+  color: black;
+  font-weight: bolder;
   border: none;
   height: 30px;
   border-radius: 5px;

@@ -9,18 +9,6 @@
   align-items: center;
 }
 
-.register-page-title {
-  font-size: 1.5rem;
-  text-align: center;
-  font-weight: bold;
-  margin-top: 10px;
-  margin-bottom: 48px;
-}
-
-.signup-wrapper {
-  margin-bottom: 20px;
-}
-
 .register-submit {
   margin-top: 40px;
 }

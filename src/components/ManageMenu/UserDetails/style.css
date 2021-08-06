@@ -1,0 +1,10 @@
+.card-content {
+  width: 640px;
+}
+
+.card-title {
+  margin: 20px 0;
+}
+.card-content .card-title > strong {
+  margin-right: 10px;
+}

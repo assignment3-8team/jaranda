@@ -1,0 +1,19 @@
+* {
+    box-sizing: border-box;
+}
+
+.content-wrap {
+    display: flex;
+    justify-content: center;
+}
+
+.content-wrap > .main-content {
+    width: 1150px;
+    display: flex;
+}
+
+.page-wrap {
+    padding: 0 0 0 1em;
+    width: 870px;
+    height: 500px;
+}

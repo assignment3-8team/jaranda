@@ -1,0 +1,47 @@
+.login_form {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  max-width: 300px;
+  padding: 30px;
+}
+
+.login_form > h2,
+input {
+  margin: 15px auto;
+  flex: 1 0 100%;
+}
+
+.login_form > h2 {
+  text-align: center;
+}
+.login_form > p {
+  margin: 0;
+  color: red;
+  font-size: 12px;
+}
+.login_form > input {
+  border: none;
+  outline: none;
+  padding-bottom: 5px;
+  border-bottom: 1px solid rgba(211, 203, 203, 0.747);
+}
+
+
+.login_form > input:focus {
+  border-bottom: 1px solid black;
+}
+
+.login_btn {
+  cursor: pointer;
+  outline: none;
+  flex: 0 0 170px;
+  margin: 15px auto;
+  background-color: #87bf44;
+  color: black;
+  font-weight: bolder;
+  border: none;
+  height: 30px;
+  border-radius: 5px;
+  font-size: 15px;
+}

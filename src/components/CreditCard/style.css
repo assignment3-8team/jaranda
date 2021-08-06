@@ -1,0 +1,41 @@
+.creditcard-input-wrapper {
+  margin-top: 4px;
+  width: 25vw;
+  max-width: 450px;
+  min-width: 320px;
+  flex: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.creditcard-input-show {
+  font-size: 1rem;
+  overflow: hidden;
+  flex: 1;
+  height: 44px;
+  border-radius: 2px;
+  border: 1px solid #ccc;
+  color: #ccc;
+  letter-spacing: normal;
+  text-align: start;
+  display: flex;
+  align-items: center;
+  padding-left: 8px;
+}
+
+.creditcard-input-button,
+.creditcard-popup-button {
+  width: 80px;
+  background-color: #88bf45;
+  color: #fff;
+  font-size: 1rem;
+  height: 44px;
+  padding: 0 8px;
+  margin-left: 6px;
+}
+
+.creditcard-popup-button {
+  margin-top: 4px;
+}

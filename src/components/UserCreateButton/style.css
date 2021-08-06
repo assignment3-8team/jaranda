@@ -1,0 +1,19 @@
+.user-create-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 100px;
+    font-size: 18px;
+    border-radius: 20px;
+    background-color: #93BD57;
+}
+
+.user-create-button > img {
+    width: 18px;
+    margin: 0 5px;
+}
+
+.user-create-button > span {
+    transform: translate(0, 1px);
+}

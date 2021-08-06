@@ -1,6 +1,11 @@
+import PageHeader from "pages/PageHeader";
+
 const Teacher = (props) => {
     return (
-        <div>선생님 페이지</div>
+        <>
+        <PageHeader title="선생님 페이지" englishTitle="Teacher Page"/>
+        선생님 페이지 입니다.
+        </>
     )
 }
 

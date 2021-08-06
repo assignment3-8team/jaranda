@@ -1,0 +1,42 @@
+.pagination-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 3em;
+}
+
+.pagination {
+  font-size: 1.3em;
+  height: 2em;
+  border-spacing: 0;
+}
+
+.pagination > tbody td {
+  text-align: center;
+  width: 2em;
+  margin: 0;
+  padding: 0;
+  color: gray;
+}
+
+.pagination > tbody img {
+  cursor: pointer;
+}
+
+.pagination > tbody td:nth-child(3) > span {
+  color: black;
+  background-color: #93BD57;
+}
+
+.pagination > tbody span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2em;
+  height: 2em;
+}
+
+.pagination > tbody td > span:hover {
+  border: 2px solid #93BD57;
+  cursor: pointer;
+}

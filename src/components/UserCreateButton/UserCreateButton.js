@@ -1,12 +1,12 @@
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
 import { withRouter } from "react-router-dom";
 import "./style.css";
 
 const UserCreateButton = props => {
-  const userData = {
+  const userData = useMemo(() => ({
     menus: [],
     create: true,
-  };
+  }), []);
 
   const handleOnClickBtn = useCallback(() => {
     props.history.push({

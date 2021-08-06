@@ -1,10 +1,11 @@
 # 프리온보딩 Assignment 3 - [jaranda]
+[🏄🏻 Assignment3 자란다](https://www.notion.so/Assignment-3-9fdda37ca68a4748a3e034d80e4533ef)
 
 ## Objective
 
 ![화면 기록 2021-08-06 오후 4 08 02](https://user-images.githubusercontent.com/61695175/128471332-356e4ac6-a3d6-4a87-a346-4e33853441a2.gif)
 
-[🏄🏻 Assignment3 자란다](https://www.notion.so/Assignment-3-9fdda37ca68a4748a3e034d80e4533ef)
+
 
 ## 1. 팀원별 과제 구현 파트 😎
 
@@ -62,7 +63,12 @@
 
 > Netlify 무료배포 사이트를 이용하였습니다.
 
-> https://reverent-leavitt-b468d2.netlify.app
+[자란다 사이트 GO 🏄🏻](https://reverent-leavitt-b468d2.netlify.app)
+
+어드민 계정 정보 
+| ID              | P/W           |
+| ----------------|-------------- |
+| admin@admin.com | string12      |
 
 ## Reference
 
@@ -70,4 +76,4 @@
 
 디자인 참조 - [피그마](https://www.figma.com/file/OL0x0hPOjonwF0Vl9jVuKD/Untitled?node-id=5%3A2)
 
-api 참조 - [api명세서](https://alpine-principle-c26.notion.site/api-b50d60e7dd3f47c4878fdc0b12a5e176)
+api 참조 (테스트 계정 정보 포함) - [api명세서](https://alpine-principle-c26.notion.site/api-b50d60e7dd3f47c4878fdc0b12a5e176)

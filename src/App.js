@@ -1,7 +1,7 @@
 import "./App.css";
 import Header from "components/Header";
 import MenuList from "components/MenuList";
-import Routes from "./Router";
+import Router from "./Router";
 
 const App = () => {
   return (
@@ -11,7 +11,7 @@ const App = () => {
         <div className="main-content">
           <MenuList />
           <div className="page-wrap">
-            <Routes />
+            <Router />
           </div>
         </div>
       </div>

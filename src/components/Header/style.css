@@ -10,7 +10,7 @@
     justify-content: center;
     height: 3em;
     width: 100%;
-    background-color: #D2EEC0;
+    background-color: #93BD57;
 }
 
 .nav-contents {
@@ -61,4 +61,10 @@
 
 .btn-wrap > .on-boarding {
     font-weight: bold;
+}
+
+.on-boarding > button {
+    background-color: rgba(255, 255, 255, 0);
+    font-weight: bold;
+    font-size: 15px;
 }

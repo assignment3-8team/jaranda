@@ -10,7 +10,7 @@
 }
 
 .register-submit {
-  margin-top: 40px;
+  margin-top: 5px;
 }
 
 .register-button {
@@ -19,7 +19,7 @@
   font-size: 1.1rem;
   width: 25vw;
   max-width: 450px;
-  min-width: 300px;
+  min-width: 320px;
   height: 44px;
   padding: 0 16px;
   font-weight: bold;

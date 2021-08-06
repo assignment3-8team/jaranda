@@ -62,3 +62,9 @@
 .btn-wrap > .on-boarding {
     font-weight: bold;
 }
+
+.on-boarding > button {
+    background-color: rgba(255, 255, 255, 0);
+    font-weight: bold;
+    font-size: 15px;
+}

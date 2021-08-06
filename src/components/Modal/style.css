@@ -11,8 +11,13 @@
 }
 
 .modal-container {
-  width: 500px;
-  height: 300px;
   background-color: #fff;
   padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 5px 10px 10px 1px rgba(0,0,0,0.3);
 }

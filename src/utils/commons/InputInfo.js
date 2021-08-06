@@ -1,9 +1,9 @@
 import React from "react";
 
-const InputInfo = (props) => {
+const InputInfo = props => {
   const { labelfor, labelname, type, placeholder, handleChange } = props;
   return (
-    <>
+    <div className="common-input-wrapper">
       <label htmlFor={labelfor}></label>
       <input
         className="common-input"
@@ -11,10 +11,10 @@ const InputInfo = (props) => {
         id={labelfor}
         name={labelname}
         placeholder={placeholder}
-        onChange={(e) => handleChange(e.target.value)}
+        onChange={e => handleChange(e.target.value)}
         noValidate
       />
-    </>
+    </div>
   );
 };
 

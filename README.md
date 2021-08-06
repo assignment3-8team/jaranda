@@ -60,7 +60,7 @@
 
 ## 5. 배포
 
-> Netlify 무료배포 사이트를 아용하였습니다.
+> Netlify 무료배포 사이트를 이용하였습니다.
 
 > https://reverent-leavitt-b468d2.netlify.app
 

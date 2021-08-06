@@ -12,7 +12,6 @@ const login = async payload => {
 
   try {
     const res = await fetch(url, config);
-    console.log(res);
     if (!res.ok) throw new Error("로그인 실패");
     return res.json();
   } catch (e) {

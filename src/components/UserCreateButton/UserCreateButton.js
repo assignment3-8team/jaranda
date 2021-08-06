@@ -13,11 +13,11 @@ const UserCreateButton = props => {
       pathname: "/admin/table/create",
       state: userData,
     });
-  });
+  }, [props.history, userData]);
 
   return (
     <button className="user-create-button" onClick={handleOnClickBtn}>
-      <img src="/assets/userPlus.svg" />
+      <img alt="createUser" src="/assets/userPlus.svg" />
       <span>New</span>
     </button>
   );

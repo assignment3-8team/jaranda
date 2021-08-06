@@ -40,12 +40,13 @@ const Header = (props) => {
             <div className="logo-circle">
               <img
               onClick={handleClickLogo} 
+              alt='jarandaLogo'
               src="/assets/jarandaCircleLogo.png" />
             </div>
             <div className="btn-wrap">
                 { userInfo ? 
                     <div className="my-name">
-                        <img src="/assets/userLogo.png" />
+                        <img alt='userLogo' src="/assets/userLogo.png" />
                         {userInfo.username}
                     </div>
                     :

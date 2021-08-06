@@ -10,7 +10,6 @@ const getUsersInfo = async token => {
 
   try {
     const res = await fetch(url, config);
-    console.log(res);
     if (!res.ok) throw new Error("유저 데이터 요청 실패");
     return await res.json();
   } catch (e) {

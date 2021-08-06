@@ -9,14 +9,14 @@ const Pagination = props => {
             setPageIndex(prevState => prevState - 1)
         :
             setPageIndex(prevState => prevState + 1)
-    }) 
+    },[setPageIndex]) 
 
   return (
     <section className="pagination-wrap">
       <table className="pagination">
         <tbody>
           <tr>
-            <td>{pageIndex - 1 === 0 ? null : <img onClick={() => handleOnClickTd('left')} src="/assets/leftPage.png" />}</td>
+            <td>{pageIndex - 1 === 0 ? null : <img onClick={() => handleOnClickTd('left')} alt="leftPage" src="/assets/leftPage.png" />}</td>
             <td onClick={pageIndex - 1 === 0 ? null : () => handleOnClickTd('left')}>
               {pageIndex - 1 === 0 ? null : <p>{pageIndex - 1}</p>}
             </td>
@@ -24,7 +24,7 @@ const Pagination = props => {
             <td onClick={pageIndex + 1 > maxIndex ? null : () => handleOnClickTd('right')}>
               {pageIndex + 1 > maxIndex ? null : <p>{pageIndex + 1}</p>}
             </td>
-            <td>{pageIndex + 1 > maxIndex ? null : <img onClick={() => handleOnClickTd('right')} src="/assets/rightPage.png" />}</td>
+            <td>{pageIndex + 1 > maxIndex ? null : <img onClick={() => handleOnClickTd('right')} alt="rightPage" src="/assets/rightPage.png" />}</td>
           </tr>
         </tbody>
       </table>

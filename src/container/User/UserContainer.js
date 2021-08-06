@@ -4,7 +4,8 @@ import axios from "axios";
 import { globalEnv } from "../../config/env";
 
 const useUserContainer = () => {
-  const [userInfo, setUserInfo] = useState();
+  const user = localStorage.getItem("user")
+  const [userInfo, setUserInfo] = useState(user ? JSON.parse(user) : null);
 
   const onUpdateUserInfo = (id, data) => {
     axios({

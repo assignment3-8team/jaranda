@@ -38,7 +38,12 @@ const Login = props => {
     };
     const res = await login(payload);
     if (res) {
-      setUserInfo(res.user)
+      const user = {
+        jwt : res.jwt,
+        ...res.user
+      }
+      localStorage.setItem("user", JSON.stringify(user))
+      setUserInfo(user)
       props.close()
     } else {
       alert("이메일과 비밀번호를 다시 확인해주세요!");

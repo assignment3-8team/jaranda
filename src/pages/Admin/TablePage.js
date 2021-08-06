@@ -4,7 +4,6 @@ import Table from "components/Table";
 import Pagination from "components/Pagination";
 import UserCreateButton from "components/UserCreateButton";
 import Search from "components/Search";
-import postLogin from "utils/apis/postLogin";
 import getUsersInfo from "utils/apis/getUsersInfo";
 import { UserContainer } from "container/User";
 
@@ -15,13 +14,15 @@ const TablePage = props => {
   const [isLoading, setIsLoading] = useState(false);
   const { userInfo } = UserContainer.useContainer();
 
-  useEffect(async () => {
-    setIsLoading(true);
-    const usersDataRes = await getUsersInfo(userInfo.jwt);
-    setUsersData(prevState => usersDataRes);
-    setSearchedData(prevState => usersDataRes);
-    setIsLoading(false);
-  }, []);
+  useEffect(() => {
+    (async function() {
+        setIsLoading(true);
+        const usersDataRes = await getUsersInfo(userInfo.jwt);
+        setUsersData(prevState => usersDataRes);
+        setSearchedData(prevState => usersDataRes);
+        setIsLoading(false);
+    })();
+  }, [userInfo.jwt]);
 
   const [pageIndex, setPageIndex] = useState(1);
   const maxIndex = Math.ceil(searchedData.length / 6);
@@ -39,7 +40,7 @@ const TablePage = props => {
       </header>
       {isLoading ? (
         <div className="loading-wrap">
-          <img src="/assets/isLoading.gif" />
+          <img alt="isLoading" src="/assets/isLoading.gif" />
         </div>
       ) : (
         <>

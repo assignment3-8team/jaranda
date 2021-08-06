@@ -6,7 +6,7 @@ const Home = (props) => {
         <>
         <PageHeader title="홈" englishTitle="Home"/>
         <section className='home-content'>
-            <img src='/assets/home.svg'/>
+            <img alt="homeContent" src='/assets/home.svg'/>
         </section>
         </> 
     );

@@ -21,7 +21,7 @@ export const RE_PASSWORD_INPUT_TYPE = "password";
 
 export const CREDITCARD_INPUT_NAME = "creditcard";
 export const CREDITCARD_INPUT_ID = "creditcard";
-export const CREDITCARD_INPUT_PLACEHOLDER = "숫자만 입력하세요";
+export const CREDITCARD_INPUT_PLACEHOLDER = "숫자 16자리만 입력하세요";
 export const CREDITCARD_INPUT_TYPE = "text";
 
 export const AGE_INPUT_NAME = "age";

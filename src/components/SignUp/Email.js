@@ -8,7 +8,7 @@ function Email(props) {
     <InputInfo
       type={EMAIL_INPUT_TYPE}
       id={EMAIL_INPUT_ID}
-      name={EMAIL_INPUT_NAME}
+      value={EMAIL_INPUT_NAME}
       placeholder={EMAIL_INPUT_PLACEHOLDER}
       handleChange={handleChange}
     />

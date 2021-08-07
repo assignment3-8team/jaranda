@@ -6,6 +6,7 @@ import PageHeader from "pages/PageHeader";
 
 const Register = props => {
   const { history } = props;
+  /*
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [rePassword, setRePassword] = useState("");
@@ -13,8 +14,20 @@ const Register = props => {
   const [age, setAge] = useState(0);
   const [creditcard, setCreditcard] = useState("");
   const [address, setAddress] = useState("");
+  */
   const [errorMessage, setErrorMessage] = useState("");
 
+  const [newUser, setNewUser] = useState({
+    email: "",
+    password: "",
+    rePassword: "",
+    name: "",
+    age: 0,
+    creditcard: "",
+    address: "",
+  });
+
+  /*
   const initializeInfo = () => {
     setEmail("");
     setPassword("");
@@ -51,22 +64,12 @@ const Register = props => {
     }
     return 1;
   };
-
+*/
   const postUserInfo = () => {
-    const userInfo = {
-      email: email,
-      username: name,
-      password: password,
-      card_info: creditcard,
-      address: address,
-      age: age,
-      is_admin: false,
-      menus: [],
-    };
     const url = `${globalEnv.API_ENDPOINT}/auth/local/register`;
     fetch(url, {
       method: "POST",
-      body: JSON.stringify(userInfo),
+      body: JSON.stringify(newUser),
       headers: {
         "Content-Type": "application/json",
       },
@@ -75,7 +78,7 @@ const Register = props => {
       .then(response => {
         console.log(response);
         alert("가입이 완료되었습니다 🙆‍♀️");
-        initializeInfo();
+        //initializeInfo();
         history.push({ pathname: "/" });
       })
       .catch(error => console.error(error));
@@ -90,27 +93,27 @@ const Register = props => {
 
   return (
     <>
-    <PageHeader title="회원가입" englishTitle="Sign Up"/>
-    <div className="register-page">
-      <SignUp
-        className="signup-wrapper"
-        handleEmail={setEmail}
-        handlePassword={setPassword}
-        handleRePassword={setRePassword}
-        handleName={setName}
-        handleAge={setAge}
-        handleCreditcard={setCreditcard}
-        handleAddress={setAddress}
-        creditcard={creditcard}
-        address={address}
-      />
-      <div className="register-error-message">{errorMessage.length !== 0 ? errorMessage : null}</div>
-      <div className="register-submit">
-        <button type="button" className="register-button" onClick={handleSubmit}>
-          가입하기
-        </button>
+      <PageHeader title="회원가입" englishTitle="Sign Up" />
+      <div className="register-page">
+        <SignUp
+          className="signup-wrapper"
+          handleEmail={setEmail}
+          handlePassword={setPassword}
+          handleRePassword={setRePassword}
+          handleName={setName}
+          handleAge={setAge}
+          handleCreditcard={setCreditcard}
+          handleAddress={setAddress}
+          creditcard={creditcard}
+          address={address}
+        />
+        <div className="register-error-message">{errorMessage.length !== 0 ? errorMessage : null}</div>
+        <div className="register-submit">
+          <button type="button" className="register-button" onClick={handleSubmit}>
+            가입하기
+          </button>
+        </div>
       </div>
-    </div>
     </>
   );
 };

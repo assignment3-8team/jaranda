@@ -1,18 +1,21 @@
-# 프리온보딩 Assignment 2 - [jaranda]
+# 프리온보딩 Assignment 3 - [jaranda]
+[🏄🏻 Assignment3 자란다](https://www.notion.so/Assignment-3-9fdda37ca68a4748a3e034d80e4533ef)
 
 ## Objective
 
-[🏄🏻 Assignment3 자란다](https://www.notion.so/Assignment-3-9fdda37ca68a4748a3e034d80e4533ef)
+![화면 기록 2021-08-06 오후 4 08 02](https://user-images.githubusercontent.com/61695175/128471332-356e4ac6-a3d6-4a87-a346-4e33853441a2.gif)
+
+
 
 ## 1. 팀원별 과제 구현 파트 😎
 
-| 이름   | 구현파트                                                                                   |
-| ------ | ------------------------------------------------------------------------------------------ |
-| 김준영 | 로그인 기능 구현, input validation 및 form validation 기능, strapi를 사용한 api 개발       |
-| 박민혁 | 검색기능 컴포넌트 구현 및 적용                                                             |
-| 서희영 | Singup, Modal 컴포넌트 구현                                                          |
-| 조영후 | Header 및 userTable, pagination 컴포넌트 구현                                              |
-| 이선화 | strapi를 사용한 api개발, 허용메뉴설정 컴포넌트 UI구성 및 api 연동, UserDetails 페이지 작업 |
+| 이름   | 구현파트                                                                                    |
+| ------ | ------------------------------------------------------------------------------------------- |
+| 김준영 | 로그인 기능 구현, input validation 및 form validation 기능, strapi를 사용한 api 개발        |
+| 박민혁 | 검색기능 컴포넌트 구현 및 적용                                                              |
+| 서희영 | 회원가입(SignUp) 관련 및 Modal 팝업 컴포넌트 구현, Register 페이지 구성 및 api 연동         |
+| 조영후 | main Header, Page Header, user Table, table Pagination, admin TablePage, RouteIf            |
+| 이선화 | strapi를 사용한 api개발, 허용메뉴 설정 컴포넌트 UI구성 및 api 연동, UserDetails 페이지 작업 |
 
 ## 2. 설치 및 시작하는 법
 
@@ -56,10 +59,21 @@
 2. 권한이 필요한 페이지에 링크로 접속할 경우를 제한하기 위해 hoc을 만들 때 사용
 3. api 통신 Authorization에 사용
 
+## 5. 배포
+
+> Netlify 무료배포 사이트를 이용하였습니다.
+
+[자란다 사이트 GO 🏄🏻](https://reverent-leavitt-b468d2.netlify.app)
+
+어드민 계정 정보 
+| ID              | P/W           |
+| ----------------|-------------- |
+| admin@admin.com | string12      |
+
 ## Reference
 
 미팅로그 참조 - [미팅로그](https://www.notion.so/jaranda-b6d2e1e0c0504191a68795bfbd17f3c4)
 
 디자인 참조 - [피그마](https://www.figma.com/file/OL0x0hPOjonwF0Vl9jVuKD/Untitled?node-id=5%3A2)
 
-api 참조 - [api명세서](https://alpine-principle-c26.notion.site/api-b50d60e7dd3f47c4878fdc0b12a5e176)
+api 참조 (테스트 계정 정보 포함) - [api명세서](https://alpine-principle-c26.notion.site/api-b50d60e7dd3f47c4878fdc0b12a5e176)

@@ -18,11 +18,11 @@ const Pagination = props => {
           <tr>
             <td>{pageIndex - 1 === 0 ? null : <img onClick={() => handleOnClickTd('left')} alt="leftPage" src="/assets/leftPage.png" />}</td>
             <td onClick={pageIndex - 1 === 0 ? null : () => handleOnClickTd('left')}>
-              {pageIndex - 1 === 0 ? null : <p>{pageIndex - 1}</p>}
+              {pageIndex - 1 === 0 ? null : <span>{pageIndex - 1}</span>}
             </td>
-            <td><p>{pageIndex}</p></td>
+            <td><span>{pageIndex}</span></td>
             <td onClick={pageIndex + 1 > maxIndex ? null : () => handleOnClickTd('right')}>
-              {pageIndex + 1 > maxIndex ? null : <p>{pageIndex + 1}</p>}
+              {pageIndex + 1 > maxIndex ? null : <span>{pageIndex + 1}</span>}
             </td>
             <td>{pageIndex + 1 > maxIndex ? null : <img onClick={() => handleOnClickTd('right')} alt="rightPage" src="/assets/rightPage.png" />}</td>
           </tr>

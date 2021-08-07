@@ -54,7 +54,12 @@ const ManageMenu = props => {
   };
 
   const data = {
-    ...newUser,
+    email: newUser.email,
+    username: newUser.name,
+    password: newUser.password,
+    card_info: newUser.creditcard,
+    address: newUser.address,
+    age: newUser.age,
     menus: checkedItem(allowedMenuList),
   };
 

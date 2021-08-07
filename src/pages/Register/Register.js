@@ -30,9 +30,19 @@ const Register = props => {
 
   const postUserInfo = () => {
     const url = `${globalEnv.API_ENDPOINT}/auth/local/register`;
+    const userInfo = {
+      email: newUser.email,
+      username: newUser.name,
+      password: newUser.password,
+      card_info: newUser.creditcard,
+      address: newUser.address,
+      age: newUser.age,
+      is_admin: false,
+      menus: [],
+    };
     fetch(url, {
       method: "POST",
-      body: JSON.stringify(newUser),
+      body: JSON.stringify(userInfo),
       headers: {
         "Content-Type": "application/json",
       },
@@ -47,6 +57,7 @@ const Register = props => {
   };
 
   const handleSubmit = () => {
+    console.log(newUser);
     postUserInfo();
   };
 
@@ -71,9 +82,6 @@ const Register = props => {
 
   const handleAddress = value => {
     setNewUser({ ...newUser, address: value });
-    if (newUser.address === "") {
-      setErrorMessage("주소를 입력하세요");
-    }
   };
 
   return (

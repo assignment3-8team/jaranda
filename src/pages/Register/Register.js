@@ -47,6 +47,7 @@ const Register = props => {
   };
 
   const handleSubmit = () => {
+    console.log(newUser);
     postUserInfo();
   };
 
@@ -71,9 +72,6 @@ const Register = props => {
 
   const handleAddress = value => {
     setNewUser({ ...newUser, address: value });
-    if (newUser.address === "") {
-      setErrorMessage("주소를 입력하세요");
-    }
   };
 
   return (

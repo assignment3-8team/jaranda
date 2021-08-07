@@ -26,6 +26,8 @@ const Register = props => {
     age: 0,
     creditcard: "",
     address: "",
+    is_admin: false,
+    menus: [],
   });
 
   const postUserInfo = () => {

@@ -1,7 +1,17 @@
 import "./style.css";
 import { useEffect, useState } from "react";
 import { ADMIN_MENU_LIST, MENU_NAME } from "constants/menuItem";
-
+import {
+  EMAIL_INPUT_PLACEHOLDER,
+  PASSWORD_INPUT_PLACEHOLDER,
+  RE_PASSWORD_INPUT_PLACEHOLDER,
+  VALID_CREDITCARD,
+  VALID_EMAIL,
+  VALID_PASSWORD,
+  USERNAME_INPUT_PLACEHOLDER,
+  AGE_INPUT_PLACEHOLDER,
+  CREDITCARD_INPUT_PLACEHOLDER,
+} from "constants/INPUT";
 import { UserContainer } from "container/User";
 import { UserDetails } from "./UserDetails";
 import SignUp from "components/SignUp";
@@ -11,21 +21,15 @@ const ManageMenu = props => {
   const { onUpdateUserInfo, onRegisterUser } = UserContainer.useContainer();
   const [allowedMenuList, setAllowedMenuList] = useState(ADMIN_MENU_LIST);
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [name, setName] = useState("");
-  const [age, setAge] = useState(0);
-  const [creditcard, setCreditcard] = useState("");
-  const [address, setAddress] = useState("");
-
-  const initializeInfo = () => {
-    setEmail("");
-    setPassword("");
-    setName("");
-    setAge("");
-    setCreditcard("");
-    setAddress("");
-  };
+  const [newUser, setNewUser] = useState({
+    email: "",
+    password: "",
+    rePassword: "",
+    name: "",
+    age: 0,
+    creditcard: "",
+    address: "",
+  });
 
   const filteredId = props => {
     return props.map(item => item.id);
@@ -50,12 +54,7 @@ const ManageMenu = props => {
   };
 
   const data = {
-    email: email,
-    username: name,
-    password: password,
-    card_info: creditcard,
-    address: address,
-    age: age,
+    ...newUser,
     menus: checkedItem(allowedMenuList),
   };
 
@@ -65,27 +64,35 @@ const ManageMenu = props => {
 
   const onSave = () => {
     id ? onUpdateUserInfo(id, Menudata) : onRegisterUser(data);
-    initializeInfo();
+  };
+
+  const handleChange = e => {
+    const target = e.target.placeholder;
+    const value = e.target.value;
+
+    if (target === EMAIL_INPUT_PLACEHOLDER) {
+      setNewUser({ ...newUser, email: value });
+    } else if (target === PASSWORD_INPUT_PLACEHOLDER) {
+      setNewUser({ ...newUser, password: value });
+    } else if (target === RE_PASSWORD_INPUT_PLACEHOLDER) {
+      setNewUser({ ...newUser, rePassword: value });
+    } else if (target === USERNAME_INPUT_PLACEHOLDER) {
+      setNewUser({ ...newUser, name: value });
+    } else if (target === AGE_INPUT_PLACEHOLDER) {
+      setNewUser({ ...newUser, age: value });
+    } else if (target === CREDITCARD_INPUT_PLACEHOLDER) {
+      setNewUser({ ...newUser, creditcard: value });
+    }
+  };
+
+  const handleAddress = value => {
+    setNewUser({ ...newUser, address: value });
   };
 
   return (
     <>
       <div className="wrapper">
-        {id ? (
-          <UserDetails data={props.userData} />
-        ) : (
-          <SignUp
-            className="signup-wrapper"
-            handleEmail={setEmail}
-            handlePassword={setPassword}
-            handleName={setName}
-            handleAge={setAge}
-            handleCreditcard={setCreditcard}
-            handleAddress={setAddress}
-            creditcard={creditcard}
-            address={address}
-          />
-        )}
+        {id ? <UserDetails data={props.userData} /> : <SignUp user={newUser} handleChange={handleChange} handleAddress={handleAddress} />}
         <div className="select-box">
           <div className="not-allowed-zone">
             <p>허용하지 않는 메뉴</p>

@@ -26,15 +26,23 @@ const Register = props => {
     age: 0,
     creditcard: "",
     address: "",
-    is_admin: false,
-    menus: [],
   });
 
   const postUserInfo = () => {
     const url = `${globalEnv.API_ENDPOINT}/auth/local/register`;
+    const userInfo = {
+      email: newUser.email,
+      username: newUser.name,
+      password: newUser.password,
+      card_info: newUser.creditcard,
+      address: newUser.address,
+      age: newUser.age,
+      is_admin: false,
+      menus: [],
+    };
     fetch(url, {
       method: "POST",
-      body: JSON.stringify(newUser),
+      body: JSON.stringify(userInfo),
       headers: {
         "Content-Type": "application/json",
       },

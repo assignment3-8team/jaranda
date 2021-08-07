@@ -1,6 +1,6 @@
 import React from "react";
 import InputInfo from "utils/commons/InputInfo";
-import { EMAIL_INPUT_ID, EMAIL_INPUT_NAME, EMAIL_INPUT_PLACEHOLDER, EMAIL_INPUT_TYPE } from "constants/INPUT";
+import { EMAIL_INPUT_ID, EMAIL_INPUT_PLACEHOLDER, EMAIL_INPUT_TYPE } from "constants/INPUT";
 
 function Email(props) {
   const { value, handleChange } = props;

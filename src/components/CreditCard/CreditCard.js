@@ -6,7 +6,7 @@ import { CREDITCARD_MODAL_HEIGHT, CREDITCARD_MODAL_WIDTH } from "constants/POPUP
 import { useModal } from "hooks/useModal";
 
 function CreditCard(props) {
-  const { handleChange, creditcard } = props;
+  const { value, handleChange, creditcard } = props;
   const [show, close, modalView] = useModal(CREDITCARD_MODAL_WIDTH, CREDITCARD_MODAL_HEIGHT);
 
   return (
@@ -20,7 +20,7 @@ function CreditCard(props) {
           <InputInfo
             type={CREDITCARD_INPUT_TYPE}
             id={CREDITCARD_INPUT_ID}
-            name={CREDITCARD_INPUT_NAME}
+            value={value}
             placeholder={CREDITCARD_INPUT_PLACEHOLDER}
             handleChange={handleChange}
           />

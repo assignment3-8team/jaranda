@@ -16,7 +16,7 @@ import PageHeader from "pages/PageHeader";
 
 const Register = props => {
   const { history } = props;
-  //const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const [newUser, setNewUser] = useState({
     email: "",
@@ -27,33 +27,7 @@ const Register = props => {
     creditcard: "",
     address: "",
   });
-  /*
-  const validateInput = () => {
-    if (!VALID_EMAIL.test(email)) {
-      setErrorMessage("유효한 메일 주소를 입력하세요");
-      return 0;
-    } else if (!VALID_PASSWORD.test(password)) {
-      setErrorMessage("비밀번호는 영문 대소문자, 특수문자, 숫자를 포함하여 8자리 이상 입력해주세요");
-      return 0;
-    } else if (password !== "" && rePassword !== password) {
-      setErrorMessage("비밀번호가 일치하지 않습니다");
-      return 0;
-    } else if (name === "") {
-      setErrorMessage("이름을 입력하세요");
-      return 0;
-    } else if (age <= 0 || age > 100) {
-      setErrorMessage("나이를 입력하세요");
-      return 0;
-    } else if (!VALID_CREDITCARD.test(creditcard)) {
-      setErrorMessage("유효한 카드번호를 입력하세요");
-      return 0;
-    } else if (address === "") {
-      setErrorMessage("주소를 입력하세요");
-      return 0;
-    }
-    return 1;
-  };
-*/
+
   const postUserInfo = () => {
     const url = `${globalEnv.API_ENDPOINT}/auth/local/register`;
     fetch(url, {
@@ -73,15 +47,6 @@ const Register = props => {
   };
 
   const handleSubmit = () => {
-    /*
-    const validateResult = validateInput();
-    if (validateResult) {
-      postUserInfo();
-    }
-    */
-    console.log(newUser);
-    console.log(JSON.stringify(newUser));
-
     postUserInfo();
   };
 
@@ -106,6 +71,9 @@ const Register = props => {
 
   const handleAddress = value => {
     setNewUser({ ...newUser, address: value });
+    if (newUser.address === "") {
+      setErrorMessage("주소를 입력하세요");
+    }
   };
 
   return (
@@ -113,7 +81,7 @@ const Register = props => {
       <PageHeader title="회원가입" englishTitle="Sign Up" />
       <div className="register-page">
         <SignUp className="signup-wrapper" user={newUser} handleChange={handleChange} handleAddress={handleAddress} />
-        <div className="register-error-message">if error</div>
+        <div className="register-error-message">{errorMessage.length !== 0 ? errorMessage : null}</div>
         <div className="register-submit">
           <button type="button" className="register-button" onClick={handleSubmit}>
             가입하기

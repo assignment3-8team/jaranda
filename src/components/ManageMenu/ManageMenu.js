@@ -12,6 +12,7 @@ const ManageMenu = props => {
   const { onUpdateUserInfo, onRegisterUser } = UserContainer.useContainer();
   const [allowedMenuList, setAllowedMenuList] = useState(ADMIN_MENU_LIST);
   const [newUser, setNewUser] = useState(initialUserState);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const filteredId = props => {
     return props.map(item => item.id);
@@ -82,7 +83,13 @@ const ManageMenu = props => {
   return (
     <>
       <div className="wrapper">
-        {id ? <UserDetails data={props.userData} /> : <SignUp user={newUser} handleChange={handleChange} handleAddress={handleAddress} />}
+        {id ? (
+          <UserDetails data={props.userData} />
+        ) : (
+          <SignUp user={newUser} handleChange={handleChange} handleAddress={handleAddress}>
+            {errorMessage ? errorMessage : null}
+          </SignUp>
+        )}
         <div className="select-box">
           <div className="not-allowed-zone">
             <p>허용하지 않는 메뉴</p>

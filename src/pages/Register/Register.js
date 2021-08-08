@@ -3,28 +3,13 @@ import SignUp from "components/SignUp";
 import { VALID_CREDITCARD, VALID_EMAIL, VALID_PASSWORD, initialUserState } from "constants/INPUT";
 import { globalEnv } from "config/env";
 import PageHeader from "pages/PageHeader";
+import { validate } from "utils/commons/validate";
 
 const Register = props => {
   const { history } = props;
 
-  const [errorMessage, setErrorMessage] = useState("");
+  const [errors, setErrors] = useState({});
   const [newUser, setNewUser] = useState(initialUserState);
-
-  const validateInput = () => {
-    if (newUser.email && !VALID_EMAIL.test(newUser.email)) {
-      setErrorMessage("유효한 메일 주소를 입력하세요");
-    } else if (newUser.password && !VALID_PASSWORD.test(newUser.password)) {
-      setErrorMessage("비밀번호는 영문 대소문자, 특수문자, 숫자를 포함하여 8자리 이상 입력해주세요");
-    } else if (newUser.password !== "" && newUser.re_password && newUser.re_password !== newUser.password) {
-      setErrorMessage("비밀번호가 일치하지 않습니다");
-    } else if (newUser.age < 0 || newUser.age > 100) {
-      setErrorMessage("0~100 사이로 나이를 입력하세요");
-    } else if (newUser.card_info && !VALID_CREDITCARD.test(newUser.card_info)) {
-      setErrorMessage("유효한 카드번호를 입력하세요");
-    } else {
-      setErrorMessage("");
-    }
-  };
 
   const postUserInfo = () => {
     const url = `${globalEnv.API_ENDPOINT}/auth/local/register`;
@@ -40,7 +25,6 @@ const Register = props => {
       .then(response => {
         console.log(response);
         alert("가입이 완료되었습니다 🙆‍♀️");
-        setErrorMessage("");
         setNewUser(initialUserState);
         history.push({ pathname: "/" });
       })
@@ -48,13 +32,14 @@ const Register = props => {
   };
 
   const handleSubmit = () => {
+    setErrors(validate(newUser));
+    console.log(errors);
     postUserInfo();
   };
 
   const handleChange = e => {
     const { name, value } = e.target;
     setNewUser({ ...newUser, [name]: value });
-    validateInput();
   };
 
   const handleAddress = value => {
@@ -66,7 +51,7 @@ const Register = props => {
       <PageHeader title="회원가입" englishTitle="Sign Up" />
       <div className="register-page">
         <SignUp className="signup-wrapper" user={newUser} handleChange={handleChange} handleAddress={handleAddress} />
-        <div className="register-error-message">{errorMessage.length !== 0 ? errorMessage : null}</div>
+        <div className="register-error-message">{Object.keys(errors).length !== 0 ? errors.email : null}</div>
         <div className="register-submit">
           <button type="button" className="register-button" onClick={handleSubmit}>
             가입하기

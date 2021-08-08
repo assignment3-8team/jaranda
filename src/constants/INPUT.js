@@ -33,7 +33,7 @@ export const initialUserState = {
   password: "",
   re_password: "",
   username: "",
-  age: 0,
+  age: "",
   card_info: "",
   address: "",
 };

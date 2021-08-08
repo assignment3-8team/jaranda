@@ -15,7 +15,7 @@ const Register = props => {
       setErrorMessage("유효한 메일 주소를 입력하세요");
     } else if (!VALID_PASSWORD.test(newUser.password)) {
       setErrorMessage("비밀번호는 영문 대소문자, 특수문자, 숫자를 포함하여 8자리 이상 입력해주세요");
-    } else if (newUser.password !== "" && newUser.rePassword !== newUser.password) {
+    } else if (newUser.password !== "" && newUser.re_password !== newUser.password) {
       setErrorMessage("비밀번호가 일치하지 않습니다");
     } else if (newUser.username === "") {
       setErrorMessage("이름을 입력하세요");

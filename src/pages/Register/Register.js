@@ -13,17 +13,25 @@ const Register = props => {
   const validateInput = () => {
     if (newUser.email && !VALID_EMAIL.test(newUser.email)) {
       setErrorMessage("유효한 메일 주소를 입력하세요");
+      return 0;
     } else if (newUser.password && !VALID_PASSWORD.test(newUser.password)) {
       setErrorMessage("비밀번호는 영문 대소문자, 특수문자, 숫자를 포함하여 8자리 이상 입력해주세요");
+      return 0;
     } else if (newUser.password !== "" && newUser.re_password && newUser.re_password !== newUser.password) {
       setErrorMessage("비밀번호가 일치하지 않습니다");
+      return 0;
     } else if (newUser.age < 0 || newUser.age > 100) {
       setErrorMessage("0~100 사이로 나이를 입력하세요");
+      return 0;
     } else if (newUser.card_info && !VALID_CREDITCARD.test(newUser.card_info)) {
       setErrorMessage("유효한 카드번호를 입력하세요");
-    } else {
-      setErrorMessage("");
+      return 0;
+    } else if (newUser.address === "") {
+      setErrorMessage("주소를 입력하세요");
+      return 0;
     }
+    setErrorMessage("");
+    return 1;
   };
 
   const postUserInfo = () => {
@@ -48,12 +56,13 @@ const Register = props => {
   };
 
   const handleSubmit = () => {
-    postUserInfo();
+    if (validateInput()) postUserInfo();
   };
 
   const handleChange = e => {
     const { name, value } = e.target;
     setNewUser({ ...newUser, [name]: value });
+    validateInput();
   };
 
   const handleAddress = value => {

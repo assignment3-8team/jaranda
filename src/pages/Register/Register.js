@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 import SignUp from "components/SignUp";
 import {
-  EMAIL_INPUT_ID,
-  PASSWORD_INPUT_ID,
-  RE_PASSWORD_INPUT_ID,
+  EMAIL_INPUT_PLACEHOLDER,
+  PASSWORD_INPUT_PLACEHOLDER,
+  RE_PASSWORD_INPUT_PLACEHOLDER,
   VALID_CREDITCARD,
   VALID_EMAIL,
   VALID_PASSWORD,
-  USERNAME_INPUT_ID,
-  AGE_INPUT_ID,
-  CREDITCARD_INPUT_ID,
+  USERNAME_INPUT_PLACEHOLDER,
+  AGE_INPUT_PLACEHOLDER,
+  CREDITCARD_INPUT_PLACEHOLDER,
 } from "constants/INPUT";
 import { globalEnv } from "config/env";
 import PageHeader from "pages/PageHeader";
@@ -100,20 +100,20 @@ const Register = props => {
   };
 
   const handleChange = e => {
-    const target = e.target.id;
+    const target = e.target.placeholder;
     const value = e.target.value;
 
-    if (target === EMAIL_INPUT_ID) {
+    if (target === EMAIL_INPUT_PLACEHOLDER) {
       setNewUser({ ...newUser, email: value });
-    } else if (target === PASSWORD_INPUT_ID) {
+    } else if (target === PASSWORD_INPUT_PLACEHOLDER) {
       setNewUser({ ...newUser, password: value });
-    } else if (target === RE_PASSWORD_INPUT_ID) {
+    } else if (target === RE_PASSWORD_INPUT_PLACEHOLDER) {
       setNewUser({ ...newUser, rePassword: value });
-    } else if (target === USERNAME_INPUT_ID) {
+    } else if (target === USERNAME_INPUT_PLACEHOLDER) {
       setNewUser({ ...newUser, name: value });
-    } else if (target === AGE_INPUT_ID) {
+    } else if (target === AGE_INPUT_PLACEHOLDER) {
       setNewUser({ ...newUser, age: value });
-    } else if (target === CREDITCARD_INPUT_ID) {
+    } else if (target === CREDITCARD_INPUT_PLACEHOLDER) {
       setNewUser({ ...newUser, creditcard: value });
     }
   };

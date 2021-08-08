@@ -14,7 +14,7 @@ export const RE_PASSWORD_INPUT_NAME = "re_password";
 export const RE_PASSWORD_INPUT_PLACEHOLDER = "비밀번호 확인";
 export const RE_PASSWORD_INPUT_TYPE = "password";
 
-export const CREDITCARD_INPUT_NAME = "creditcard";
+export const CREDITCARD_INPUT_NAME = "card_info";
 export const CREDITCARD_INPUT_PLACEHOLDER = "숫자 16자리만 입력하세요";
 export const CREDITCARD_INPUT_TYPE = "text";
 

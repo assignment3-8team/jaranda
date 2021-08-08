@@ -17,34 +17,34 @@ import PageHeader from "pages/PageHeader";
 const Register = props => {
   const { history } = props;
   const [errorMessage, setErrorMessage] = useState("");
-
+  //const [rePassword, setRePassword] = useState("")
   const [newUser, setNewUser] = useState({
-    email: "",
-    password: "",
-    rePassword: "",
-    name: "",
-    age: 0,
-    creditcard: "",
+    [EMAIL_INPUT_NAME]: "",
+    [PASSWORD_INPUT_NAME]: "",
+    [RE_PASSWORD_INPUT_NAME]: "",
+    [USERNAME_INPUT_NAME]: "",
+    [AGE_INPUT_NAME]: 0,
+    [CREDITCARD_INPUT_NAME]: "",
     address: "",
   });
 
   const validateInput = () => {
-    if (!VALID_EMAIL.test(newUser.email)) {
+    if (!VALID_EMAIL.test(newUser.EMAIL_INPUT_NAME)) {
       setErrorMessage("유효한 메일 주소를 입력하세요");
       return 0;
-    } else if (!VALID_PASSWORD.test(newUser.password)) {
+    } else if (!VALID_PASSWORD.test(newUser.PASSWORD_INPUT_NAME)) {
       setErrorMessage("비밀번호는 영문 대소문자, 특수문자, 숫자를 포함하여 8자리 이상 입력해주세요");
       return 0;
-    } else if (newUser.password !== "" && newUser.rePassword !== newUser.password) {
+    } else if (newUser.PASSWORD_INPUT_NAME !== "" && newUser.RE_PASSWORD_INPUT_NAME !== newUser.PASSWORD_INPUT_NAME) {
       setErrorMessage("비밀번호가 일치하지 않습니다");
       return 0;
-    } else if (newUser.name === "") {
+    } else if (newUser.USERNAME_INPUT_NAME === "") {
       setErrorMessage("이름을 입력하세요");
       return 0;
-    } else if (newUser.age < 0 || newUser.age > 100) {
+    } else if (newUser.AGE_INPUT_NAME < 0 || newUser.AGE_INPUT_NAME > 100) {
       setErrorMessage("나이를 입력하세요");
       return 0;
-    } else if (!VALID_CREDITCARD.test(newUser.creditcard)) {
+    } else if (!VALID_CREDITCARD.test(newUser.CREDITCARD_INPUT_NAME)) {
       setErrorMessage("유효한 카드번호를 입력하세요");
       return 0;
     } else if (newUser.address === "") {
@@ -56,19 +56,19 @@ const Register = props => {
 
   const postUserInfo = () => {
     const url = `${globalEnv.API_ENDPOINT}/auth/local/register`;
+    /*
     const userInfo = {
-      email: newUser.email,
-      username: newUser.name,
-      password: newUser.password,
-      card_info: newUser.creditcard,
+      [EMAIL_INPUT_NAME]: newUser.EMAIL_INPUT_NAME,
+      [USERNAME_INPUT_NAME]: newUser.USERNAME_INPUT_NAME,
+      [PASSWORD_INPUT_NAME]: newUser.PASSWORD_INPUT_NAME,
+      [CREDITCARD_INPUT_NAME]: newUser.CREDITCARD_INPUT_NAME,
       address: newUser.address,
-      age: newUser.age,
-      is_admin: false,
-      menus: [],
+      [AGE_INPUT_NAME]: newUser.AGE_INPUT_NAME,
     };
+*/
     fetch(url, {
       method: "POST",
-      body: JSON.stringify(userInfo),
+      body: JSON.stringify(newUser),
       headers: {
         "Content-Type": "application/json",
       },
@@ -79,12 +79,12 @@ const Register = props => {
         alert("가입이 완료되었습니다 🙆‍♀️");
         setErrorMessage("");
         setNewUser({
-          email: "",
-          password: "",
-          rePassword: "",
-          name: "",
-          age: 0,
-          creditcard: "",
+          [EMAIL_INPUT_NAME]: "",
+          [PASSWORD_INPUT_NAME]: "",
+          [RE_PASSWORD_INPUT_NAME]: "",
+          [USERNAME_INPUT_NAME]: "",
+          [AGE_INPUT_NAME]: 0,
+          [CREDITCARD_INPUT_NAME]: "",
           address: "",
         });
         history.push({ pathname: "/" });
@@ -97,12 +97,12 @@ const Register = props => {
       postUserInfo();
     }
   };
-
+  /*
   const handleChange = e => {
     const { name, value } = e.target;
 
     if (name === EMAIL_INPUT_NAME) {
-      setNewUser({ ...newUser, email: value });
+      setNewUser({ ...newUser, EMAIL_INPUT_NAME: value });
     } else if (name === PASSWORD_INPUT_NAME) {
       setNewUser({ ...newUser, password: value });
     } else if (name === RE_PASSWORD_INPUT_NAME) {
@@ -114,6 +114,12 @@ const Register = props => {
     } else if (name === CREDITCARD_INPUT_NAME) {
       setNewUser({ ...newUser, creditcard: value });
     }
+  };
+*/
+  const handleChange = e => {
+    const { name, value } = e.target;
+    setNewUser({ ...newUser, [name]: value });
+    console.log(newUser);
   };
 
   const handleAddress = value => {

@@ -1,6 +1,6 @@
 import React from "react";
 import InputInfo from "utils/commons/InputInfo";
-import { AGE_INPUT_ID, AGE_INPUT_PLACEHOLDER, AGE_INPUT_TYPE } from "constants/INPUT";
+import { AGE_INPUT_NAME, AGE_INPUT_PLACEHOLDER, AGE_INPUT_TYPE } from "constants/INPUT";
 
 function Age(props) {
   const { name, value, handleChange } = props;

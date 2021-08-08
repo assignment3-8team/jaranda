@@ -2,12 +2,12 @@ import "./style.css";
 import { useEffect, useState } from "react";
 import { ADMIN_MENU_LIST, MENU_NAME } from "constants/menuItem";
 import {
-  EMAIL_INPUT_PLACEHOLDER,
-  PASSWORD_INPUT_PLACEHOLDER,
-  RE_PASSWORD_INPUT_PLACEHOLDER,
-  USERNAME_INPUT_PLACEHOLDER,
-  AGE_INPUT_PLACEHOLDER,
-  CREDITCARD_INPUT_PLACEHOLDER,
+  EMAIL_INPUT_NAME,
+  PASSWORD_INPUT_NAME,
+  RE_PASSWORD_INPUT_NAME,
+  USERNAME_INPUT_NAME,
+  AGE_INPUT_NAME,
+  CREDITCARD_INPUT_NAME,
 } from "constants/INPUT";
 import { UserContainer } from "container/User";
 import { UserDetails } from "./UserDetails";
@@ -18,12 +18,12 @@ const ManageMenu = props => {
   const { onUpdateUserInfo, onRegisterUser } = UserContainer.useContainer();
   const [allowedMenuList, setAllowedMenuList] = useState(ADMIN_MENU_LIST);
   const [newUser, setNewUser] = useState({
-    email: "",
-    password: "",
-    rePassword: "",
-    name: "",
-    age: 0,
-    creditcard: "",
+    [EMAIL_INPUT_NAME]: "",
+    [PASSWORD_INPUT_NAME]: "",
+    [RE_PASSWORD_INPUT_NAME]: "",
+    [USERNAME_INPUT_NAME]: "",
+    [AGE_INPUT_NAME]: 0,
+    [CREDITCARD_INPUT_NAME]: "",
     address: "",
   });
 
@@ -50,12 +50,12 @@ const ManageMenu = props => {
   };
 
   const data = {
-    email: newUser.email,
-    username: newUser.name,
-    password: newUser.password,
-    card_info: newUser.creditcard,
+    [EMAIL_INPUT_NAME]: newUser.EMAIL_INPUT_NAME,
+    [USERNAME_INPUT_NAME]: newUser.USERNAME_INPUT_NAME,
+    [PASSWORD_INPUT_NAME]: newUser.PASSWORD_INPUT_NAME,
+    [CREDITCARD_INPUT_NAME]: newUser.CREDITCARD_INPUT_NAME,
     address: newUser.address,
-    age: newUser.age,
+    [AGE_INPUT_NAME]: newUser.AGE_INPUT_NAME,
     menus: checkedItem(allowedMenuList),
   };
 
@@ -68,22 +68,8 @@ const ManageMenu = props => {
   };
 
   const handleChange = e => {
-    const target = e.target.placeholder;
-    const value = e.target.value;
-
-    if (target === EMAIL_INPUT_PLACEHOLDER) {
-      setNewUser({ ...newUser, email: value });
-    } else if (target === PASSWORD_INPUT_PLACEHOLDER) {
-      setNewUser({ ...newUser, password: value });
-    } else if (target === RE_PASSWORD_INPUT_PLACEHOLDER) {
-      setNewUser({ ...newUser, rePassword: value });
-    } else if (target === USERNAME_INPUT_PLACEHOLDER) {
-      setNewUser({ ...newUser, name: value });
-    } else if (target === AGE_INPUT_PLACEHOLDER) {
-      setNewUser({ ...newUser, age: value });
-    } else if (target === CREDITCARD_INPUT_PLACEHOLDER) {
-      setNewUser({ ...newUser, creditcard: value });
-    }
+    const { name, value } = e.target;
+    setNewUser({ ...newUser, [name]: value });
   };
 
   const handleAddress = value => {

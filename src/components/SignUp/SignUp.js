@@ -22,17 +22,17 @@ function SignUp(props) {
   return (
     <div className="signup-items">
       <form>
-        <Email className="signup-item" name={EMAIL_INPUT_NAME} value={user.email} handleChange={handleChange} />
-        <Password className="signup-item" name={PASSWORD_INPUT_NAME} value={user.password} handleChange={handleChange} />
-        <RePassword className="signup-item" name={RE_PASSWORD_INPUT_NAME} value={user.rePassword} handleChange={handleChange} />
-        <Name className="signup-item" name={USERNAME_INPUT_NAME} value={user.name} handleChange={handleChange} />
-        <Age className="signup-item" name={AGE_INPUT_NAME} value={user.age} handleChange={handleChange} />
+        <Email className="signup-item" name={EMAIL_INPUT_NAME} value={user.EMAIL_INPUT_NAME} handleChange={handleChange} />
+        <Password className="signup-item" name={PASSWORD_INPUT_NAME} value={user.PASSWORD_INPUT_NAME} handleChange={handleChange} />
+        <RePassword className="signup-item" name={RE_PASSWORD_INPUT_NAME} value={user.RE_PASSWORD_INPUT_NAME} handleChange={handleChange} />
+        <Name className="signup-item" name={USERNAME_INPUT_NAME} value={user.USERNAME_INPUT_NAME} handleChange={handleChange} />
+        <Age className="signup-item" name={AGE_INPUT_NAME} value={user.AGE_INPUT_NAME} handleChange={handleChange} />
         <CreditCard
           className="signup-item"
           name={CREDITCARD_INPUT_NAME}
-          value={user.creditcard}
+          value={user.CREDITCARD_INPUT_NAME}
           handleChange={handleChange}
-          creditcard={user.creditcard}
+          creditcard={user.CREDITCARD_INPUT_NAME}
         />
       </form>
       <Address className="signup-item" handleAddress={handleAddress} address={user.address} />

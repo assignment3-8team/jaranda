@@ -7,18 +7,34 @@ import RePassword from "./RePassword";
 import CreditCard from "components/CreditCard";
 import Address from "components/Address";
 import Age from "./Age";
+import {
+  EMAIL_INPUT_NAME,
+  PASSWORD_INPUT_NAME,
+  RE_PASSWORD_INPUT_NAME,
+  USERNAME_INPUT_NAME,
+  AGE_INPUT_NAME,
+  CREDITCARD_INPUT_NAME,
+} from "constants/INPUT";
 
 function SignUp(props) {
   const { user, handleChange, handleAddress } = props;
 
   return (
     <div className="signup-items">
-      <Email className="signup-item" value={user.email} handleChange={handleChange} />
-      <Password className="signup-item" value={user.password} handleChange={handleChange} />
-      <RePassword className="signup-item" value={user.rePassword} handleChange={handleChange} />
-      <Name className="signup-item" value={user.name} handleChange={handleChange} />
-      <Age className="signup-item" value={user.age} handleChange={handleChange} />
-      <CreditCard className="signup-item" value={user.creditcard} handleChange={handleChange} creditcard={user.creditcard} />
+      <form>
+        <Email className="signup-item" name={EMAIL_INPUT_NAME} value={user.email} handleChange={handleChange} />
+        <Password className="signup-item" name={PASSWORD_INPUT_NAME} value={user.password} handleChange={handleChange} />
+        <RePassword className="signup-item" name={RE_PASSWORD_INPUT_NAME} value={user.rePassword} handleChange={handleChange} />
+        <Name className="signup-item" name={USERNAME_INPUT_NAME} value={user.name} handleChange={handleChange} />
+        <Age className="signup-item" name={AGE_INPUT_NAME} value={user.age} handleChange={handleChange} />
+        <CreditCard
+          className="signup-item"
+          name={CREDITCARD_INPUT_NAME}
+          value={user.creditcard}
+          handleChange={handleChange}
+          creditcard={user.creditcard}
+        />
+      </form>
       <Address className="signup-item" handleAddress={handleAddress} address={user.address} />
     </div>
   );

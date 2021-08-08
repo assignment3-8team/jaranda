@@ -5,9 +5,6 @@ import {
   EMAIL_INPUT_PLACEHOLDER,
   PASSWORD_INPUT_PLACEHOLDER,
   RE_PASSWORD_INPUT_PLACEHOLDER,
-  VALID_CREDITCARD,
-  VALID_EMAIL,
-  VALID_PASSWORD,
   USERNAME_INPUT_PLACEHOLDER,
   AGE_INPUT_PLACEHOLDER,
   CREDITCARD_INPUT_PLACEHOLDER,
@@ -20,7 +17,6 @@ const ManageMenu = props => {
   const { menus, id } = props.userData;
   const { onUpdateUserInfo, onRegisterUser } = UserContainer.useContainer();
   const [allowedMenuList, setAllowedMenuList] = useState(ADMIN_MENU_LIST);
-
   const [newUser, setNewUser] = useState({
     email: "",
     password: "",

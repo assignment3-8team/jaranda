@@ -5,7 +5,7 @@ const InputInfo = props => {
   return (
     <div className="common-input-wrapper">
       <label htmlFor={labelfor}></label>
-      <input className="common-input" type={type} name={name} value={value} placeholder={placeholder} onChange={handleChange} noValidate required />
+      <input className="common-input" type={type} name={name} value={value} placeholder={placeholder} onChange={handleChange} noValidate />
     </div>
   );
 };

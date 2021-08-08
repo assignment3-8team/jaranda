@@ -18,12 +18,12 @@ const ManageMenu = props => {
   const { onUpdateUserInfo, onRegisterUser } = UserContainer.useContainer();
   const [allowedMenuList, setAllowedMenuList] = useState(ADMIN_MENU_LIST);
   const [newUser, setNewUser] = useState({
-    [EMAIL_INPUT_NAME]: "",
-    [PASSWORD_INPUT_NAME]: "",
-    [RE_PASSWORD_INPUT_NAME]: "",
-    [USERNAME_INPUT_NAME]: "",
-    [AGE_INPUT_NAME]: 0,
-    [CREDITCARD_INPUT_NAME]: "",
+    email: "",
+    password: "",
+    rePassword: "",
+    username: "",
+    age: 0,
+    card_info: "",
     address: "",
   });
 
@@ -50,12 +50,12 @@ const ManageMenu = props => {
   };
 
   const data = {
-    [EMAIL_INPUT_NAME]: newUser.EMAIL_INPUT_NAME,
-    [USERNAME_INPUT_NAME]: newUser.USERNAME_INPUT_NAME,
-    [PASSWORD_INPUT_NAME]: newUser.PASSWORD_INPUT_NAME,
-    [CREDITCARD_INPUT_NAME]: newUser.CREDITCARD_INPUT_NAME,
+    email: newUser.email,
+    username: newUser.username,
+    password: newUser.password,
+    card_info: newUser.card_info,
     address: newUser.address,
-    [AGE_INPUT_NAME]: newUser.AGE_INPUT_NAME,
+    age: newUser.age,
     menus: checkedItem(allowedMenuList),
   };
 

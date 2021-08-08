@@ -27,3 +27,13 @@ export const VALID_EMAIL = new RegExp(
   /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
 );
 export const VALID_CREDITCARD = new RegExp("^[0-9]{16}$");
+
+export const initialUserState = {
+  email: "",
+  password: "",
+  re_password: "",
+  username: "",
+  age: 0,
+  card_info: "",
+  address: "",
+};

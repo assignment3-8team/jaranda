@@ -1,33 +1,15 @@
 import React, { useState } from "react";
 import SignUp from "components/SignUp";
-import {
-  EMAIL_INPUT_NAME,
-  PASSWORD_INPUT_NAME,
-  RE_PASSWORD_INPUT_NAME,
-  VALID_CREDITCARD,
-  VALID_EMAIL,
-  VALID_PASSWORD,
-  USERNAME_INPUT_NAME,
-  AGE_INPUT_NAME,
-  CREDITCARD_INPUT_NAME,
-} from "constants/INPUT";
+import { VALID_CREDITCARD, VALID_EMAIL, VALID_PASSWORD, initialUserState } from "constants/INPUT";
 import { globalEnv } from "config/env";
 import PageHeader from "pages/PageHeader";
 
 const Register = props => {
   const { history } = props;
+
   const [errorMessage, setErrorMessage] = useState("");
-  //const [rePassword, setRePassword] = useState("");
-  const [newUser, setNewUser] = useState({
-    email: "",
-    password: "",
-    re_password: "",
-    username: "",
-    age: 0,
-    card_info: "",
-    address: "",
-  });
-  /*
+  const [newUser, setNewUser] = useState(initialUserState);
+
   const validateInput = () => {
     if (!VALID_EMAIL.test(newUser.email)) {
       setErrorMessage("유효한 메일 주소를 입력하세요");
@@ -51,21 +33,13 @@ const Register = props => {
       setErrorMessage("주소를 입력하세요");
       return 0;
     }
+    setErrorMessage("");
     return 1;
   };
-*/
+
   const postUserInfo = () => {
     const url = `${globalEnv.API_ENDPOINT}/auth/local/register`;
-    /*
-    const userInfo = {
-      [EMAIL_INPUT_NAME]: newUser.EMAIL_INPUT_NAME,
-      [USERNAME_INPUT_NAME]: newUser.USERNAME_INPUT_NAME,
-      [PASSWORD_INPUT_NAME]: newUser.PASSWORD_INPUT_NAME,
-      [CREDITCARD_INPUT_NAME]: newUser.CREDITCARD_INPUT_NAME,
-      address: newUser.address,
-      [AGE_INPUT_NAME]: newUser.AGE_INPUT_NAME,
-    };
-*/
+
     fetch(url, {
       method: "POST",
       body: JSON.stringify(newUser),
@@ -78,51 +52,23 @@ const Register = props => {
         console.log(response);
         alert("가입이 완료되었습니다 🙆‍♀️");
         setErrorMessage("");
-        setNewUser({
-          email: "",
-          password: "",
-          re_password: "",
-          username: "",
-          age: 0,
-          card_info: "",
-          address: "",
-        });
+        setNewUser(initialUserState);
         history.push({ pathname: "/" });
       })
       .catch(error => console.error(error));
   };
 
   const handleSubmit = () => {
-    postUserInfo();
-  };
-  /*
-  const handleChange = e => {
-    const { name, value } = e.target;
-
-    if (name === EMAIL_INPUT_NAME) {
-      setNewUser({ ...newUser, EMAIL_INPUT_NAME: value });
-    } else if (name === PASSWORD_INPUT_NAME) {
-      setNewUser({ ...newUser, password: value });
-    } else if (name === RE_PASSWORD_INPUT_NAME) {
-      setNewUser({ ...newUser, rePassword: value });
-    } else if (name === USERNAME_INPUT_NAME) {
-      setNewUser({ ...newUser, name: value });
-    } else if (name === AGE_INPUT_NAME) {
-      setNewUser({ ...newUser, age: value });
-    } else if (name === CREDITCARD_INPUT_NAME) {
-      setNewUser({ ...newUser, creditcard: value });
+    if (validateInput()) {
+      postUserInfo();
     }
   };
-*/
+
   const handleChange = e => {
     const { name, value } = e.target;
     setNewUser({ ...newUser, [name]: value });
   };
-  /*
-  const handleConfirmPassword = value => {
-    setRePassword(value);
-  };
-*/
+
   const handleAddress = value => {
     setNewUser({ ...newUser, address: value });
   };

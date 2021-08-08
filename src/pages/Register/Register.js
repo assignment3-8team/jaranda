@@ -21,7 +21,7 @@ const Register = props => {
   const [newUser, setNewUser] = useState({
     email: "",
     password: "",
-    rePassword: "",
+    re_password: "",
     username: "",
     age: 0,
     card_info: "",
@@ -81,7 +81,7 @@ const Register = props => {
         setNewUser({
           email: "",
           password: "",
-          rePassword: "",
+          re_password: "",
           username: "",
           age: 0,
           card_info: "",

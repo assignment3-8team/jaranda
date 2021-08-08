@@ -20,7 +20,7 @@ const ManageMenu = props => {
   const [newUser, setNewUser] = useState({
     email: "",
     password: "",
-    rePassword: "",
+    re_password: "",
     username: "",
     age: 0,
     card_info: "",

@@ -24,7 +24,7 @@ function SignUp(props) {
       <form>
         <Email className="signup-item" name={EMAIL_INPUT_NAME} value={user.email} handleChange={handleChange} />
         <Password className="signup-item" name={PASSWORD_INPUT_NAME} value={user.password} handleChange={handleChange} />
-        <RePassword className="signup-item" name={RE_PASSWORD_INPUT_NAME} value={user.rePassword} handleChange={handleChange} />
+        <RePassword className="signup-item" name={RE_PASSWORD_INPUT_NAME} value={user.re_password} handleChange={handleChange} />
         <Name className="signup-item" name={USERNAME_INPUT_NAME} value={user.username} handleChange={handleChange} />
         <Age className="signup-item" name={AGE_INPUT_NAME} value={user.age} handleChange={handleChange} />
         <CreditCard

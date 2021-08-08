@@ -11,7 +11,7 @@ function CreditCard(props) {
 
   return (
     <div className="creditcard-input-wrapper">
-      <div className="creditcard-input-show">{/*{creditcard.length !== 0 ? creditcard : "카드 번호"}*/}</div>
+      <div className="creditcard-input-show">{creditcard.length !== 0 ? creditcard : "카드 번호"}</div>
       <button type="button" className="creditcard-input-button" onClick={show}>
         입력
       </button>

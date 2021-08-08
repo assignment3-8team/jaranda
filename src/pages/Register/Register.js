@@ -73,7 +73,7 @@ const Register = props => {
       <PageHeader title="회원가입" englishTitle="Sign Up" />
       <div className="register-page">
         <SignUp className="signup-wrapper" user={newUser} handleChange={handleChange} handleAddress={handleAddress} />
-        <div className="register-error-message">{isValid ? errorMessage : null}</div>
+        <div className="register-error-message">{isValid ? null : errorMessage}</div>
         <div className="register-submit">
           <button type="button" className="register-button" onClick={handleSubmit}>
             가입하기

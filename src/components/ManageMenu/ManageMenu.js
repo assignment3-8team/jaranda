@@ -4,7 +4,7 @@ import { ADMIN_MENU_LIST, MENU_NAME } from "constants/menuItem";
 import { initialUserState } from "constants/INPUT";
 import { UserContainer } from "container/User";
 import { UserDetails } from "./UserDetails";
-import { validateInput } from "utils/commons/validateInput";
+import { VALID_EMAIL, VALID_CREDITCARD, VALID_PASSWORD } from "constants/INPUT";
 import SignUp from "components/SignUp";
 
 const ManageMenu = props => {
@@ -51,6 +51,22 @@ const ManageMenu = props => {
 
   const onSave = () => {
     id ? onUpdateUserInfo(id, Menudata) : onRegisterUser(data);
+  };
+
+  const validateInput = () => {
+    if (newUser.email && !VALID_EMAIL.test(newUser.email)) {
+      setErrorMessage("유효한 메일 주소를 입력하세요");
+    } else if (newUser.password && !VALID_PASSWORD.test(newUser.password)) {
+      setErrorMessage("비밀번호는 영문 대소문자, 특수문자, 숫자를 포함하여 8자리 이상 입력해주세요");
+    } else if (newUser.password !== "" && newUser.re_password && newUser.re_password !== newUser.password) {
+      setErrorMessage("비밀번호가 일치하지 않습니다");
+    } else if (newUser.age < 0 || newUser.age > 100) {
+      setErrorMessage("0~100 사이로 나이를 입력하세요");
+    } else if (newUser.card_info && !VALID_CREDITCARD.test(newUser.card_info)) {
+      setErrorMessage("유효한 카드번호를 입력하세요");
+    } else {
+      setErrorMessage("");
+    }
   };
 
   const handleChange = e => {

@@ -4,7 +4,6 @@ import { ADMIN_MENU_LIST, MENU_NAME } from "constants/menuItem";
 import { initialUserState } from "constants/INPUT";
 import { UserContainer } from "container/User";
 import { UserDetails } from "./UserDetails";
-import { VALID_EMAIL, VALID_CREDITCARD, VALID_PASSWORD } from "constants/INPUT";
 import SignUp from "components/SignUp";
 
 const ManageMenu = props => {

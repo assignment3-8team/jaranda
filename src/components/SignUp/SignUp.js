@@ -17,7 +17,7 @@ import {
 } from "constants/INPUT";
 
 function SignUp(props) {
-  const { user, handleChange, handleAddress } = props;
+  const { user, handleChange, hanldeConfirmPassword, handleAddress, repass } = props;
 
   return (
     <div className="signup-items">

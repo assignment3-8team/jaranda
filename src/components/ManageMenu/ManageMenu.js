@@ -72,7 +72,7 @@ const ManageMenu = props => {
   const handleChange = e => {
     const { name, value } = e.target;
     setNewUser({ ...newUser, [name]: value });
-    validateInput(newUser);
+    validateInput();
   };
 
   const handleAddress = value => {

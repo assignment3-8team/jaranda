@@ -4,6 +4,7 @@ import { ADMIN_MENU_LIST, MENU_NAME } from "constants/menuItem";
 import { initialUserState } from "constants/INPUT";
 import { UserContainer } from "container/User";
 import { UserDetails } from "./UserDetails";
+import { validateInput } from "utils/commons/validateInput";
 import SignUp from "components/SignUp";
 
 const ManageMenu = props => {
@@ -55,6 +56,7 @@ const ManageMenu = props => {
   const handleChange = e => {
     const { name, value } = e.target;
     setNewUser({ ...newUser, [name]: value });
+    validateInput(newUser);
   };
 
   const handleAddress = value => {

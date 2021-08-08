@@ -3,13 +3,14 @@ import SignUp from "components/SignUp";
 import { VALID_CREDITCARD, VALID_EMAIL, VALID_PASSWORD, initialUserState } from "constants/INPUT";
 import { globalEnv } from "config/env";
 import PageHeader from "pages/PageHeader";
+import { validateInput } from "utils/commons/validateInput";
 
 const Register = props => {
   const { history } = props;
 
   const [errorMessage, setErrorMessage] = useState("");
   const [newUser, setNewUser] = useState(initialUserState);
-
+  /*
   const validateInput = () => {
     if (newUser.email && !VALID_EMAIL.test(newUser.email)) {
       setErrorMessage("유효한 메일 주소를 입력하세요");
@@ -21,13 +22,11 @@ const Register = props => {
       setErrorMessage("0~100 사이로 나이를 입력하세요");
     } else if (newUser.card_info && !VALID_CREDITCARD.test(newUser.card_info)) {
       setErrorMessage("유효한 카드번호를 입력하세요");
-    } else if (newUser.address === "") {
-      setErrorMessage("주소를 입력하세요");
     } else {
       setErrorMessage("");
     }
   };
-
+*/
   const postUserInfo = () => {
     const url = `${globalEnv.API_ENDPOINT}/auth/local/register`;
 
@@ -56,7 +55,7 @@ const Register = props => {
   const handleChange = e => {
     const { name, value } = e.target;
     setNewUser({ ...newUser, [name]: value });
-    validateInput();
+    validateInput(newUser);
   };
 
   const handleAddress = value => {

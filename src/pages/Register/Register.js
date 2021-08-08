@@ -17,7 +17,7 @@ import PageHeader from "pages/PageHeader";
 const Register = props => {
   const { history } = props;
   const [errorMessage, setErrorMessage] = useState("");
-  const [rePassword, setRePassword] = useState("");
+  //const [rePassword, setRePassword] = useState("");
   const [newUser, setNewUser] = useState({
     email: "",
     password: "",
@@ -117,13 +117,12 @@ const Register = props => {
   const handleChange = e => {
     const { name, value } = e.target;
     setNewUser({ ...newUser, [name]: value });
-    console.log(newUser);
   };
-
+  /*
   const handleConfirmPassword = value => {
     setRePassword(value);
   };
-
+*/
   const handleAddress = value => {
     setNewUser({ ...newUser, address: value });
   };
@@ -132,14 +131,7 @@ const Register = props => {
     <>
       <PageHeader title="회원가입" englishTitle="Sign Up" />
       <div className="register-page">
-        <SignUp
-          className="signup-wrapper"
-          user={newUser}
-          handleChange={handleChange}
-          handleConfirmPassword={handleConfirmPassword}
-          handleAddress={handleAddress}
-          repass={rePassword}
-        />
+        <SignUp className="signup-wrapper" user={newUser} handleChange={handleChange} handleAddress={handleAddress} />
         <div className="register-error-message">{errorMessage.length !== 0 ? errorMessage : null}</div>
         <div className="register-submit">
           <button type="button" className="register-button" onClick={handleSubmit}>

@@ -56,7 +56,7 @@ const Register = props => {
 
   const postUserInfo = () => {
     const url = `${globalEnv.API_ENDPOINT}/auth/local/register`;
-    /*
+
     const userInfo = {
       [EMAIL_INPUT_NAME]: newUser.EMAIL_INPUT_NAME,
       [USERNAME_INPUT_NAME]: newUser.USERNAME_INPUT_NAME,
@@ -65,7 +65,7 @@ const Register = props => {
       address: newUser.address,
       [AGE_INPUT_NAME]: newUser.AGE_INPUT_NAME,
     };
-*/
+
     fetch(url, {
       method: "POST",
       body: JSON.stringify(newUser),
@@ -93,9 +93,7 @@ const Register = props => {
   };
 
   const handleSubmit = () => {
-    if (validateInput()) {
-      postUserInfo();
-    }
+    postUserInfo();
   };
   /*
   const handleChange = e => {

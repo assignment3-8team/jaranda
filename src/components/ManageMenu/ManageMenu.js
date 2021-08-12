@@ -48,8 +48,7 @@ const ManageMenu = props => {
   };
 
   const onSave = () => {
-    console.log(userData);
-    console.log(menuData);
+    handleSubmit();
     id ? onUpdateUserInfo(id, menuData) : onRegisterUser(userData);
   };
 

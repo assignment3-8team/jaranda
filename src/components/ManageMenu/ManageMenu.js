@@ -50,7 +50,7 @@ const ManageMenu = props => {
   const onSave = () => {
     console.log(userData);
     console.log(menuData);
-    id ? onUpdateUserInfo(id, Menudata) : onRegisterUser(userData);
+    id ? onUpdateUserInfo(id, menuData) : onRegisterUser(userData);
   };
 
   return (

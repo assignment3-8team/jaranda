@@ -47,6 +47,8 @@ const ManageMenu = props => {
     const Menudata = {
       menus: checkedItem(allowedMenuList),
     };
+    console.log("userdata: ", userData);
+    console.log("menu: ", Menudata);
     id ? onUpdateUserInfo(id, Menudata) : onRegisterUser(userData);
   };
 
@@ -91,7 +93,7 @@ const ManageMenu = props => {
               })}
             </div>
           </div>
-          <button className="save-button" type="submit">
+          <button className="save-button" type="submit" onClick={handleSubmit}>
             저장
           </button>
         </form>

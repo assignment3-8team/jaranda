@@ -48,7 +48,6 @@ const ManageMenu = props => {
   };
 
   const onSave = () => {
-    handleSubmit();
     id ? onUpdateUserInfo(id, menuData) : onRegisterUser(userData);
   };
 
@@ -56,7 +55,14 @@ const ManageMenu = props => {
     <>
       <div className="wrapper">
         <form onSubmit={handleSubmit} noValidate>
-          {id ? <UserDetails data={props.userData} /> : <SignUp onChange={onChange} handleAddress={handleAddress} data={data} errors={errors} />}
+          {id ? (
+            <UserDetails data={props.userData} />
+          ) : (
+            <>
+              <SignUp onChange={onChange} handleAddress={handleAddress} data={data} errors={errors} />
+              <button type="submit">정보 저장</button>
+            </>
+          )}
         </form>
         <div className="select-box">
           <div className="not-allowed-zone">

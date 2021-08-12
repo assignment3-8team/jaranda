@@ -9,7 +9,7 @@ import Address from "components/Address";
 import Age from "./Age";
 
 function SignUp(props) {
-  const { data, handleSubmit, onChange, errors, handleAddress } = props;
+  const { data, handleSubmit, onChange, errors, handleAddress, isAdminMenu } = props;
 
   return (
     <>

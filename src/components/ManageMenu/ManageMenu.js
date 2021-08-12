@@ -14,7 +14,6 @@ const ManageMenu = props => {
   const { data, onChange, handleAddress, handleSubmit, errors } = useForm({
     initialValues,
     validations,
-    onSubmit,
   });
 
   const filteredId = props => {
@@ -48,59 +47,54 @@ const ManageMenu = props => {
     menus: checkedItem(allowedMenuList),
   };
 
-  const onSubmit = () => {
-    id ? onUpdateUserInfo(id, Menudata) : onRegisterUser(userData);
-  };
-  /*
   const onSave = () => {
+    handleSubmit();
     id ? onUpdateUserInfo(id, Menudata) : onRegisterUser(userData);
   };
-*/
+
   return (
     <>
       <div className="wrapper">
-        <form onSubmit={handleSubmit}>
-          {id ? (
-            <UserDetails data={props.userData} />
-          ) : (
-            <SignUp onChange={onChange} handleAddress={handleAddress} data={data} errors={errors} isAdminMenu={true} />
-          )}
-          <div className="select-box">
-            <div className="not-allowed-zone">
-              <p>허용하지 않는 메뉴</p>
-              {allowedMenuList.map(item => {
-                return (
-                  !item.checked && (
-                    <label key={item.menu_name}>
-                      <span>{MENU_NAME[item.menu_name]}</span>
-                      <input type="checkbox" id={item.id} onChange={e => onCheckMenu(e)} name={item.menu_name} value={item.menu_name} />
-                    </label>
-                  )
-                );
-              })}
-            </div>
-            <div className="arrow-wrap">
-              <div>▶️</div>
-              <div>◀️</div>
-            </div>
-            <div className="allowed-zone">
-              <p>허용하는 메뉴</p>
-              {allowedMenuList.map((item, index) => {
-                return (
-                  item.checked && (
-                    <label key={item.id + index}>
-                      <span>{MENU_NAME[item.menu_name]}</span>
-                      <input type="checkbox" id={item.id} onChange={e => onCheckMenu(e)} name={item.menu_name} value={item.menu_name} />
-                    </label>
-                  )
-                );
-              })}
-            </div>
+        {id ? (
+          <UserDetails data={props.userData} />
+        ) : (
+          <SignUp onChange={onChange} handleAddress={handleAddress} data={data} errors={errors} isAdminMenu={true} />
+        )}
+        <div className="select-box">
+          <div className="not-allowed-zone">
+            <p>허용하지 않는 메뉴</p>
+            {allowedMenuList.map(item => {
+              return (
+                !item.checked && (
+                  <label key={item.menu_name}>
+                    <span>{MENU_NAME[item.menu_name]}</span>
+                    <input type="checkbox" id={item.id} onChange={e => onCheckMenu(e)} name={item.menu_name} value={item.menu_name} />
+                  </label>
+                )
+              );
+            })}
           </div>
-          <button className="save-button" type="submit">
-            저장
-          </button>
-        </form>
+          <div className="arrow-wrap">
+            <div>▶️</div>
+            <div>◀️</div>
+          </div>
+          <div className="allowed-zone">
+            <p>허용하는 메뉴</p>
+            {allowedMenuList.map((item, index) => {
+              return (
+                item.checked && (
+                  <label key={item.id + index}>
+                    <span>{MENU_NAME[item.menu_name]}</span>
+                    <input type="checkbox" id={item.id} onChange={e => onCheckMenu(e)} name={item.menu_name} value={item.menu_name} />
+                  </label>
+                )
+              );
+            })}
+          </div>
+        </div>
+        <button className="save-button" onClick={onSave}>
+          저장
+        </button>
       </div>
     </>
   );

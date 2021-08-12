@@ -9,7 +9,6 @@ const Register = props => {
   const { history } = props;
 
   const onSubmit = () => {
-    console.log(data);
     const url = `${globalEnv.API_ENDPOINT}/auth/local/register`;
 
     fetch(url, {
@@ -42,7 +41,12 @@ const Register = props => {
     <>
       <PageHeader title="회원가입" englishTitle="Sign Up" />
       <div className="register-page">
-        <SignUp onChange={onChange} handleSubmit={handleSubmit} handleAddress={handleAddress} data={data} errors={errors} isAdminMenu={false} />
+        <form onSubmit={handleSubmit} noValidate>
+          <SignUp onChange={onChange} handleSubmit={handleSubmit} handleAddress={handleAddress} data={data} errors={errors} />
+          <button className="register-button" type="submit">
+            회원가입
+          </button>
+        </form>
       </div>
     </>
   );

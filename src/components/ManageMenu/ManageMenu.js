@@ -11,10 +11,15 @@ const ManageMenu = props => {
   const { menus, id } = props.userData;
   const { onUpdateUserInfo, onRegisterUser } = UserContainer.useContainer();
   const [allowedMenuList, setAllowedMenuList] = useState(ADMIN_MENU_LIST);
-  const { data, onChange, handleAddress, handleSubmit, errors } = useForm({
+  const { data, onChange, handleAddress, handleSumbit, handleModify, errors } = useForm({
     initialValues,
     validations,
     onSubmit,
+    checkedItem,
+    allowedMenuList,
+    id,
+    onUpdateUserInfo,
+    onRegisterUser,
   });
 
   const filteredId = props => {
@@ -39,28 +44,17 @@ const ManageMenu = props => {
     setAllowedMenuList(modifiedList);
   };
 
+  const checked = checkedItem(allowedMenuList);
+
   const onSubmit = () => {
-    const userData = {
-      ...data,
-      menus: checkedItem(allowedMenuList),
-    };
-    const Menudata = {
-      menus: checkedItem(allowedMenuList),
-    };
-    console.log("userdata: ", userData);
-    console.log("menu: ", Menudata);
-    id ? onUpdateUserInfo(id, Menudata) : onRegisterUser(userData);
+    console.log("menu: ", checked);
   };
 
   return (
     <>
       <div className="wrapper">
-        <form onSubmit={handleSubmit} noValidate>
-          {id ? (
-            <UserDetails data={props.userData} />
-          ) : (
-            <SignUp onChange={onChange} handleAddress={handleAddress} data={data} errors={errors} isAdminMenu={true} />
-          )}
+        <form onSubmit={handleModify} noValidate>
+          {id ? <UserDetails data={props.userData} /> : <SignUp onChange={onChange} handleAddress={handleAddress} data={data} errors={errors} />}
           <div className="select-box">
             <div className="not-allowed-zone">
               <p>허용하지 않는 메뉴</p>
@@ -93,7 +87,7 @@ const ManageMenu = props => {
               })}
             </div>
           </div>
-          <button className="save-button" type="submit" onClick={handleSubmit}>
+          <button className="save-button" type="submit">
             저장
           </button>
         </form>

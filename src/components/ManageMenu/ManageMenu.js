@@ -54,16 +54,14 @@ const ManageMenu = props => {
   return (
     <>
       <div className="wrapper">
-        <form onSubmit={handleSubmit} noValidate>
-          {id ? (
-            <UserDetails data={props.userData} />
-          ) : (
-            <>
-              <SignUp onChange={onChange} handleAddress={handleAddress} data={data} errors={errors} />
-              <button type="submit">정보 저장</button>
-            </>
-          )}
-        </form>
+        {id ? (
+          <UserDetails data={props.userData} />
+        ) : (
+          <form onSubmit={handleSubmit} noValidate>
+            <SignUp onChange={onChange} handleAddress={handleAddress} data={data} errors={errors} />
+            <button type="submit">정보 저장</button>
+          </form>
+        )}
         <div className="select-box">
           <div className="not-allowed-zone">
             <p>허용하지 않는 메뉴</p>

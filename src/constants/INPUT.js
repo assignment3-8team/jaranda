@@ -18,6 +18,10 @@ export const CREDITCARD_INPUT_NAME = "card_info";
 export const CREDITCARD_INPUT_PLACEHOLDER = "숫자 16자리만 입력하세요";
 export const CREDITCARD_INPUT_TYPE = "text";
 
+export const ADDRESS_INPUT_NAME = "address";
+export const ADDRESS_INPUT_PLACEHOLDER = "주소";
+export const ADDRESS_INPUT_TYPE = "text";
+
 export const AGE_INPUT_NAME = "age";
 export const AGE_INPUT_PLACEHOLDER = "나이";
 export const AGE_INPUT_TYPE = "number";

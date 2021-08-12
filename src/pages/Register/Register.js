@@ -3,42 +3,76 @@ import SignUp from "components/SignUp";
 import { VALID_CREDITCARD, VALID_EMAIL, VALID_PASSWORD, initialUserState } from "constants/INPUT";
 import { globalEnv } from "config/env";
 import PageHeader from "pages/PageHeader";
+import { useForm } from "hooks/useForm";
+
+const initialValues = {
+  email: "",
+  password: "",
+  re_password: "",
+  username: "",
+  age: "",
+  card_info: "",
+  address: "",
+};
+
+const validations = {
+  email: {
+    pattern: {
+      value: VALID_EMAIL,
+      message: "올바른 이메일을 입력해주세요",
+    },
+    required: {
+      value: true,
+      message: "이메일을 입력해주세요",
+    },
+  },
+  password: {
+    pattern: {
+      value: VALID_PASSWORD,
+      message: "문자, 숫자, 특수문자를 조합하여 8자 이상 입력해주세요",
+    },
+    required: {
+      value: true,
+      message: "패스워드를 입력해주세요",
+    },
+  },
+  username: {
+    required: {
+      value: true,
+      message: "이름을 입력해주세요",
+    },
+  },
+  age: {
+    required: {
+      value: true,
+      message: "나이를 입력해주세요",
+    },
+  },
+  card_info: {
+    pattern: {
+      value: VALID_CREDITCARD,
+      message: "숫자 16자리를 입력해주세요",
+    },
+    required: {
+      value: true,
+      message: "카드 번호를 입력해주세요",
+    },
+  },
+};
 
 const Register = props => {
   const { history } = props;
 
-  const [errorMessage, setErrorMessage] = useState("");
-  const [newUser, setNewUser] = useState(initialUserState);
+  //const [errorMessage, setErrorMessage] = useState("");
+  //const [newUser, setNewUser] = useState(initialUserState);
 
-  const validateInput = () => {
-    if (newUser.email && !VALID_EMAIL.test(newUser.email)) {
-      setErrorMessage("유효한 메일 주소를 입력하세요");
-      return 0;
-    }
-    if (newUser.password && !VALID_PASSWORD.test(newUser.password)) {
-      setErrorMessage("비밀번호는 영문 대소문자, 특수문자, 숫자를 포함하여 8자리 이상 입력해주세요");
-      return 0;
-    }
-    if (newUser.password !== "" && newUser.re_password && newUser.re_password !== newUser.password) {
-      setErrorMessage("비밀번호가 일치하지 않습니다");
-      return 0;
-    }
-    if (newUser.age < 0 || newUser.age > 100) {
-      setErrorMessage("0~100 사이로 나이를 입력하세요");
-      return 0;
-    }
-    if (newUser.card_info && !VALID_CREDITCARD.test(newUser.card_info)) {
-      setErrorMessage("유효한 카드번호를 입력하세요");
-      return 0;
-    }
-    if (newUser.address === "") {
-      setErrorMessage("주소를 입력하세요");
-      return 0;
-    }
-    setErrorMessage("");
-    return 1;
+  const [address, setAddress] = useState("");
+
+  const onSubmit = event => {
+    const userInfo = { ...data, address: address };
+    console.log(userInfo);
   };
-
+  /*
   const postUserInfo = () => {
     const url = `${globalEnv.API_ENDPOINT}/auth/local/register`;
 
@@ -68,22 +102,31 @@ const Register = props => {
     const { name, value } = e.target;
     setNewUser({ ...newUser, [name]: value });
   };
+*/
 
   const handleAddress = value => {
-    setNewUser({ ...newUser, address: value });
+    setAddress(value);
   };
+
+  const { data, onChange, handleSubmit, errors } = useForm({
+    initialValues,
+    validations,
+    onSubmit,
+  });
 
   return (
     <>
       <PageHeader title="회원가입" englishTitle="Sign Up" />
       <div className="register-page">
-        <SignUp className="signup-wrapper" user={newUser} handleChange={handleChange} handleAddress={handleAddress} />
+        <SignUp onChange={onChange} handleSubmit={handleSubmit} handleAddress={handleAddress} data={data} errors={errors} address={address} />
+        {/*<SignUp className="signup-wrapper" user={newUser} handleChange={handleChange} handleAddress={handleAddress} />
+        </form>
         <div className="register-error-message">{errorMessage.length !== 0 && errorMessage}</div>
         <div className="register-submit">
           <button type="button" className="register-button" onClick={handleSubmit}>
             가입하기
           </button>
-        </div>
+        </div>*/}
       </div>
     </>
   );

@@ -1,4 +1,6 @@
 import { ADDRESS_POPUP_HEIGHT, ADDRESS_POPUP_WIDTH } from "constants/POPUP_SIZE";
+import { ADDRESS_INPUT_TYPE } from "constants/INPUT";
+import InputInfo from "utils/commons/InputInfo";
 
 function Address(props) {
   const { handleAddress, address } = props;
@@ -27,9 +29,8 @@ function Address(props) {
 
   return (
     <div className="address-input-wrapper">
-      <div className="address-show">{address.length !== 0 ? address : "주소"}</div>
-      <button type="button" className="address-input-button" onClick={handleClick}>
-        주소 검색
+      <button type="button" className="address-show" onClick={handleClick}>
+        {address || "주소 입력"}
       </button>
     </div>
   );

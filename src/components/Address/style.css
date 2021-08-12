@@ -2,28 +2,34 @@
   width: 25vw;
   max-width: 450px;
   min-width: 320px;
-  flex: none;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 8px;
+  flex-direction: column;
 }
 
 .address-show {
   font-size: 1rem;
-  overflow: hidden;
-  flex: 1;
-  height: 44px;
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
   border-radius: 2px;
   border: 1px solid #ccc;
-  color: #ccc;
+  color: #4a4a4a;
   letter-spacing: normal;
   text-align: start;
-  display: flex;
-  align-items: center;
-  padding-left: 8px;
+  margin: 4px 0;
 }
+
+.address-show:hover,
+.address-show:focus {
+  background-color: #e9f2ff;
+  border: 1px solid #0085fd;
+  color: #0085fd;
+}
+
+.address-show::placeholder {
+  color: #ccc;
+}
+
 
 .address-input-button {
   width: 80px;

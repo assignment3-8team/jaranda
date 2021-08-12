@@ -88,40 +88,11 @@ export const useForm = options => {
     target.current = null;
   };
 
-  const handleModify = async e => {
-    e.preventDefault();
-    const checkedMenu = options?.checkedItem(options?.allowedMenuList);
-    setData({ ...data, menus: checkedMenu });
-    const validations = options?.validations;
-    let valid = true;
-    const error = {};
-    if (validations) {
-      for (const key in validations) {
-        const [isValid, newError] = checkValid(key, validations[key]);
-        error[key] = newError;
-        valid = valid && isValid;
-      }
-    }
-    if (!valid) {
-      setErrors(error);
-      return;
-    }
-
-    if (options?.id) {
-      const menuData = { menus: checkedMenu };
-      options.onUpdateUserInfo(options.id, menuData);
-    } else {
-      options.onRegisterUser(data);
-    }
-    target.current = null;
-  };
-
   return {
     data,
     onChange,
     handleAddress,
     handleSubmit,
-    handleModify,
     errors,
   };
 };

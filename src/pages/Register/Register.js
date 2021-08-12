@@ -42,7 +42,7 @@ const Register = props => {
     <>
       <PageHeader title="회원가입" englishTitle="Sign Up" />
       <div className="register-page">
-        <SignUp onChange={onChange} handleSubmit={handleSubmit} handleAddress={handleAddress} data={data} errors={errors} />
+        <SignUp onChange={onChange} handleSubmit={handleSubmit} handleAddress={handleAddress} data={data} errors={errors} isAdminMenu={false} />
       </div>
     </>
   );

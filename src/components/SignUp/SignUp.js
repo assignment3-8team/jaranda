@@ -21,9 +21,11 @@ function SignUp(props) {
         <Age onChange={onChange} value={data.age} errors={errors} className="signup-item" />
         <CreditCard value={data.card_info} onChange={onChange} errors={errors} className="signup-item" />
         <Address handleAddress={handleAddress} address={data.address} errors={errors} className="signup-item" />
-        <button className="register-button" type="submit">
-          회원가입
-        </button>
+        {!isAdminMenu && (
+          <button className="register-button" type="submit">
+            회원가입
+          </button>
+        )}
       </form>
     </>
   );

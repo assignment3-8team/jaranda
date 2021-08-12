@@ -59,7 +59,11 @@ const ManageMenu = props => {
   return (
     <>
       <div className="wrapper">
-        {id ? <UserDetails data={props.userData} /> : <SignUp onChange={onChange} handleAddress={handleAddress} data={data} errors={errors} />}
+        {id ? (
+          <UserDetails data={props.userData} />
+        ) : (
+          <SignUp onChange={onChange} handleAddress={handleAddress} data={data} errors={errors} isAdminMenu={true} />
+        )}
         <div className="select-box">
           <div className="not-allowed-zone">
             <p>허용하지 않는 메뉴</p>

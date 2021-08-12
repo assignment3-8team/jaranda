@@ -1,16 +1,21 @@
 import "./style.css";
 import { useEffect, useState } from "react";
 import { ADMIN_MENU_LIST, MENU_NAME } from "constants/menuItem";
-import { initialUserState } from "constants/INPUT";
+import { initialValues, validations } from "constants/INPUT";
 import { UserContainer } from "container/User";
 import { UserDetails } from "./UserDetails";
+import { useForm } from "hooks/useForm";
 import SignUp from "components/SignUp";
 
 const ManageMenu = props => {
   const { menus, id } = props.userData;
   const { onUpdateUserInfo, onRegisterUser } = UserContainer.useContainer();
   const [allowedMenuList, setAllowedMenuList] = useState(ADMIN_MENU_LIST);
-  const [newUser, setNewUser] = useState(initialUserState);
+  const { data, onChange, handleAddress, handleSubmit, errors } = useForm({
+    initialValues,
+    validations,
+    onSubmit,
+  });
 
   const filteredId = props => {
     return props.map(item => item.id);
@@ -34,13 +39,8 @@ const ManageMenu = props => {
     setAllowedMenuList(modifiedList);
   };
 
-  const data = {
-    email: newUser.email,
-    username: newUser.username,
-    password: newUser.password,
-    card_info: newUser.card_info,
-    address: newUser.address,
-    age: newUser.age,
+  const userData = {
+    ...data,
     menus: checkedItem(allowedMenuList),
   };
 
@@ -48,23 +48,18 @@ const ManageMenu = props => {
     menus: checkedItem(allowedMenuList),
   };
 
+  const onSubmit = () => {
+    id ? onUpdateUserInfo(id, Menudata) : onRegisterUser(userData);
+  };
+  /*
   const onSave = () => {
-    id ? onUpdateUserInfo(id, Menudata) : onRegisterUser(data);
+    id ? onUpdateUserInfo(id, Menudata) : onRegisterUser(userData);
   };
-
-  const handleChange = e => {
-    const { name, value } = e.target;
-    setNewUser({ ...newUser, [name]: value });
-  };
-
-  const handleAddress = value => {
-    setNewUser({ ...newUser, address: value });
-  };
-
+*/
   return (
     <>
       <div className="wrapper">
-        {id ? <UserDetails data={props.userData} /> : <SignUp user={newUser} handleChange={handleChange} handleAddress={handleAddress} />}
+        {id ? <UserDetails data={props.userData} /> : <SignUp onChange={onChange} handleAddress={handleAddress} data={data} errors={errors} />}
         <div className="select-box">
           <div className="not-allowed-zone">
             <p>허용하지 않는 메뉴</p>
@@ -97,7 +92,7 @@ const ManageMenu = props => {
             })}
           </div>
         </div>
-        <button className="save-button" onClick={onSave}>
+        <button className="save-button" onClick={handleSubmit}>
           저장
         </button>
       </div>

@@ -1,9 +1,10 @@
 import { ADDRESS_POPUP_HEIGHT, ADDRESS_POPUP_WIDTH } from "constants/POPUP_SIZE";
-import { ADDRESS_INPUT_TYPE } from "constants/INPUT";
+import { ADDRESS_INPUT_NAME } from "constants/INPUT";
 import InputInfo from "utils/commons/InputInfo";
+import InputErrorMessage from "components/SignUp/InputErrorMessge";
 
 function Address(props) {
-  const { handleAddress, address } = props;
+  const { handleAddress, address, errors } = props;
 
   const handleClick = () => {
     window.daum.postcode.load(() => {
@@ -32,6 +33,7 @@ function Address(props) {
       <button type="button" className="address-show" onClick={handleClick}>
         {address || "주소 입력"}
       </button>
+      <InputErrorMessage errors={errors} name={ADDRESS_INPUT_NAME} />
     </div>
   );
 }

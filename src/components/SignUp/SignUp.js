@@ -9,7 +9,7 @@ import Address from "components/Address";
 import Age from "./Age";
 
 function SignUp(props) {
-  const { data, handleSubmit, onChange, errors, handleAddress, address } = props;
+  const { data, handleSubmit, onChange, errors, handleAddress } = props;
 
   return (
     <>
@@ -20,7 +20,7 @@ function SignUp(props) {
         <Name onChange={onChange} value={data.name} errors={errors} className="signup-item" />
         <Age onChange={onChange} value={data.age} errors={errors} className="signup-item" />
         <CreditCard value={data.card_info} onChange={onChange} errors={errors} className="signup-item" />
-        <Address handleAddress={handleAddress} address={address} className="signup-item" />
+        <Address handleAddress={handleAddress} address={data.address} errors={errors} className="signup-item" />
         <button className="register-button" type="submit">
           회원가입
         </button>

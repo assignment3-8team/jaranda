@@ -3,13 +3,9 @@ import { LOGIN_FORM } from "../../constants/loginForm";
 import login from "utils/apis/login";
 import { UserContainer } from "container/User";
 import { withRouter } from "react-router";
+import { initialValues, validations } from "constants/INPUT";
 import "./style.css";
-
-const intialLoginValue = {
-  email: "",
-  password: "",
-};
-
+/*
 const loginValidation = {
   email: {
     pattern: {
@@ -28,7 +24,7 @@ const loginValidation = {
     },
   },
 };
-
+*/
 const Login = props => {
   const { setUserInfo } = UserContainer.useContainer();
 
@@ -53,8 +49,8 @@ const Login = props => {
   };
 
   const { data, onChange, handleSubmit, errors } = useForm({
-    intialLoginValue,
-    loginValidation,
+    initialValues,
+    validations,
     onSubmit,
   });
 

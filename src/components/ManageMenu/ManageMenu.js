@@ -1,30 +1,19 @@
 import "./style.css";
 import { useEffect, useState } from "react";
 import { ADMIN_MENU_LIST, MENU_NAME } from "constants/menuItem";
-import {
-  EMAIL_INPUT_NAME,
-  PASSWORD_INPUT_NAME,
-  RE_PASSWORD_INPUT_NAME,
-  USERNAME_INPUT_NAME,
-  AGE_INPUT_NAME,
-  CREDITCARD_INPUT_NAME,
-} from "constants/INPUT";
+import { initialValues, validations } from "constants/INPUT";
 import { UserContainer } from "container/User";
 import { UserDetails } from "./UserDetails";
+import { useForm } from "hooks/useForm";
 import SignUp from "components/SignUp";
 
 const ManageMenu = props => {
   const { menus, id } = props.userData;
   const { onUpdateUserInfo, onRegisterUser } = UserContainer.useContainer();
   const [allowedMenuList, setAllowedMenuList] = useState(ADMIN_MENU_LIST);
-  const [newUser, setNewUser] = useState({
-    [EMAIL_INPUT_NAME]: "",
-    [PASSWORD_INPUT_NAME]: "",
-    [RE_PASSWORD_INPUT_NAME]: "",
-    [USERNAME_INPUT_NAME]: "",
-    [AGE_INPUT_NAME]: 0,
-    [CREDITCARD_INPUT_NAME]: "",
-    address: "",
+  const { data, onChange, handleAddress, handleSubmit, errors } = useForm({
+    initialValues,
+    validations,
   });
 
   const filteredId = props => {
@@ -49,37 +38,32 @@ const ManageMenu = props => {
     setAllowedMenuList(modifiedList);
   };
 
-  const data = {
-    [EMAIL_INPUT_NAME]: newUser.EMAIL_INPUT_NAME,
-    [USERNAME_INPUT_NAME]: newUser.USERNAME_INPUT_NAME,
-    [PASSWORD_INPUT_NAME]: newUser.PASSWORD_INPUT_NAME,
-    [CREDITCARD_INPUT_NAME]: newUser.CREDITCARD_INPUT_NAME,
-    address: newUser.address,
-    [AGE_INPUT_NAME]: newUser.AGE_INPUT_NAME,
+  const userData = {
+    ...data,
     menus: checkedItem(allowedMenuList),
   };
 
-  const Menudata = {
+  const menuData = {
     menus: checkedItem(allowedMenuList),
   };
 
   const onSave = () => {
-    id ? onUpdateUserInfo(id, Menudata) : onRegisterUser(data);
-  };
-
-  const handleChange = e => {
-    const { name, value } = e.target;
-    setNewUser({ ...newUser, [name]: value });
-  };
-
-  const handleAddress = value => {
-    setNewUser({ ...newUser, address: value });
+    const array = Object.values(data);
+    const isValid = array.every(value => value !== "");
+    if (!id && !isValid) alert("가입 정보를 입력해주세요");
+    id ? onUpdateUserInfo(id, menuData) : onRegisterUser(userData);
   };
 
   return (
     <>
       <div className="wrapper">
-        {id ? <UserDetails data={props.userData} /> : <SignUp user={newUser} handleChange={handleChange} handleAddress={handleAddress} />}
+        {id ? (
+          <UserDetails data={props.userData} />
+        ) : (
+          <form onSubmit={handleSubmit} noValidate>
+            <SignUp onChange={onChange} handleAddress={handleAddress} data={data} errors={errors} />
+          </form>
+        )}
         <div className="select-box">
           <div className="not-allowed-zone">
             <p>허용하지 않는 메뉴</p>

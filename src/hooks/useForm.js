@@ -60,6 +60,11 @@ export const useForm = options => {
     [data],
   );
 
+  const handleAddress = value => {
+    setData({ ...data, address: value });
+    target.current = "address";
+  };
+
   const handleSubmit = async e => {
     e.preventDefault();
     const validations = options?.validations;
@@ -86,6 +91,7 @@ export const useForm = options => {
   return {
     data,
     onChange,
+    handleAddress,
     handleSubmit,
     errors,
   };

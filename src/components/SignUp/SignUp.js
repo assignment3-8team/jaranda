@@ -7,36 +7,20 @@ import RePassword from "./RePassword";
 import CreditCard from "components/CreditCard";
 import Address from "components/Address";
 import Age from "./Age";
-import {
-  EMAIL_INPUT_NAME,
-  PASSWORD_INPUT_NAME,
-  RE_PASSWORD_INPUT_NAME,
-  USERNAME_INPUT_NAME,
-  AGE_INPUT_NAME,
-  CREDITCARD_INPUT_NAME,
-} from "constants/INPUT";
 
 function SignUp(props) {
-  const { user, handleChange, hanldeConfirmPassword, handleAddress, repass } = props;
+  const { data, onChange, errors, handleAddress } = props;
 
   return (
-    <div className="signup-items">
-      <form>
-        <Email className="signup-item" name={EMAIL_INPUT_NAME} value={user.EMAIL_INPUT_NAME} handleChange={handleChange} />
-        <Password className="signup-item" name={PASSWORD_INPUT_NAME} value={user.PASSWORD_INPUT_NAME} handleChange={handleChange} />
-        <RePassword className="signup-item" name={RE_PASSWORD_INPUT_NAME} value={repass} handleChange={hanldeConfirmPassword} />
-        <Name className="signup-item" name={USERNAME_INPUT_NAME} value={user.USERNAME_INPUT_NAME} handleChange={handleChange} />
-        <Age className="signup-item" name={AGE_INPUT_NAME} value={user.AGE_INPUT_NAME} handleChange={handleChange} />
-        <CreditCard
-          className="signup-item"
-          name={CREDITCARD_INPUT_NAME}
-          value={user.CREDITCARD_INPUT_NAME}
-          handleChange={handleChange}
-          creditcard={user.CREDITCARD_INPUT_NAME}
-        />
-      </form>
-      <Address className="signup-item" handleAddress={handleAddress} address={user.address} />
-    </div>
+    <>
+      <Email onChange={onChange} value={data.email} errors={errors} className="signup-item" />
+      <Password onChange={onChange} value={data.password} errors={errors} className="signup-item" />
+      <RePassword onChange={onChange} value={data.re_password} errors={errors} className="signup-item" />
+      <Name onChange={onChange} value={data.name} errors={errors} className="signup-item" />
+      <Age onChange={onChange} value={data.age} errors={errors} className="signup-item" />
+      <CreditCard value={data.card_info} onChange={onChange} errors={errors} className="signup-item" />
+      <Address handleAddress={handleAddress} address={data.address} errors={errors} className="signup-item" />
+    </>
   );
 }
 

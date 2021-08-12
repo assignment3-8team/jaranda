@@ -50,7 +50,7 @@ const ManageMenu = props => {
   const onSave = () => {
     const array = Object.values(data);
     const isValid = array.every(value => value !== "");
-    if (!isValid) alert("가입 정보를 입력해주세요");
+    if (!id && !isValid) alert("가입 정보를 입력해주세요");
     id ? onUpdateUserInfo(id, menuData) : onRegisterUser(userData);
   };
 

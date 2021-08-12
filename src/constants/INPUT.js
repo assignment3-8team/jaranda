@@ -56,7 +56,7 @@ export const validations = {
   password: {
     pattern: {
       value: VALID_PASSWORD,
-      message: "문자, 숫자, 특수문자를 조합하여 8자 이상 입력해주세요",
+      message: "영문 대소문자, 숫자, 특수문자를 조합하여 8자 이상 입력해주세요",
     },
     required: {
       value: true,

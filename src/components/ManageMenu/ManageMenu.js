@@ -49,7 +49,6 @@ const ManageMenu = props => {
 
   const onSave = () => {
     const array = Object.values(data);
-    console.log(array);
     const isValid = array.every(value => value !== "");
     if (!isValid) alert("가입 정보를 입력해주세요");
     id ? onUpdateUserInfo(id, menuData) : onRegisterUser(userData);
@@ -63,7 +62,6 @@ const ManageMenu = props => {
         ) : (
           <form onSubmit={handleSubmit} noValidate>
             <SignUp onChange={onChange} handleAddress={handleAddress} data={data} errors={errors} />
-            <button type="submit">정보 저장</button>
           </form>
         )}
         <div className="select-box">

@@ -12,3 +12,9 @@
   display: flex;
   flex-direction: row;
 }
+
+.signup-error-message {
+  font-size: 0.8rem;
+  color: #0085fd;
+  padding-left: 4px;
+}

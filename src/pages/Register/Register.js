@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import SignUp from "components/SignUp";
 import { VALID_CREDITCARD, VALID_EMAIL, VALID_PASSWORD, initialUserState } from "constants/INPUT";
 import { globalEnv } from "config/env";
@@ -33,7 +33,17 @@ const validations = {
     },
     required: {
       value: true,
-      message: "패스워드를 입력해주세요",
+      message: "비밀번호를 입력해주세요",
+    },
+  },
+  re_password: {
+    pattern: {
+      value: VALID_PASSWORD,
+      message: "비밀번호가 동일하지 않습니다",
+    },
+    required: {
+      value: true,
+      message: "비밀번호를 확인해주세요",
     },
   },
   username: {
@@ -62,15 +72,27 @@ const validations = {
 
 const Register = props => {
   const { history } = props;
-
-  //const [errorMessage, setErrorMessage] = useState("");
-  //const [newUser, setNewUser] = useState(initialUserState);
-
   const [address, setAddress] = useState("");
 
   const onSubmit = event => {
     const userInfo = { ...data, address: address };
     console.log(userInfo);
+    const url = `${globalEnv.API_ENDPOINT}/auth/local/register`;
+
+    fetch(url, {
+      method: "POST",
+      body: JSON.stringify(userInfo),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then(res => res.json())
+      .then(response => {
+        console.log(response);
+        alert("가입이 완료되었습니다 🙆‍♀️");
+        history.push({ pathname: "/" });
+      })
+      .catch(error => console.error(error));
   };
   /*
   const postUserInfo = () => {
@@ -114,19 +136,15 @@ const Register = props => {
     onSubmit,
   });
 
+  useEffect(() => {
+    validations.re_password.pattern.value = data.password;
+  }, [data]);
+
   return (
     <>
       <PageHeader title="회원가입" englishTitle="Sign Up" />
       <div className="register-page">
         <SignUp onChange={onChange} handleSubmit={handleSubmit} handleAddress={handleAddress} data={data} errors={errors} address={address} />
-        {/*<SignUp className="signup-wrapper" user={newUser} handleChange={handleChange} handleAddress={handleAddress} />
-        </form>
-        <div className="register-error-message">{errorMessage.length !== 0 && errorMessage}</div>
-        <div className="register-submit">
-          <button type="button" className="register-button" onClick={handleSubmit}>
-            가입하기
-          </button>
-        </div>*/}
       </div>
     </>
   );

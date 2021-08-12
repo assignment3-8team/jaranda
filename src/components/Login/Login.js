@@ -5,12 +5,12 @@ import { UserContainer } from "container/User";
 import { withRouter } from "react-router";
 import "./style.css";
 
-const initialValues = {
+const intialLoginValue = {
   email: "",
   password: "",
 };
 
-const validations = {
+const loginValidation = {
   email: {
     pattern: {
       value: LOGIN_FORM.REG_EMAIL,
@@ -40,21 +40,21 @@ const Login = props => {
     const res = await login(payload);
     if (res) {
       const user = {
-        jwt : res.jwt,
-        ...res.user
-      }
-      localStorage.setItem("user", JSON.stringify(user))
-      setUserInfo(user)
-      props.close()
-      props.history.push("/")
+        jwt: res.jwt,
+        ...res.user,
+      };
+      localStorage.setItem("user", JSON.stringify(user));
+      setUserInfo(user);
+      props.close();
+      props.history.push("/");
     } else {
       alert("이메일과 비밀번호를 다시 확인해주세요!");
     }
   };
 
   const { data, onChange, handleSubmit, errors } = useForm({
-    initialValues,
-    validations,
+    intialLoginValue,
+    loginValidation,
     onSubmit,
   });
 
@@ -72,4 +72,4 @@ const Login = props => {
   );
 };
 
-export default withRouter(Login) ;
+export default withRouter(Login);
